@@ -1,122 +1,115 @@
 return {
-  "neovim/nvim-lspconfig",
-  dependencies = {
-    { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
-    { "folke/neodev.nvim",  opts = {} },
-    "mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+  {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v3.x',
+    lazy = true,
+    config = false,
+    init = function()
+      -- Disable automatic setup, we are doing it manually
+      vim.g.lsp_zero_extend_cmp = 0
+      vim.g.lsp_zero_extend_lspconfig = 0
+    end,
   },
-  ---@class PluginLspOpts
-  opts = {
-    -- options for vim.diagnostic.config()
-    diagnostics = {
-      underline = true,
-      update_in_insert = false,
-      virtual_text = {
-        spacing = 4,
-        source = "if_many",
-        prefix = "●",
-        -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-        -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
-        -- prefix = "icons",
-      },
-      severity_sort = true,
+  {
+    'williamboman/mason.nvim',
+    lazy = false,
+    config = true,
+  },
+
+  -- Autocompletion
+  {
+    'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
+    dependencies = {
+      { 'L3MON4D3/LuaSnip' },
     },
-    -- Enable this to enable the builtin LSP inlay hints on Neovim >= 0.10.0
-    -- Be aware that you also will need to properly configure your LSP server to
-    -- provide the inlay hints.
-    inlay_hints = {
-      enabled = false,
+    config = function()
+      -- Here is where you configure the autocompletion settings.
+      local lsp_zero = require('lsp-zero')
+      lsp_zero.extend_cmp()
+
+      -- And you can configure cmp even more, if you want to.
+      local cmp = require('cmp')
+      local cmp_action = lsp_zero.cmp_action()
+
+      cmp.setup({
+        formatting = lsp_zero.cmp_format(),
+        mapping = cmp.mapping.preset.insert({
+          ['<CR>'] = cmp.mapping.confirm({ select = true }),
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-d>'] = cmp.mapping.scroll_docs(4),
+          ['<Tab>'] = cmp_action.tab_complete(),
+          ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
+          -- ['<C-j>'] = cmp_action.luasnip_jump_forward(),
+          -- ['<C-k>'] = cmp_action.luasnip_jump_backward(),
+        })
+      })
+    end
+  },
+
+  -- LSP
+  {
+    'neovim/nvim-lspconfig',
+    cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
+    event = { 'BufReadPre', 'BufNewFile' },
+    dependencies = {
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'williamboman/mason-lspconfig.nvim' },
     },
-    -- add any global capabilities here
-    capabilities = {},
-    -- options for vim.lsp.buf.format
-    -- `bufnr` and `filter` is handled by the LazyVim formatter,
-    -- but can be also overridden when specified
-    format = {
-      formatting_options = nil,
-      timeout_ms = nil,
-    },
-    -- LSP Server Settings
-    ---@type lspconfig.options
-    servers = {
-      lua_ls = {
-        -- mason = false, -- set to false if you don't want this server to be installed with mason
-        -- Use this to add any additional keymaps
-        -- for specific lsp servers
-        ---@type LazyKeysSpec[]
-        -- keys = {},
-        settings = {
-          Lua = {
-            workspace = {
-              checkThirdParty = false,
-            },
-            completion = {
-              callSnippet = "Replace",
-            },
-          },
+    config = function()
+      -- This is where all the LSP shenanigans will live
+      local lsp_zero = require('lsp-zero')
+      lsp_zero.extend_lspconfig()
+
+      --- if you want to know more about lsp-zero and mason.nvim
+      --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
+      lsp_zero.on_attach(function(client, bufnr)
+        -- see :help lsp-zero-keybindings
+        -- to learn the available actions
+        lsp_zero.default_keymaps({ buffer = bufnr })
+        local opts = { buffer = bufnr, remap = false }
+        local map = require("utils").map
+
+        map("n", "gd", function() vim.lsp.buf.definition() end, { buffer = bufnr, remap = false })
+        map("n", "K", function() vim.lsp.buf.hover() end, { buffer = bufnr, remap = false })
+        map("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, { buffer = bufnr, remap = false })
+        map("n", "<leader>vd", function() vim.diagnostic.open_float() end, { buffer = bufnr, remap = false })
+        map("n", "[d", function() vim.diagnostic.goto_next() end, { buffer = bufnr, remap = false })
+        map("n", "]d", function() vim.diagnostic.goto_prev() end, { buffer = bufnr, remap = false })
+        map("n", "<leader>vca", function() vim.lsp.buf.code_action() end, { buffer = bufnr, remap = false })
+        map("n", "<leader>vrr", function() vim.lsp.buf.references() end, { buffer = bufnr, remap = false })
+        map("n", "<leader>vrn", function() vim.lsp.buf.rename() end, { buffer = bufnr, remap = false })
+        map("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { buffer = bufnr, remap = false })
+      end)
+
+      require('mason-lspconfig').setup({
+        ensure_installed = {
+          'tsserver',
+          'pyright',
+          'pylsp',
         },
-      },
-    },
-    -- you can do any additional lsp server setup here
-    -- return true if you don't want this server to be setup with lspconfig
-    ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
-    setup = {
-      -- example to setup with typescript.nvim
-      -- tsserver = function(_, opts)
-      --   require("typescript").setup({ server = opts })
-      --   return true
-      -- end,
-      -- Specify * to use this function as a fallback for any server
-      -- ["*"] = function(server, opts) end,
-    },
-  },
-  config = function()
-    local map = require("utils").map
+        handlers = {
+          lsp_zero.default_setup,
+          lua_ls = function()
+            -- (Optional) Configure lua language server for neovim
+            local lua_opts = lsp_zero.nvim_lua_ls()
+            require('lspconfig').lua_ls.setup(lua_opts)
+          end,
+          tsserver = function()
+            --- in this function you can setup
+            --- the language server however you want.
+            --- in this example we just use lspconfig
 
-    -- Setup language servers.
-    local lspconfig = require('lspconfig')
-    lspconfig.lua_ls.setup {}
-    lspconfig.pyright.setup {}
-    lspconfig.tsserver.setup {}
-    lspconfig.rust_analyzer.setup {
-      -- Server-specific settings. See `:help lspconfig-setup`
-      settings = {
-        ['rust-analyzer'] = {},
-      },
-    }
-
-    -- Global mappings.
-    -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-    map('n', '<space>e', vim.diagnostic.open_float)
-    map('n', '[d', vim.diagnostic.goto_prev)
-    map('n', ']d', vim.diagnostic.goto_next)
-    map('n', '<space>q', vim.diagnostic.setloclist)
-
-    -- Use LspAttach autocommand to only map the following keys
-    -- after the language server attaches to the current buffer
-    vim.api.nvim_create_autocmd('LspAttach', {
-      group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-      callback = function(ev)
-        -- Enable completion triggered by <c-x><c-o>
-        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
-        -- Buffer local mappings.
-        -- See `:help vim.lsp.*` for documentation on any of the below functions
-        local opts = { buffer = ev.buf }
-        map('n', 'gD', vim.lsp.buf.declaration, { desc = "Go to declaration", buffer = ev.bug })
-        map('n', 'gd', vim.lsp.buf.definition, { desc = "Go to definition", buffer = ev.bug })
-        map('n', 'K', vim.lsp.buf.hover, opts)
-        map('n', 'gi', vim.lsp.buf.implementation, opts)
-        map('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-        map('n', '<space>D', vim.lsp.buf.type_definition, opts)
-        map('n', '<space>rn', vim.lsp.buf.rename, opts)
-        map({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-        map('n', 'gr', vim.lsp.buf.references, opts)
-        map('n', '<space>f', function()
-          vim.lsp.buf.format { async = true }
-        end, opts)
-      end,
-    })
-  end
+            require('lspconfig').tsserver.setup({
+              ---
+              -- in here you can add your own
+              -- custom configuration
+              ---
+            })
+          end,
+        }
+      })
+    end
+  }
 }
