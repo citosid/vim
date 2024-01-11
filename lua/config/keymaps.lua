@@ -10,13 +10,13 @@ map("n", "<leader>s", "<cmd>w<cr>", { desc = "Save file" })
 
 -- Comments
 map("n", "<leader>/", function()
-  require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)
+	require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)
 end, { desc = "Toggle comment" })
 map(
-  "v",
-  "<leader>/",
-  "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
-  { desc = "Toggle comment for selection" }
+	"v",
+	"<leader>/",
+	"<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+	{ desc = "Toggle comment for selection" }
 )
 
 -- Buffers
@@ -34,6 +34,9 @@ map("n", "<C-h>", require("smart-splits").move_cursor_left)
 map("n", "<C-j>", require("smart-splits").move_cursor_down)
 map("n", "<C-k>", require("smart-splits").move_cursor_up)
 map("n", "<C-l>", require("smart-splits").move_cursor_right)
+
+map("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Splits the window vertically" })
+map("n", "<leader>-", "<cmd>split<cr>", { desc = "Splits the window horizontally" })
 
 -- Terminal
 map("n", "<leader>t", "<cmd>exe v:count1 . 'ToggleTerm'<cr>", { desc = "Open or toggle terminal" })
