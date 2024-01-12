@@ -5,17 +5,15 @@ return {
 
 		opts = function()
 			local dashboard = require("alpha.themes.dashboard")
-			local logo = [[
-                                             
-      ████ ██████           █████      ██
-     ███████████             █████ 
-     █████████ ███████████████████ ███   ███████████
-    █████████  ███    █████████████ █████ ██████████████
-   █████████ ██████████ █████████ █████ █████ ████ █████
- ███████████ ███    ███ █████████ █████ █████ ████ █████
-██████  █████████████████████ ████ █████ █████ ████ ██████
-]]
-			dashboard.section.header.val = vim.split(logo, "\n")
+			local logo = {
+				[[                                  ]],
+				[[┓  ┏┓┏┓┳┓┳┳┓┏┳┓┓┏┳┏┓┳┓┏┓   ┓┏┓ ┏┓┓]],
+				[[┃  ┃ ┃┃┣┫┃┃┃ ┃ ┣┫┃┣┫┃┃┗┓   ┃┃┫• ┫┃]],
+				[[┻  ┗┛┗┛┛┗┻┛┗ ┻ ┛┗┻┛┗┛┗┗┛•  ┻┗┛•┗┛┻]],
+			}
+
+			dashboard.section.header.val = logo
+
 			dashboard.section.buttons.val = {
 				dashboard.button("<space>ff", "  Find file", ":Telescope find_files <CR>"),
 				dashboard.button("<space>fn", "  New file", ":ene <BAR> startinsert <CR>"),
