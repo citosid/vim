@@ -1,7 +1,7 @@
 return {
-  {
-  "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
 		config = function()
 			local configs = require("nvim-treesitter.configs")
 
@@ -11,9 +11,5 @@ return {
 				indent = { enable = true },
 			})
 		end,
-  },
-	{
-		"nvim-treesitter/nvim-treesitter-context",
-		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 	},
 }
