@@ -1,14 +1,13 @@
 return {
+  {
+
 	"nvim-telescope/telescope.nvim",
+  lazy = true,
 	dependencies = {
 		{ "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable("make") == 1, build = "make" },
 		{ "nvim-lua/plenary.nvim" },
 	},
 	cmd = "Telescope",
-	keys = {
-		{ "<leader>/", false },
-		-- { "<leader>fw", require("telescope").live_grep, desc = "Grep (root dir)" },
-	},
 	opts = function()
 		local actions = require("telescope.actions")
 		return {
@@ -34,4 +33,21 @@ return {
 			},
 		}
 	end,
+  },
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    config = function()
+      -- This is your opts table
+      require("telescope").setup {
+        extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown {
+            }
+          }
+        }
+      }
+      require("telescope").load_extension("ui-select")
+    end
+  }
 }
+

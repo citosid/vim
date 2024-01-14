@@ -9,8 +9,9 @@ return {
 			nls.builtins.diagnostics.markdownlint,
 
 			-- Formatting
-			nls.builtins.formatting.black,
-			nls.builtins.formatting.isort,
+			-- nls.builtins.formatting.autopep8,
+			-- nls.builtins.formatting.black,
+			-- nls.builtins.formatting.isort,
 			nls.builtins.formatting.markdownlint,
 			nls.builtins.formatting.prettier,
 			nls.builtins.formatting.stylua,
