@@ -9,6 +9,8 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
+				-- Each of these needs also to be added in the config for
+				-- nvim-lspconfig
 				ensure_installed = {
 					"lua_ls",
 					"pyright",
@@ -61,24 +63,6 @@ return {
 						vim.lsp.buf.format({ async = true })
 					end, opts)
 				end,
-			})
-		end,
-	},
-	{
-		"jay-babu/mason-null-ls.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			require("mason-null-ls").setup({
-				ensure_installed = {
-					-- "autopep8",
-					-- "black",
-					"eslint_d",
-					"isort",
-					"jq",
-					"markdownlint",
-					"prettier",
-					"stylua",
-				},
 			})
 		end,
 	},

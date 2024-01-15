@@ -21,6 +21,8 @@ return {
 			"MunifTanjim/nui.nvim",
 			"nvim-lua/plenary.nvim",
 		},
+		lazy = false,
+		priority = 1000,
 		cmd = "Neotree",
 		config = function()
 			-- If you want icons for diagnostic errors, you'll need to define them somewhere:
