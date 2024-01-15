@@ -32,7 +32,7 @@ return {
 				which_key = true,
 			},
 		})
-		vim.cmd([[colorscheme catppuccin]])
+		-- vim.cmd([[colorscheme catppuccin]])
 	end,
 	name = "catppuccin",
 	priority = 1000,
