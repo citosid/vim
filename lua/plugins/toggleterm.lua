@@ -4,7 +4,7 @@ return {
 	config = function()
 		function _G.set_terminal_keymaps()
 			local opts = { buffer = 0 }
-			vim.keymap.set("t", "<C-j><C-j>", [[<Cmd>wincmd h<CR>]], opts)
+			vim.keymap.set("t", "<C-j><C-j>", [[<Cmd>ToggleTerm<CR>]], opts)
 		end
 
 		-- if you only want these mappings for toggle term use term://*toggleterm#* instead
