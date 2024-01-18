@@ -13,6 +13,11 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
 require("options")
-require("lazy").setup("plugins")
+require("lazy").setup({
+	spec = "plugins",
+	change_detection = {
+		notify = false,
+	},
+})
 require("keymaps")
 require("autocmds")
