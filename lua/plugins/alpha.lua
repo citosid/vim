@@ -15,12 +15,12 @@ return {
 			dashboard.section.header.val = logo
 
 			dashboard.section.buttons.val = {
-				dashboard.button("<space>ff", "  Find file", ":Telescope find_files <CR>"),
+				dashboard.button("<space>ff", "󱡴  Find file", ":Telescope find_files <CR>"),
 				dashboard.button("<space>fn", "  New file", ":ene <BAR> startinsert <CR>"),
-				dashboard.button("<space>fr", "  Recently used files", ":Telescope oldfiles <CR>"),
-				dashboard.button("<space>fw", "  Find text", ":Telescope live_grep <CR>"),
+				dashboard.button("<space>fr", "󰁯  Recently used files", ":Telescope oldfiles <CR>"),
+				dashboard.button("<space>fw", "󰺮  Find text", ":Telescope live_grep <CR>"),
 				dashboard.button("c", "  Configuration", ":e ~/dotfiles/config/nvim/init.lua<CR>"),
-				dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
+				dashboard.button("q", "󰍃  Quit Neovim", ":qa<CR>"),
 			}
 			dashboard.section.header.opts.hl = "AlphaHeader"
 			dashboard.opts.layout[1].val = 6
