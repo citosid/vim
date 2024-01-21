@@ -4,12 +4,12 @@ This is my personal configuration for NeoVim using Lazy vim.
 
 ## Screenshots
 
-![./screenshots/01.alpha.png](Alpha Dashboard)
+![Alpha Dashboard](./screenshots/01.alpha.png)
 
-![./screenshots/02.telescope.find.files.png](Telescope)
+![Telescope](./screenshots/02.telescope.find.files.png)
 
-![./screenshots/03.completions.png](Completions)
+![Completions](./screenshots/03.completions.png)
 
-![./screenshots/04.neotree.png](NeoTree)
+![NeoTree](./screenshots/04.neotree.png)
 
-![./screenshots/05.zenmode.png](Zen Mode)
+![Zen Mode](./screenshots/05.zenmode.png)
