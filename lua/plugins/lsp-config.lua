@@ -28,6 +28,7 @@ return {
 				capabilities = capabilities,
 			}
 
+			-- Each one of these are the ones added in mason-lspconfig.nvim
 			lspconfig.lua_ls.setup(setup_options)
 			lspconfig.tsserver.setup(setup_options)
 			lspconfig.pyright.setup(setup_options)

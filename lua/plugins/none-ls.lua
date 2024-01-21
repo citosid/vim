@@ -4,7 +4,7 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("mason-null-ls").setup({
-				-- Each of one of these needs to be added in none-ls.lua
+				-- Each of one of these needs to be added in the configuration for none-ls.nvim
 				ensure_installed = {
 					-- Diagnostics
 					"eslint_d",
@@ -26,7 +26,8 @@ return {
 		opts = function(_, opts)
 			local nls = require("null-ls")
 			opts.sources = vim.list_extend(opts.sources or {}, {
-				-- These come from lsp-config.lua, the configuration for
+				-- These come from the configuration for mason-null-ls.nvim
+
 				-- Diagnostics
 				nls.builtins.diagnostics.eslint_d,
 				nls.builtins.diagnostics.markdownlint,

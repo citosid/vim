@@ -41,5 +41,13 @@ Theme is [`rose-pine`][1].
 
 Background can be found [here][2].
 
+## Autocompletions
+
+Autocompletions work out of the box with the following languages (I've not tested with others):
+
+- Python
+- TypeScript
+- Lua
+
 [1]: https://github.com/rose-pine/alacritty
 [2]: https://github.com/rose-pine/wallpapers/blob/main/something-beautiful-in-nature.jpg
