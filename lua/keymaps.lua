@@ -5,8 +5,14 @@ map("n", "<Space>", "<Nop>", { silent = true })
 
 map("i", "jj", "<ESC>", { noremap = true, silent = true, desc = "<ESC>" })
 
+-- Neotree
 map("n", "<leader>p", "<cmd>Neotree toggle<cr>", { desc = "Open neo tree" })
+
+-- Save
 map("n", "<leader>s", "<cmd>w<cr>", { desc = "Save file" })
+
+-- Hide search results
+map("n", "<leader>ns", "<cmd>noh<cr>", { desc = "Hide search results" })
 
 -- Comments
 map("n", "<leader>/", function()
@@ -39,7 +45,7 @@ map("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Splits the window vertically"
 map("n", "<leader>-", "<cmd>split<cr>", { desc = "Splits the window horizontally" })
 
 -- Terminal
-map("n", "<leader>t", "<cmd>exe v:count1 . 'ToggleTerm'<cr>", { desc = "Open or toggle terminal" })
+map("n", "<leader>t", "<cmd>exe v:count1 . 'ToggleTerm name=terminal'<cr>", { desc = "Open or toggle terminal" })
 
 -- Disable annoying Q
 map("n", "Q", "<nop>")
