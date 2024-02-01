@@ -1,12 +1,14 @@
 return {
 	{
 		"williamboman/mason.nvim",
+		lazy = true,
 		config = function()
 			require("mason").setup()
 		end,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
+		lazy = true,
 		config = function()
 			require("mason-lspconfig").setup({
 				-- Each of these needs also to be added in the config for
@@ -23,6 +25,7 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		lazy = true,
 		config = function()
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()

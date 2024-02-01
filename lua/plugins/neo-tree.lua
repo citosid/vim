@@ -21,7 +21,7 @@ return {
 			"MunifTanjim/nui.nvim",
 			"nvim-lua/plenary.nvim",
 		},
-		lazy = false,
+		lazy = true,
 		priority = 1000,
 		cmd = "Neotree",
 		config = function()

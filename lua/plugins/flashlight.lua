@@ -1,6 +1,7 @@
 return {
 	"folke/flash.nvim",
-	event = "VeryLazy",
+	event = "FileReadPre",
+	lazy = true,
 	keys = {
 		{
 			"s",

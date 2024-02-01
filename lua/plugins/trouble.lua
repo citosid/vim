@@ -1,6 +1,7 @@
 return {
 	"folke/trouble.nvim",
-	event = "BufEnter",
+	event = "FileReadPre",
+	lazy = true,
 	cmd = { "Trouble" },
 	opts = {},
 }

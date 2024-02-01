@@ -1,12 +1,13 @@
 return {
 	{
 		"tpope/vim-fugitive",
+		lazy = true,
 	},
 	{
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-		lazy = false,
-		priority = 1000,
+		lazy = true,
+		-- priority = 1000,
 		opts = {
 			current_line_blame = false,
 			signs = {
