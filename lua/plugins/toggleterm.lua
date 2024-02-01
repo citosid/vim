@@ -36,7 +36,7 @@ return {
 
 		map(
 			"n",
-			"<leader>g",
+			"<leader>gg",
 			"<cmd>lua _lazygit_toggle()<CR>",
 			{ noremap = true, silent = true, desc = "Open LazyGit" }
 		)

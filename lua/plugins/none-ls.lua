@@ -8,7 +8,9 @@ return {
 				ensure_installed = {
 					-- Diagnostics
 					"eslint_d",
+					"hadolint",
 					"markdownlint", -- This is both, formatter and diagnostics
+					"shellharden", -- This is both, formatter and diagnostics
 
 					-- Formatters
 					"black",
@@ -30,7 +32,9 @@ return {
 
 				-- Diagnostics
 				nls.builtins.diagnostics.eslint_d,
+				nls.builtins.diagnostics.hadolint,
 				nls.builtins.diagnostics.markdownlint,
+				nls.builtins.diagnostics.shellharden,
 
 				-- Formatter
 				nls.builtins.formatting.black,
@@ -38,6 +42,7 @@ return {
 				nls.builtins.formatting.jq,
 				nls.builtins.formatting.markdownlint,
 				nls.builtins.formatting.prettier,
+				nls.builtins.formatting.shellharden,
 				nls.builtins.formatting.stylua,
 			})
 

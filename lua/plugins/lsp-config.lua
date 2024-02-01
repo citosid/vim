@@ -12,6 +12,8 @@ return {
 				-- Each of these needs also to be added in the config for
 				-- nvim-lspconfig
 				ensure_installed = {
+					"bashls",
+					"dockerls",
 					"lua_ls",
 					"pyright",
 					"tsserver",
@@ -29,6 +31,8 @@ return {
 			}
 
 			-- Each one of these are the ones added in mason-lspconfig.nvim
+			lspconfig.bashls.setup(setup_options)
+			lspconfig.dockerls.setup(setup_options)
 			lspconfig.lua_ls.setup(setup_options)
 			lspconfig.tsserver.setup(setup_options)
 			lspconfig.pyright.setup(setup_options)
