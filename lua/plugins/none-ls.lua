@@ -25,6 +25,10 @@ return {
 	},
 	{
 		"nvimtools/none-ls.nvim",
+		dependencies = {
+			"jay-babu/mason-null-ls.nvim",
+		},
+		event = { "BufReadPre", "BufNewFile" },
 		lazy = true,
 		opts = function(_, opts)
 			local nls = require("null-ls")
@@ -35,7 +39,7 @@ return {
 				nls.builtins.diagnostics.eslint_d,
 				nls.builtins.diagnostics.hadolint,
 				nls.builtins.diagnostics.markdownlint,
-				nls.builtins.diagnostics.shellharden,
+				-- nls.builtins.diagnostics.shellharden,
 
 				-- Formatter
 				nls.builtins.formatting.black,

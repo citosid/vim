@@ -5,6 +5,7 @@ return {
 		config = function()
 			require("mason").setup()
 		end,
+		event = "BufReadPre",
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
@@ -22,6 +23,7 @@ return {
 				},
 			})
 		end,
+		event = "BufReadPre",
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -73,5 +75,6 @@ return {
 				end,
 			})
 		end,
+		event = "BufReadPre",
 	},
 }

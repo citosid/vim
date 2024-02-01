@@ -1,7 +1,7 @@
 return {
 	"mawkler/modicator.nvim",
 	lazy = true,
-	event = "FileReadPre",
+	event = "BufReadPre",
 	init = function() end,
 	opts = {},
 }
