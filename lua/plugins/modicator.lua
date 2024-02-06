@@ -3,5 +3,11 @@ return {
 	lazy = true,
 	event = "BufReadPre",
 	init = function() end,
-	opts = {},
+	opts = {
+		integration = {
+			lualine = {
+				mode_section = "x",
+			},
+		},
+	},
 }
