@@ -61,6 +61,15 @@ return {
 			end,
 		}
 
+		local function show_macro_recording()
+			local recording_register = vim.fn.reg_recording()
+			if recording_register == "" then
+				return ""
+			else
+				return "󰻂 [" .. recording_register .. "]"
+			end
+		end
+
 		-- Config
 		local config = {
 			options = {
@@ -180,6 +189,12 @@ return {
 			icon_only = true,
 		})
 
+		ins_left({
+			"macro-recording",
+			fmt = show_macro_recording,
+			color = { fg = colors.red, gui = "bold" },
+		})
+
 		ins_left({ "location" })
 
 		ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
@@ -254,5 +269,29 @@ return {
 
 		-- Now don't forget to initialize lualine
 		lualine.setup(config)
+
+		-- Show the recording macro right away
+		vim.api.nvim_create_autocmd("RecordingEnter", {
+			callback = function()
+				lualine.refresh({
+					place = { "statusline" },
+				})
+			end,
+		})
+
+		vim.api.nvim_create_autocmd("RecordingLeave", {
+			callback = function()
+				local timer = vim.loop.new_timer()
+				timer:start(
+					50,
+					0,
+					vim.schedule_wrap(function()
+						lualine.refresh({
+							place = { "statusline" },
+						})
+					end)
+				)
+			end,
+		})
 	end,
 }
