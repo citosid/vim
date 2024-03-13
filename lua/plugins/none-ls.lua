@@ -7,17 +7,19 @@ return {
 				-- Each of one of these needs to be added in the configuration for none-ls.nvim
 				ensure_installed = {
 					-- Diagnostics
-					"eslint_d",
 					"hadolint",
 					"markdownlint", -- This is both, formatter and diagnostics
-					"shellharden", -- This is both, formatter and diagnostics
 
 					-- Formatters
 					"black",
 					"isort",
-					"jq",
 					"prettier",
 					"stylua",
+
+					-- Deprecated LSPs in none-ls plugin
+					"beautysh",
+					"eslint_d",
+					"jq",
 				},
 			})
 		end,
@@ -27,6 +29,9 @@ return {
 		"nvimtools/none-ls.nvim",
 		dependencies = {
 			"jay-babu/mason-null-ls.nvim",
+			-- Adding this as a dependency because some of the default lsps were removed
+			-- See https://github.com/nvimtools/none-ls.nvim/discussions/81 for more information
+			"nvimtools/none-ls-extras.nvim",
 		},
 		event = { "BufReadPre", "BufNewFile" },
 		lazy = true,
@@ -36,19 +41,24 @@ return {
 				-- These come from the configuration for mason-null-ls.nvim
 
 				-- Diagnostics
-				nls.builtins.diagnostics.eslint_d,
 				nls.builtins.diagnostics.hadolint,
 				nls.builtins.diagnostics.markdownlint,
-				-- nls.builtins.diagnostics.shellharden,
 
 				-- Formatter
 				nls.builtins.formatting.black,
 				nls.builtins.formatting.isort,
-				nls.builtins.formatting.jq,
 				nls.builtins.formatting.markdownlint,
 				nls.builtins.formatting.prettier,
-				nls.builtins.formatting.shellharden,
 				nls.builtins.formatting.stylua,
+
+				-- Formatters based-off the new none-ls-extras plugin
+				require("none-ls.code_actions.eslint_d"),
+
+				require("none-ls.diagnostics.eslint_d"),
+
+				require("none-ls.formatting.beautysh"),
+				require("none-ls.formatting.eslint_d"),
+				require("none-ls.formatting.jq"),
 			})
 
 			opts.on_attach = function(current_client, bufnr)
