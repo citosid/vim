@@ -33,6 +33,7 @@ map("n", "<leader>h", "<cmd>bprevious<cr>", { desc = "Go to next buffer" })
 -- Telescope
 map("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "Go to next buffer" })
 map("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "Find files in current pwd" })
+map("n", "<leader>fs", require("telescope.builtin").lsp_document_symbols, { desc = "Find in symbols" })
 map("n", "<leader>fw", require("telescope.builtin").live_grep, { desc = "Grep find" })
 
 -- Splits
