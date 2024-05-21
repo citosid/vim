@@ -23,15 +23,6 @@ return {
 			end,
 			diagnostics = "nvim_lsp",
 			always_show_bufferline = false,
-			diagnostics_indicator = function(_, _, diag)
-				local icons = {
-					error_icon = vim.fn.sign_getdefined("DiagnosticSignError")[1].text,
-					warn_icon = vim.fn.sign_getdefined("DiagnosticSignWarn")[1].text,
-				}
-				local ret = (diag.error and icons.error_icon .. diag.error .. " " or "")
-					.. (diag.warning and icons.warn_icon .. diag.warning or "")
-				return vim.trim(ret)
-			end,
 			hover = {
 				enabled = true,
 				delay = 200,
