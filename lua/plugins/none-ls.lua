@@ -7,11 +7,15 @@ return {
 				-- Each of one of these needs to be added in the configuration for none-ls.nvim
 				ensure_installed = {
 					-- Diagnostics
+					"gopls",
+					"golangci_lint",
+					"golangci_lint_ls",
 					"hadolint",
 					"markdownlint", -- This is both, formatter and diagnostics
 
 					-- Formatters
 					"black",
+					"goimports",
 					"isort",
 					"prettier",
 					"stylua",
@@ -37,15 +41,20 @@ return {
 		lazy = true,
 		opts = function(_, opts)
 			local nls = require("null-ls")
+			opts.debug = true
 			opts.sources = vim.list_extend(opts.sources or {}, {
 				-- These come from the configuration for mason-null-ls.nvim
 
 				-- Diagnostics
+				-- nls.builtins.diagnostics["golangci-lint"],
+				-- nls.builtins.diagnostics.golangci_lint_ls,
+				-- nls.builtins.diagnostics.gopls,
 				nls.builtins.diagnostics.hadolint,
 				nls.builtins.diagnostics.markdownlint,
 
 				-- Formatter
 				nls.builtins.formatting.black,
+				nls.builtins.formatting.goimports,
 				nls.builtins.formatting.isort,
 				nls.builtins.formatting.markdownlint,
 				nls.builtins.formatting.prettier,
@@ -73,6 +82,7 @@ return {
 									return client.name == "null-ls"
 								end,
 								bufnr = bufnr,
+								-- timeout_ms = 2000,
 							})
 						end,
 					})
