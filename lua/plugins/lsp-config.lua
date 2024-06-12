@@ -39,7 +39,14 @@ return {
 			lspconfig.bashls.setup(setup_options)
 			lspconfig.dockerls.setup(setup_options)
 			lspconfig.lua_ls.setup(setup_options)
-			lspconfig.tsserver.setup(setup_options)
+			lspconfig.tsserver.setup({
+				capabilities = capabilities,
+				init_options = {
+					preferences = {
+						includeCompletionsForModuleExports = false,
+					},
+				},
+			})
 			lspconfig.pyright.setup(setup_options)
 
 			-- Global mappings.
