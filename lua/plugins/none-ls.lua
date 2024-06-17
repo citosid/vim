@@ -7,6 +7,7 @@ return {
 				-- Each of one of these needs to be added in the configuration for none-ls.nvim
 				ensure_installed = {
 					-- Diagnostics
+					"biome", -- This is both, formatter and diagnostics
 					"gopls",
 					"golangci_lint",
 					"golangci_lint_ls",
@@ -17,12 +18,10 @@ return {
 					"black",
 					"goimports",
 					"isort",
-					"prettier",
 					"stylua",
 
 					-- Deprecated LSPs in none-ls plugin
 					"beautysh",
-					"eslint_d",
 					"jq",
 				},
 			})
@@ -46,9 +45,6 @@ return {
 				-- These come from the configuration for mason-null-ls.nvim
 
 				-- Diagnostics
-				-- nls.builtins.diagnostics["golangci-lint"],
-				-- nls.builtins.diagnostics.golangci_lint_ls,
-				-- nls.builtins.diagnostics.gopls,
 				nls.builtins.diagnostics.hadolint,
 				nls.builtins.diagnostics.markdownlint,
 
@@ -57,16 +53,32 @@ return {
 				nls.builtins.formatting.goimports,
 				nls.builtins.formatting.isort,
 				nls.builtins.formatting.markdownlint,
-				nls.builtins.formatting.prettier,
 				nls.builtins.formatting.stylua,
 
+				-- Biome Typescript
+				nls.builtins.formatting.biome.with({
+					filetypes = {
+						"javascript",
+						"javascriptreact",
+						"json",
+						"jsonc",
+						"typescript",
+						"typescriptreact",
+						"css",
+					},
+					args = {
+						"check",
+						"--write",
+						"--unsafe",
+						"--formatter-enabled=true",
+						"--organize-imports-enabled=true",
+						"--skip-errors",
+						"--stdin-file-path=$FILENAME",
+					},
+				}),
+
 				-- Formatters based-off the new none-ls-extras plugin
-				require("none-ls.code_actions.eslint_d"),
-
-				require("none-ls.diagnostics.eslint_d"),
-
 				require("none-ls.formatting.beautysh"),
-				require("none-ls.formatting.eslint_d"),
 				require("none-ls.formatting.jq"),
 			})
 
@@ -78,11 +90,9 @@ return {
 						callback = function()
 							vim.lsp.buf.format({
 								filter = function(client)
-									-- only use null-ls for formatting instead of lsp server
 									return client.name == "null-ls"
 								end,
 								bufnr = bufnr,
-								-- timeout_ms = 2000,
 							})
 						end,
 					})
