@@ -44,20 +44,16 @@ return {
 						h5 = "pine",
 						h6 = "foam",
 					},
-					-- Alternatively, set all headings at once.
-					-- headings = "subtle",
-				},
-
-				highlight_groups = {
-					-- Comment = { fg = "foam" },
-					-- VertSplit = { fg = "muted", bg = "muted" },
 				},
 			})
 
-			vim.cmd("colorscheme rose-pine-moon")
-			-- vim.cmd('colorscheme rose-pine-main')
-			-- vim.cmd('colorscheme rose-pine-moon')
-			-- vim.cmd('colorscheme rose-pine-dawn')
+			-- vim.cmd("colorscheme rose-pine-moon")
+		end,
+	},
+	{
+		"samharju/synthweave.nvim",
+		config = function()
+			vim.cmd("colorscheme synthweave-transparent")
 		end,
 	},
 }
