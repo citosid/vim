@@ -47,13 +47,20 @@ return {
 				},
 			})
 
-			-- vim.cmd("colorscheme rose-pine-moon")
+			vim.cmd("colorscheme rose-pine-moon")
 		end,
 	},
 	{
 		"samharju/synthweave.nvim",
+		enabled = false,
 		config = function()
-			vim.cmd("colorscheme synthweave-transparent")
+			-- vim.cmd("colorscheme synthweave-transparent")
+		end,
+	},
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
 		end,
 	},
 }
