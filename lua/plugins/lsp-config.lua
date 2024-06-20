@@ -43,16 +43,6 @@ return {
 			lspconfig.lua_ls.setup(setup_options)
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
-				init_options = {
-					preferences = {
-						includeCompletionsForModuleExports = false,
-					},
-				},
-				on_attach = function(client)
-					-- this is important, otherwise tsserver will format ts/js
-					-- files which we *really* don't want.
-					client.server_capabilities.documentFormattingProvider = false
-				end,
 			})
 			lspconfig.pyright.setup(setup_options)
 

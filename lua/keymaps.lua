@@ -53,3 +53,6 @@ map("n", "Q", "<nop>")
 
 -- Turn the current file into an executable
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "Turn the current file into an executable", silent = true })
+
+-- Edit easily .gitlab-ci.yml files
+map("n", "<leader>.", "<cmd>e .gitlab-ci.yml<CR>", { desc = "Opens the Gitlab CI file to be edited." })
