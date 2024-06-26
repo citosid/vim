@@ -1,4 +1,5 @@
 return {
+	{ "echasnovski/mini.files", version = false },
 	{
 		"nvim-tree/nvim-web-devicons",
 		config = function()
@@ -15,12 +16,12 @@ return {
 		end,
 	},
 	{
-
 		"nvim-neo-tree/neo-tree.nvim",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			"nvim-lua/plenary.nvim",
 		},
+		enabled = false,
 		lazy = true,
 		priority = 1000,
 		cmd = "Neotree",

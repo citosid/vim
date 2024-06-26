@@ -5,8 +5,10 @@ map("n", "<Space>", "<Nop>", { silent = true })
 
 map("i", "jj", "<ESC>", { noremap = true, silent = true, desc = "<ESC>" })
 
--- Neotree
-map("n", "<leader>p", "<cmd>Neotree toggle<cr>", { desc = "Open neo tree" })
+-- File Manager
+map("n", "<leader>p", function()
+	require("mini.files").open()
+end, { desc = "Open neo tree" })
 
 -- Save
 map("n", "<leader>s", "<cmd>w<cr>", { desc = "Save file" })

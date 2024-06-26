@@ -34,14 +34,14 @@ return {
 			})
 		end,
 	},
-	{
-		"L3MON4D3/LuaSnip",
-		lazy = true,
-		dependencies = {
-			"saadparwaiz1/cmp_luasnip",
-			"rafamadriz/friendly-snippets",
-		},
-	},
+	-- {
+	-- 	"L3MON4D3/LuaSnip",
+	-- 	lazy = true,
+	-- 	dependencies = {
+	-- 		"saadparwaiz1/cmp_luasnip",
+	-- 		"rafamadriz/friendly-snippets",
+	-- 	},
+	-- },
 	{
 
 		"hrsh7th/nvim-cmp",
@@ -56,7 +56,7 @@ return {
 
 			require("luasnip.loaders.from_vscode").lazy_load()
 			local cmp = require("cmp")
-			local luasnip = require("luasnip")
+			-- local luasnip = require("luasnip")
 
 			cmp.setup({
 				snippet = {
@@ -77,8 +77,8 @@ return {
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
-						elseif luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
+						-- elseif luasnip.expand_or_jumpable() then
+						-- 	luasnip.expand_or_jump()
 						elseif has_words_before() then
 							cmp.complete()
 						else
@@ -89,8 +89,8 @@ return {
 					["<S-Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
+						-- elseif luasnip.jumpable(-1) then
+						-- 	luasnip.jump(-1)
 						else
 							fallback()
 						end
