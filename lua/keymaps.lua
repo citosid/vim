@@ -32,6 +32,14 @@ map("n", "<leader>bn", "<cmd>bnext<cr>", { desc = "Go to next buffer" })
 map("n", "<leader>l", "<cmd>bnext<cr>", { desc = "Go to next buffer" })
 map("n", "<leader>h", "<cmd>bprevious<cr>", { desc = "Go to next buffer" })
 
+-- Refactor
+map(
+	{ "n", "x" },
+	"<leader>ri",
+	"<cmd>lua vim.lsp.buf.rename()<cr>",
+	{ desc = "Rename pointer under cursor for current buffer" }
+)
+
 -- Telescope
 map("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "Go to next buffer" })
 map("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "Find files in current pwd" })
