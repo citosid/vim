@@ -20,7 +20,6 @@ return {
 					"dockerls",
 					"lua_ls",
 					"pyright",
-					"tsserver",
 				},
 			})
 		end,
@@ -41,9 +40,6 @@ return {
 			lspconfig.bashls.setup(setup_options)
 			lspconfig.dockerls.setup(setup_options)
 			lspconfig.lua_ls.setup(setup_options)
-			lspconfig.tsserver.setup({
-				capabilities = capabilities,
-			})
 			lspconfig.pyright.setup(setup_options)
 
 			-- Global mappings.
