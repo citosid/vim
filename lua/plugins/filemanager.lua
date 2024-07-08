@@ -1,5 +1,5 @@
 return {
-	{ "echasnovski/mini.files", version = false },
+	{ "echasnovski/mini.files", enabled = false, version = false },
 	{
 		"nvim-tree/nvim-web-devicons",
 		config = function()
@@ -14,6 +14,29 @@ return {
 				},
 			})
 		end,
+	},
+	{
+		"mikavilpas/yazi.nvim",
+		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>p",
+				function()
+					require("yazi").yazi()
+				end,
+				desc = "Open the file manager",
+			},
+			{
+				"<leader>P",
+				function()
+					require("yazi").yazi(nil, vim.fn.getcwd())
+				end,
+				desc = "Open the file manager in nvim's working directory",
+			},
+		},
+		opts = {
+			open_for_directories = true,
+		},
 	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
