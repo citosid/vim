@@ -1,6 +1,6 @@
 return {
 	"folke/noice.nvim",
-	enabled = false,
+	enabled = true,
 	opts = {
 		-- add any options here
 		-- config.lsp.hover.enabled = false
