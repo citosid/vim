@@ -17,9 +17,9 @@ return {
 				ensure_installed = {
 					"biome",
 					"bashls",
-					"dockerls",
+					-- "dockerls",
 					"lua_ls",
-					"pyright",
+					-- "pyright",
 				},
 			})
 		end,
@@ -38,9 +38,9 @@ return {
 			-- Each one of these are the ones added in mason-lspconfig.nvim
 			lspconfig.biome.setup(setup_options)
 			lspconfig.bashls.setup(setup_options)
-			lspconfig.dockerls.setup(setup_options)
+			-- lspconfig.dockerls.setup(setup_options)
 			lspconfig.lua_ls.setup(setup_options)
-			lspconfig.pyright.setup(setup_options)
+			-- lspconfig.pyright.setup(setup_options)
 
 			-- Global mappings.
 			-- See `:help vim.diagnostic.*` for documentation on any of the below functions

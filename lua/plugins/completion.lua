@@ -35,7 +35,6 @@ return {
 		end,
 	},
 	{
-
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		config = function()

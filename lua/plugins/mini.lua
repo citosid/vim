@@ -1,8 +1,5 @@
 return {
 	{
-		"echasnovski/mini.ai",
-	},
-	{
 		"echasnovski/mini.bufremove",
 		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 

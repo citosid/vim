@@ -8,21 +8,21 @@ return {
 				ensure_installed = {
 					-- Diagnostics
 					"biome", -- This is both, formatter and diagnostics
-					"gopls",
-					"golangci_lint",
-					"golangci_lint_ls",
-					"hadolint",
+					-- "gopls",
+					-- "golangci_lint",
+					-- "golangci_lint_ls",
+					-- "hadolint",
 					"markdownlint", -- This is both, formatter and diagnostics
 
 					-- Formatters
-					"black",
-					"goimports",
+					-- "black",
+					-- "goimports",
 					"isort",
 					"stylua",
 
 					-- Deprecated LSPs in none-ls plugin
 					"beautysh",
-					"jq",
+					-- "jq",
 				},
 			})
 		end,
@@ -49,8 +49,8 @@ return {
 				nls.builtins.diagnostics.markdownlint,
 
 				-- Formatter
-				nls.builtins.formatting.black,
-				nls.builtins.formatting.goimports,
+				-- nls.builtins.formatting.black,
+				-- nls.builtins.formatting.goimports,
 				nls.builtins.formatting.isort,
 				nls.builtins.formatting.markdownlint,
 				nls.builtins.formatting.stylua,
@@ -79,7 +79,7 @@ return {
 
 				-- Formatters based-off the new none-ls-extras plugin
 				require("none-ls.formatting.beautysh"),
-				require("none-ls.formatting.jq"),
+				-- require("none-ls.formatting.jq"),
 			})
 
 			opts.on_attach = function(current_client, bufnr)
