@@ -8,32 +8,32 @@ return {
 		event = "InsertEnter",
 		lazy = true,
 	},
-	{
-		"hrsh7th/cmp-cmdline",
-		lazy = true,
-		config = function()
-			local cmp = require("cmp")
-			cmp.setup.cmdline(":", {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = cmp.config.sources({
-					{ name = "path" },
-				}, {
-					{
-						name = "cmdline",
-						option = {
-							ignore_cmds = { "Man", "!" },
-						},
-					},
-				}),
-			})
-			cmp.setup.cmdline("/", {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = {
-					{ name = "buffer" },
-				},
-			})
-		end,
-	},
+	-- {
+	-- 	"hrsh7th/cmp-cmdline",
+	-- 	lazy = true,
+	-- 	config = function()
+	-- 		local cmp = require("cmp")
+	-- 		cmp.setup.cmdline(":", {
+	-- 			mapping = cmp.mapping.preset.cmdline(),
+	-- 			sources = cmp.config.sources({
+	-- 				{ name = "path" },
+	-- 			}, {
+	-- 				{
+	-- 					name = "cmdline",
+	-- 					option = {
+	-- 						ignore_cmds = { "Man", "!" },
+	-- 					},
+	-- 				},
+	-- 			}),
+	-- 		})
+	-- 		cmp.setup.cmdline("/", {
+	-- 			mapping = cmp.mapping.preset.cmdline(),
+	-- 			sources = {
+	-- 				{ name = "buffer" },
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",

@@ -15,7 +15,7 @@ return {
 				-- Each of these needs also to be added in the config for
 				-- nvim-lspconfig
 				ensure_installed = {
-					"biome",
+					-- "biome",
 					"bashls",
 					-- "dockerls",
 					"lua_ls",
@@ -36,7 +36,7 @@ return {
 			}
 
 			-- Each one of these are the ones added in mason-lspconfig.nvim
-			lspconfig.biome.setup(setup_options)
+			-- lspconfig.biome.setup(setup_options)
 			lspconfig.bashls.setup(setup_options)
 			-- lspconfig.dockerls.setup(setup_options)
 			lspconfig.lua_ls.setup(setup_options)
@@ -76,5 +76,19 @@ return {
 			})
 		end,
 		event = "BufReadPre",
+		opts = {
+			--- other options
+			servers = {
+				tsserver = {
+					on_attach = function(client)
+						-- this is important, otherwise tsserver will format ts/js
+						-- files which we *really* don't want.
+						client.server_capabilities.documentFormattingProvider = false
+					end,
+				},
+				biome = {},
+				-- other language servers
+			},
+		},
 	},
 }
