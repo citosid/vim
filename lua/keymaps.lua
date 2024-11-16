@@ -1,15 +1,9 @@
 local map = require("utils").map
 
--- Set space as the global leader
-map("n", "<Space>", "<Nop>", { silent = true })
-
-map("i", "jj", "<ESC>", { noremap = true, silent = true, desc = "<ESC>" })
-
--- Save
-map("n", "<leader>s", "<cmd>w<cr>", { desc = "Save file" })
-
--- Hide search results
-map("n", "<leader>ns", "<cmd>noh<cr>", { desc = "Hide search results" })
+-- Buffers
+map("n", "<leader>bn", "<cmd>bnext<cr>", { desc = "Go to next buffer" })
+map("n", "<leader>l", "<cmd>bnext<cr>", { desc = "Go to next buffer" })
+map("n", "<leader>h", "<cmd>bprevious<cr>", { desc = "Go to next buffer" })
 
 -- Comments
 map("n", "<leader>/", function()
@@ -22,10 +16,22 @@ map(
 	{ desc = "Toggle comment for selection" }
 )
 
--- Buffers
-map("n", "<leader>bn", "<cmd>bnext<cr>", { desc = "Go to next buffer" })
-map("n", "<leader>l", "<cmd>bnext<cr>", { desc = "Go to next buffer" })
-map("n", "<leader>h", "<cmd>bprevious<cr>", { desc = "Go to next buffer" })
+-- Debugging and breakpoints
+map("n", "<leader>dd", "<cmd>lua require('dap').debug()<cr>", { desc = "Toggle breakpoint" })
+map("n", "<leader>dc", "<cmd>lua require('dap').continue()<cr>", { desc = "Continue" })
+map("n", "<leader>di", "<cmd>lua require('dap').step_into()<cr>", { desc = "Step into" })
+map("n", "<leader>do", "<cmd>lua require('dap').step_over()<cr>", { desc = "Step over" })
+map("n", "<leader>dq", "<cmd>lua require('dap').close()<cr>", { desc = "Close the debugger window" })
+map("n", "<leader>dt", "<cmd>lua require('dap').toggle_breakpoint()<cr>", { desc = "Toggle breakpoint" })
+
+-- Disable annoying Q
+map("n", "Q", "<nop>")
+
+-- Edit easily .gitlab-ci.yml files
+map("n", "<leader>.", "<cmd>e .gitlab-ci.yml<CR>", { desc = "Opens the Gitlab CI file to be edited." })
+
+-- Hide search results
+map("n", "<leader>ns", "<cmd>noh<cr>", { desc = "Hide search results" })
 
 -- Refactor
 map(
@@ -35,19 +41,14 @@ map(
 	{ desc = "Rename pointer under cursor for current buffer" }
 )
 
--- Telescope
-map("n", "<leader><space>", function()
-	require("telescope.builtin").buffers()
-end, { desc = "Go to next buffer" })
-map("n", "<leader>ff", function()
-	require("telescope.builtin").find_files()
-end, { desc = "Find files in current pwd" })
-map("n", "<leader>fs", function()
-	require("telescope.builtin").lsp_document_symbols()
-end, { desc = "Find in symbols" })
-map("n", "<leader>fw", function()
-	require("telescope.builtin").live_grep()
-end, { desc = "Grep find" })
+-- Save
+map("n", "<leader>s", "<cmd>w<cr>", { desc = "Save file" })
+
+-- Set space as the global leader
+map("n", "<Space>", "<Nop>", { silent = true })
+
+-- Set jj to esc
+map("i", "jj", "<ESC>", { noremap = true, silent = true, desc = "<ESC>" })
 
 -- Splits
 map("n", "<C-h>", function()
@@ -66,14 +67,22 @@ end)
 map("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "Splits the window vertically" })
 map("n", "<leader>-", "<cmd>split<cr>", { desc = "Splits the window horizontally" })
 
+-- Telescope
+map("n", "<leader><space>", function()
+	require("telescope.builtin").buffers()
+end, { desc = "Go to next buffer" })
+map("n", "<leader>ff", function()
+	require("telescope.builtin").find_files()
+end, { desc = "Find files in current pwd" })
+map("n", "<leader>fs", function()
+	require("telescope.builtin").lsp_document_symbols()
+end, { desc = "Find in symbols" })
+map("n", "<leader>fw", function()
+	require("telescope.builtin").live_grep()
+end, { desc = "Grep find" })
+
 -- Terminal
 map("n", "<leader>t", "<cmd>exe v:count1 . 'ToggleTerm name=terminal'<cr>", { desc = "Open or toggle terminal" })
 
--- Disable annoying Q
-map("n", "Q", "<nop>")
-
 -- Turn the current file into an executable
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "Turn the current file into an executable", silent = true })
-
--- Edit easily .gitlab-ci.yml files
-map("n", "<leader>.", "<cmd>e .gitlab-ci.yml<CR>", { desc = "Opens the Gitlab CI file to be edited." })
