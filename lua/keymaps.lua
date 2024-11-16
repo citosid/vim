@@ -17,11 +17,10 @@ map(
 )
 
 -- Debugging and breakpoints
-map("n", "<leader>dd", "<cmd>lua require('dap').debug()<cr>", { desc = "Toggle breakpoint" })
+map("n", "<leader>dd", "<cmd>lua require('dapui').toggle()<cr>", { desc = "Toggle dap ui" })
 map("n", "<leader>dc", "<cmd>lua require('dap').continue()<cr>", { desc = "Continue" })
 map("n", "<leader>di", "<cmd>lua require('dap').step_into()<cr>", { desc = "Step into" })
 map("n", "<leader>do", "<cmd>lua require('dap').step_over()<cr>", { desc = "Step over" })
-map("n", "<leader>dq", "<cmd>lua require('dap').close()<cr>", { desc = "Close the debugger window" })
 map("n", "<leader>dt", "<cmd>lua require('dap').toggle_breakpoint()<cr>", { desc = "Toggle breakpoint" })
 
 -- Disable annoying Q
