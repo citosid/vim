@@ -30,6 +30,7 @@ return {
 			organization = 9232,
 			language = 9233,
 			geopolitical = 9234,
+			debug = 9876,
 		}
 
 		dap.configurations.typescript = {}
