@@ -17,7 +17,7 @@ return {
 	{
 		"yetone/avante.nvim",
 		event = "VeryLazy",
-		lazy = false,
+		lazy = true,
 		version = false,
 		opts = {
 			provider = "openai",
@@ -47,7 +47,6 @@ return {
 				},
 			},
 			{
-				-- Make sure to set this up properly if you have lazy=true
 				"MeanderingProgrammer/render-markdown.nvim",
 				opts = {
 					file_types = { "markdown", "Avante" },
@@ -61,10 +60,11 @@ return {
 		config = function()
 			require("supermaven-nvim").setup({
 				keymaps = {
-					accept_suggestion = "<Tab>",
+					accept_suggestion = "<C-y>",
 					clear_suggestion = "<C-]>",
 					accept_word = "<C-j>",
 				},
+				disable_keymaps = false,
 			})
 		end,
 	},
