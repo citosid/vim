@@ -12,9 +12,11 @@ return {
 
 					-- Formatters
 					"stylua",
+					"black",
 
 					-- Deprecated LSPs in none-ls plugin
 					"beautysh",
+					"ruff",
 				},
 			})
 		end,
@@ -39,6 +41,7 @@ return {
 				nls.builtins.diagnostics.markdownlint,
 
 				-- Formatter
+				nls.builtins.formatting.black,
 				nls.builtins.formatting.markdownlint,
 				nls.builtins.formatting.stylua,
 
@@ -65,6 +68,7 @@ return {
 				}),
 
 				-- Formatters based-off the new none-ls-extras plugin
+				require("none-ls.diagnostics.ruff"),
 				require("none-ls.formatting.beautysh"),
 			})
 

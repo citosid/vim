@@ -3,7 +3,7 @@ return {
 		"williamboman/mason.nvim",
 		lazy = true,
 		config = function()
-			require("mason").setup()
+			require("mason").setup({})
 		end,
 		event = "BufReadPre",
 	},
@@ -15,11 +15,9 @@ return {
 				-- Each of these needs also to be added in the config for
 				-- nvim-lspconfig
 				ensure_installed = {
-					-- "biome",
 					"bashls",
-					-- "dockerls",
 					"lua_ls",
-					-- "pyright",
+					"pyright",
 				},
 			})
 		end,
@@ -36,11 +34,9 @@ return {
 			}
 
 			-- Each one of these are the ones added in mason-lspconfig.nvim
-			-- lspconfig.biome.setup(setup_options)
 			lspconfig.bashls.setup(setup_options)
-			-- lspconfig.dockerls.setup(setup_options)
 			lspconfig.lua_ls.setup(setup_options)
-			-- lspconfig.pyright.setup(setup_options)
+			lspconfig.pyright.setup(setup_options)
 
 			-- Global mappings.
 			-- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -87,7 +83,6 @@ return {
 					end,
 				},
 				biome = {},
-				-- other language servers
 			},
 		},
 	},
