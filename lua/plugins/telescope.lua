@@ -33,6 +33,9 @@ return {
 				},
 			}
 		end,
+		config = function()
+			require("telescope").load_extension("noice")
+		end,
 	},
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
