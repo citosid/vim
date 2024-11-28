@@ -7,9 +7,19 @@ return {
 			{ "nvim-lua/plenary.nvim" },
 		},
 		cmd = "Telescope",
-		event = "BufReadPre",
 		opts = function()
+			require("telescope").load_extension("noice")
+			require("telescope").load_extension("fzf")
+
 			local actions = require("telescope.actions")
+
+			local shared_mappings = {
+				["<C-j>"] = actions.move_selection_next,
+				["<C-k>"] = actions.move_selection_previous,
+				["<C-n>"] = actions.preview_scrolling_down,
+				["<C-p>"] = actions.preview_scrolling_up,
+			}
+
 			return {
 				defaults = {
 					path_display = { "truncate" },
@@ -22,35 +32,15 @@ return {
 						preview_cutoff = 120,
 					},
 					mappings = {
-						i = {
-							["<C-n>"] = actions.cycle_history_next,
-							["<C-p>"] = actions.cycle_history_prev,
-							["<C-j>"] = actions.move_selection_next,
-							["<C-k>"] = actions.move_selection_previous,
-						},
-						n = { q = actions.close },
+						i = vim.tbl_extend("force", {
+							["<C-c>"] = actions.close,
+						}, shared_mappings),
+						n = vim.tbl_extend("force", {
+							q = actions.close,
+						}, shared_mappings),
 					},
 				},
 			}
 		end,
-		config = function()
-			require("telescope").load_extension("noice")
-		end,
-	},
-	{
-		"nvim-telescope/telescope-ui-select.nvim",
-		config = function()
-			-- This is your opts table
-			require("telescope").setup({
-				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown({}),
-					},
-				},
-			})
-			require("telescope").load_extension("ui-select")
-		end,
-		event = "BufReadPre",
-		lazy = true,
 	},
 }
