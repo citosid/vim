@@ -3,6 +3,8 @@ return {
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		enabled = true,
+		lazy = true,
+		event = "VeryLazy",
 		config = function()
 			require("lualine").setup({
 				options = {
