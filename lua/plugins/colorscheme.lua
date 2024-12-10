@@ -48,6 +48,7 @@ return {
 			})
 
 			vim.cmd("colorscheme rose-pine-moon")
+			vim.api.nvim_set_hl(0, "CursorLine", { bg = "#232136", blend = 20 })
 		end,
 		event = { "UIEnter" },
 	},
