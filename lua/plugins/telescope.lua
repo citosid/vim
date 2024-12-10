@@ -7,6 +7,13 @@ return {
 			{ "nvim-lua/plenary.nvim" },
 		},
 		cmd = "Telescope",
+		keys = {
+			{ "<leader><space>", "<cmd>Telescope buffers<cr>", desc = "Find in open buffers" },
+			{ "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "Show diagnostics" },
+			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+			{ "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Find in symbols" },
+			{ "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "Find in files" },
+		},
 		opts = function()
 			require("telescope").load_extension("noice")
 			require("telescope").load_extension("fzf")

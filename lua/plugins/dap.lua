@@ -40,6 +40,13 @@ return {
 			vim.api.nvim_set_hl(0, "DapLogPoint", { ctermbg = 0, fg = "#61afef", bg = "#31353f" })
 			vim.api.nvim_set_hl(0, "DapStopped", { ctermbg = 0, fg = "#98c379", bg = "#31353f" })
 		end,
+		keys = {
+			{ "<leader>dd", "<cmd>lua require('dapui').toggle()<cr>", desc = "Toggle dap ui" },
+			{ "<leader>dc", "<cmd>lua require('dap').continue()<cr>", desc = "Continue" },
+			{ "<leader>di", "<cmd>lua require('dap').step_into()<cr>", desc = "Step into" },
+			{ "<leader>do", "<cmd>lua require('dap').step_over()<cr>", desc = "Step over" },
+			{ "<leader>dt", "<cmd>lua require('dap').toggle_breakpoint()<cr>", desc = "Toggle breakpoint" },
+		},
 	},
 	{
 		"mxsdev/nvim-dap-vscode-js",

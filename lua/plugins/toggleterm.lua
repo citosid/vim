@@ -1,6 +1,9 @@
 return {
 	"akinsho/toggleterm.nvim",
 	cmd = { "ToggleTerm", "TermExec" },
+	keys = {
+		{ "<leader>t", "<cmd>exe v:count1 . 'ToggleTerm name=terminal'<cr>", { desc = "Open or toggle terminal" } },
+	},
 	config = function()
 		local map = require("utils").map
 
