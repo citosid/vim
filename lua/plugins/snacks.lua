@@ -31,7 +31,25 @@ return {
 				},
 			},
 			terminal = {},
+			toggle = {
+				which_key = true,
+				notify = true,
+				icon = {
+					enabled = " ",
+					disabled = " ",
+				},
+				color = {
+					enabled = "green",
+					disabled = "yellow",
+				},
+			},
 			words = { enabled = true },
+			zen = {
+				toggles = {
+					dim = false,
+				},
+				win = { style = "minimal" },
+			},
 		},
 		keys = {
 			{
@@ -47,6 +65,13 @@ return {
 					Snacks.terminal()
 				end,
 				desc = "Toggle Terminal",
+			},
+			{
+				"<leader>z",
+				function()
+					Snacks.zen()
+				end,
+				desc = "Toggle Zen Mode",
 			},
 		},
 		init = function()
