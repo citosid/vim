@@ -1,4 +1,5 @@
 return {
+	-- Theme
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
@@ -52,6 +53,7 @@ return {
 		end,
 		event = { "UIEnter" },
 	},
+	-- Colorizer
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
@@ -59,5 +61,21 @@ return {
 		end,
 		lazy = true,
 		event = "BufReadPre",
+	},
+	-- Icons
+	{
+		"nvim-tree/nvim-web-devicons",
+		config = function()
+			require("nvim-web-devicons").setup({
+				override_by_extension = {
+					["toml"] = {
+						icon = "",
+					},
+					["pem"] = {
+						icon = "󱕵",
+					},
+				},
+			})
+		end,
 	},
 }
