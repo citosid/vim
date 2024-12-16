@@ -44,6 +44,13 @@ return {
 							fallback()
 						end
 					end, { "i", "s" }),
+					["<C-y>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							fallback() -- Do not accept the first suggestion
+						else
+							vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-y>", true, true, true), "n", true)
+						end
+					end, { "i", "s" }),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },

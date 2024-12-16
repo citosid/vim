@@ -22,8 +22,10 @@ return {
 				},
 			},
 			bigfile = { enabled = true },
+			input = { enabled = true },
 			notifier = { enabled = true, style = "fancy" },
 			quickfile = { enabled = true },
+			scroll = { enabled = true },
 			statuscolumn = { enabled = true },
 			styles = {
 				notification = {

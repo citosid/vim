@@ -10,14 +10,16 @@ return {
 		keys = {
 			{ "<leader><space>", "<cmd>Telescope buffers<cr>", desc = "Find in open buffers" },
 			{ "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "Show diagnostics" },
+			{
+				"<leader>fg",
+				require("plugins.telescope.multigrep").live_multipgrep,
+				desc = "Find in files of specific type",
+			},
 			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
 			{ "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Find in symbols" },
 			{ "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "Find in files" },
 		},
-		opts = function()
-			require("telescope").load_extension("noice")
-			require("telescope").load_extension("fzf")
-
+		config = function()
 			local actions = require("telescope.actions")
 
 			local shared_mappings = {
@@ -27,17 +29,8 @@ return {
 				["<C-p>"] = actions.preview_scrolling_up,
 			}
 
-			return {
+			require("telescope").setup({
 				defaults = {
-					path_display = { "truncate" },
-					sorting_strategy = "ascending",
-					layout_config = {
-						horizontal = { prompt_position = "top", preview_width = 0.55 },
-						vertical = { mirror = false },
-						width = 0.87,
-						height = 0.80,
-						preview_cutoff = 120,
-					},
 					mappings = {
 						i = vim.tbl_extend("force", {
 							["<C-c>"] = actions.close,
@@ -46,8 +39,30 @@ return {
 							q = actions.close,
 						}, shared_mappings),
 					},
+					path_display = { "truncate" },
+					sorting_strategy = "ascending",
 				},
-			}
+				pickers = {
+					buffers = {
+						theme = "ivy",
+					},
+					diagnostics = {
+						theme = "ivy",
+					},
+					find_files = {
+						theme = "ivy",
+					},
+					lsp_document_symbols = {
+						theme = "ivy",
+					},
+					live_grep = {
+						theme = "ivy",
+					},
+				},
+			})
+
+			require("telescope").load_extension("noice")
+			require("telescope").load_extension("fzf")
 		end,
 	},
 }
