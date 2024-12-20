@@ -32,8 +32,6 @@ return {
 		end,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-			"3rd/image.nvim",
 		},
 	},
 }
