@@ -12,7 +12,7 @@ return {
 			{ "<leader>fd", "<cmd>Telescope diagnostics<cr>", desc = "Show diagnostics" },
 			{
 				"<leader>fg",
-				require("plugins.telescope.multigrep").live_multipgrep,
+				require("plugins.tools.telescope.multigrep").live_multipgrep,
 				desc = "Find in files of specific type",
 			},
 			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },

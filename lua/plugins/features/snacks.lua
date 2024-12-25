@@ -14,6 +14,7 @@ return {
 				sections = {
 					{ section = "recent_files", cwd = true, limit = 8, padding = 1 },
 					{
+						{ icon = " ", key = "l", desc = "Lazy", action = ":Lazy" },
 						{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
 					},
 					{

@@ -1,0 +1,7 @@
+return {
+	require("plugins.ui.rosepine"),
+	require("plugins.ui.colorizer"),
+	require("plugins.ui.icons"),
+	require("plugins.ui.lualine"),
+	require("plugins.ui.which-key"),
+}
