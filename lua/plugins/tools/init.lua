@@ -1,5 +1,6 @@
 return {
 	require("plugins.tools.filemanager"),
+	require("plugins.tools.gitsigns"),
 	require("plugins.tools.overseer"),
 	require("plugins.tools.smart-splits"),
 	require("plugins.tools.telescope"),
