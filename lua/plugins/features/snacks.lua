@@ -56,6 +56,13 @@ return {
 		},
 		keys = {
 			{
+				"<leader>gb",
+				function()
+					Snacks.gitbrowse()
+				end,
+				desc = "Open current file in browser",
+			},
+			{
 				"<leader>gf",
 				function()
 					Snacks.lazygit.log_file()
