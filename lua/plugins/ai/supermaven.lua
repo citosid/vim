@@ -1,7 +1,11 @@
 return {
 	"supermaven-inc/supermaven-nvim",
 	lazy = true,
-	event = "BufReadPre",
+	cmd = { "SupermavenStart" },
+	keys = {
+		{ "<leader>as", "<cmd>SupermavenStart<cr>", desc = "Start SuperMaven" },
+		{ "<leader>ax", "<cmd>SupermavenStop<cr>", desc = "Stop SuperMaven" },
+	},
 	config = function()
 		require("supermaven-nvim").setup({
 			disable_keymaps = false,
