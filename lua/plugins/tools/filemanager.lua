@@ -10,6 +10,29 @@ return {
 		config = function()
 			require("neo-tree").setup({
 				close_if_last_window = true,
+				default_component_configs = {
+					diagnostics = {
+						symbols = {
+							error = "⛔",
+							warn = "󱍼",
+							info = "💁",
+							hint = "💡",
+						},
+					},
+					git_status = {
+						symbols = {
+							added = "✚",
+							modified = "",
+							deleted = "_",
+							renamed = "󰁕",
+							untracked = "?",
+							ignored = "",
+							unstaged = "󰄱",
+							staged = "",
+							conflict = "",
+						},
+					},
+				},
 				event_handlers = {
 					{
 						event = "file_opened",

@@ -22,7 +22,7 @@ return {
 					},
 				},
 			},
-			bigfile = { enabled = true },
+			bigfile = { enabled = false },
 			input = { enabled = true },
 			notifier = { enabled = true, style = "fancy" },
 			quickfile = { enabled = true },
