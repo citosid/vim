@@ -70,15 +70,15 @@ local books = {
 }
 
 local function get_range(scripture, book_num)
-	-- Construct the start range
 	local range_start = string.format("%s%03d%03d", book_num, scripture.chapter, scripture.start_verse)
-	-- Construct the end range only if it is a valid continuation
 	local range_end = ""
-	if scripture.start_verse ~= scripture.end_verse or scripture.chapter ~= scripture.next_chapter then
+
+	if scripture.next_chapter and scripture.end_verse then
 		range_end = string.format("-%s%03d%03d", book_num, scripture.next_chapter, scripture.end_verse)
+	elseif scripture.next_chapter and not scripture.end_verse then
+		range_end = string.format("-%s%03d%03d", book_num, scripture.chapter, scripture.next_chapter)
 	end
 
-	-- Return the correctly formatted range
 	return range_start .. range_end
 end
 
@@ -91,8 +91,8 @@ local function get_reference_id(line, cursor_pos)
 			book = book,
 			chapter = tonumber(chapter),
 			start_verse = tonumber(start_verse),
-			next_chapter = tonumber(next_chapter) or tonumber(chapter),
-			end_verse = tonumber(end_verse) or tonumber(start_verse),
+			next_chapter = tonumber(next_chapter),
+			end_verse = tonumber(end_verse),
 			start_pos = line:find(book .. "%s*" .. chapter .. ":" .. start_verse),
 		})
 	end
