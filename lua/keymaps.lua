@@ -33,3 +33,6 @@ map("i", "jj", "<ESC>", { noremap = true, silent = true, desc = "<ESC>" })
 
 -- Turn the current file into an executable
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "Turn the current file into an executable", silent = true })
+
+-- Test
+map("n", "<leader>jw", "<cmd>FetchScripture<CR>", { desc = "Fetch scripture" })

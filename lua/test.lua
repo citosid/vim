@@ -69,15 +69,29 @@ local books = {
 	Rev = "66",
 }
 
+local function get_range(scripture, book_num)
+	-- Construct the start range
+	local range_start = string.format("%s%03d%03d", book_num, scripture.chapter, scripture.start_verse)
+	-- Construct the end range only if it is a valid continuation
+	local range_end = ""
+	if scripture.start_verse ~= scripture.end_verse or scripture.chapter ~= scripture.next_chapter then
+		range_end = string.format("-%s%03d%03d", book_num, scripture.next_chapter, scripture.end_verse)
+	end
+
+	-- Return the correctly formatted range
+	return range_start .. range_end
+end
+
 -- Convert bible reference to numerical ID
 local function get_reference_id(line, cursor_pos)
 	-- Find all the scripture references in the current line
 	local scriptures = {}
-	for book, chapter, start_verse, end_verse in line:gmatch("(%w+)%s*(%d+):(%d+)%s*%-?%s*(%d*)") do
+	for book, chapter, start_verse, next_chapter, end_verse in line:gmatch("(%w+)%s*(%d+):(%d+)%s*%-?%s*(%d*):?(%d*)") do
 		table.insert(scriptures, {
 			book = book,
 			chapter = tonumber(chapter),
 			start_verse = tonumber(start_verse),
+			next_chapter = tonumber(next_chapter) or tonumber(chapter),
 			end_verse = tonumber(end_verse) or tonumber(start_verse),
 			start_pos = line:find(book .. "%s*" .. chapter .. ":" .. start_verse),
 		})
@@ -103,11 +117,7 @@ local function get_reference_id(line, cursor_pos)
 		return vim.notify("Invalid book")
 	end
 
-	local range_start = string.format("%s%03d%03d", book_num, nearest_scripture.chapter, nearest_scripture.start_verse)
-	local range_end = string.format("%s%03d%03d", book_num, nearest_scripture.chapter, nearest_scripture.end_verse)
-
-	return nearest_scripture.start_verse == nearest_scripture.end_verse and range_start
-		or range_start .. "-" .. range_end
+	return get_range(nearest_scripture, book_num)
 end
 
 local function show_verse_tooltip(ref_id, json)
@@ -192,8 +202,6 @@ function M.fetch_scripture()
 	end
 
 	local url = string.format("https://www.jw.org/es/biblioteca/biblia/biblia-estudio/libros/json/data/%s", ref_id)
-
-	vim.notify(url)
 
 	vim.fn.jobstart({ "curl", "-s", url }, {
 		stdout_buffered = true,
