@@ -130,7 +130,6 @@ local function show_verse_tooltip(ref_id, json)
 			.. "\n"
 	end
 
-	local buf = vim.api.nvim_create_buf(false, true)
 	local lines = vim.split(content, "\n")
 
 	-- Adjust lines by splitting at spaces instead of in the middle of words
@@ -166,28 +165,13 @@ local function show_verse_tooltip(ref_id, json)
 	end
 
 	local opts = {
-		relative = "cursor",
-		width = width,
-		height = height,
-		row = 1,
-		col = 0,
 		border = "rounded",
+		focusable = true,
+		height = height,
 		title = title,
-		title_pos = "center",
 	}
 
-	vim.api.nvim_buf_set_lines(buf, 0, -1, false, wrapped_lines)
-	local win = vim.api.nvim_open_win(buf, false, opts)
-
-	vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-		callback = function()
-			if vim.api.nvim_win_is_valid(win) then
-				vim.api.nvim_win_close(win, true)
-				vim.api.nvim_buf_delete(buf, { force = true })
-			end
-		end,
-		once = true,
-	})
+	vim.lsp.util.open_floating_preview(wrapped_lines, "plaintext", opts)
 end
 
 function M.fetch_scripture()
