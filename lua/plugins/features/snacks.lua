@@ -26,7 +26,7 @@ return {
 			input = { enabled = true },
 			notifier = { enabled = true, style = "fancy" },
 			quickfile = { enabled = true },
-			scroll = { enabled = true },
+			scroll = { enabled = false },
 			statuscolumn = { enabled = true },
 			styles = {
 				notification = {

@@ -33,3 +33,10 @@ map("i", "jj", "<ESC>", { noremap = true, silent = true, desc = "<ESC>" })
 
 -- Turn the current file into an executable
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "Turn the current file into an executable", silent = true })
+
+-- Highlight for pandoc
+map("v", "<leader>hy", 'c\\hly{<c-r>"}<esc>')
+map("v", "<leader>hg", 'c\\hlg{<c-r>"}<esc>')
+map("v", "<leader>hb", 'c\\hlb{<c-r>"}<esc>')
+map("v", "<leader>hr", 'c\\hlr{<c-r>"}<esc>')
+map("v", "<leader>ho", 'c\\hlo{<c-r>"}<esc>')
