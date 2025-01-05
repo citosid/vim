@@ -12,8 +12,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-vim.opt.conceallevel = 2
-vim.opt.concealcursor = "nc"
+vim.opt.concealcursor = ""
 
 -- First, define the highlight group
 vim.api.nvim_set_hl(0, "HlyYellow", { ctermbg = "yellow", bg = "yellow", fg = "black" })
@@ -27,18 +26,18 @@ vim.cmd([[
   augroup HlyHighlight
     autocmd!
     autocmd FileType markdown lua vim.fn.matchadd('HlyYellow', '\\\\hly{\\(\\_.\\{-}\\)*\\}', 10)
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hly{\\|}', 10, -1, {conceal = ''})
+    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hly{\\|\\}\\ze\\(\\s\\|$\\)', 10, -1, {conceal = ''})
 
     autocmd FileType markdown lua vim.fn.matchadd('HlyGreen', '\\\\hlg{\\(\\_.\\{-}\\)*\\}')
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hlg{\\|}', 10, -1, {conceal = ''})
+    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hlg{\\|\\}\\ze\\(\\s\\|$\\)', 10, -1, {conceal = ''})
 
     autocmd FileType markdown lua vim.fn.matchadd('HlyRed', '\\\\hlr{\\(\\_.\\{-}\\)*\\}')
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hlr{\\|}', 10, -1, {conceal = ''})
+    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hlr{\\|\\}\\ze\\(\\s\\|$\\)', 10, -1, {conceal = ''})
 
     autocmd FileType markdown lua vim.fn.matchadd('HlyOrange', '\\\\hlo{\\(\\_.\\{-}\\)*\\}')
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hlo{\\|}', 10, -1, {conceal = ''})
+    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hlo{\\|\\}\\ze\\(\\s\\|$\\)', 10, -1, {conceal = ''})
 
     autocmd FileType markdown lua vim.fn.matchadd('HlyBlue', '\\\\hlb{\\(\\_.\\{-}\\)*\\}')
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hlb{\\|}', 10, -1, {conceal = ''})
+    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hlb{\\|\\}\\ze\\(\\s\\|$\\)', 10, -1, {conceal = ''})
   augroup END
 ]])
