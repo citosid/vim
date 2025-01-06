@@ -40,3 +40,28 @@ map("v", "<leader>hg", 'c\\hlg{<c-r>"}<esc>')
 map("v", "<leader>hb", 'c\\hlb{<c-r>"}<esc>')
 map("v", "<leader>hr", 'c\\hlr{<c-r>"}<esc>')
 map("v", "<leader>ho", 'c\\hlo{<c-r>"}<esc>')
+map("v", "<leader>hp", 'c\\hlpn{<c-r>"}<esc>')
+map("v", "<leader>hq", 'c\\hlq{<c-r>"}<esc>')
+
+-- Key maps for pandoc
+map("n", "<leader>bp", function()
+	local input_file = vim.fn.expand("%")
+	local output_file = input_file:gsub("(.*/)(.*)%.md$", "%1pdf/%2.pdf")
+	local cwd = vim.fn.getcwd()
+	local header_file = cwd .. "/header.tex"
+	local command = "pandoc " .. input_file .. " --include-in-header=" .. header_file .. " -o " .. output_file
+
+	-- Execute the command silently
+	vim.fn.system(command)
+
+	-- Check if the command was successful and notify
+	if vim.v.shell_error == 0 then
+		vim.notify("PDF created successfully: " .. output_file)
+	else
+		vim.notify("Error in creating PDF", vim.log.levels.ERROR)
+	end
+end, {
+	desc = "Turn the markdown file into a pdf",
+	noremap = true,
+	silent = true,
+})
