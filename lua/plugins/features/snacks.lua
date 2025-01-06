@@ -50,8 +50,12 @@ return {
 			zen = {
 				toggles = {
 					dim = false,
+					git_signs = true,
+					mini_diff_signs = true,
+					diagnostics = true,
+					inlay_hints = true,
 				},
-				win = { style = "minimal" },
+				-- win = { style = "minimal" },
 			},
 		},
 		keys = {
