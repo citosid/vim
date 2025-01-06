@@ -12,8 +12,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-vim.opt.concealcursor = ""
-
 -- First, define the highlight group
 vim.api.nvim_set_hl(0, "HlyBlue", { bg = "#3e8fb0", fg = "#fffaf3" })
 vim.api.nvim_set_hl(0, "HlyGreen", { bg = "#9ccfd8", fg = "#2a273f" })
@@ -40,5 +38,7 @@ vim.cmd([[
 
     autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hl[bgoqry]{\\|\\}\\ze.', 10, -1, {conceal = ''})
     autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hlpn{\\|\\}\\ze.', 10, -1, {conceal = ''})
+
+    au FileType markdown setlocal conceallevel=2
   augroup END
 ]])
