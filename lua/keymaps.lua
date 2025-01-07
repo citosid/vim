@@ -65,3 +65,6 @@ end, {
 	noremap = true,
 	silent = true,
 })
+
+-- Key maps for spelling
+map("n", "<leader>cse", "<cmd>set spelllang=es<CR>", { desc = "Change spell language to Spanish" })

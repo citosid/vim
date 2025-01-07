@@ -12,7 +12,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- First, define the highlight group
 vim.api.nvim_set_hl(0, "HlyBlue", { bg = "#3e8fb0", fg = "#fffaf3" })
 vim.api.nvim_set_hl(0, "HlyGreen", { bg = "#9ccfd8", fg = "#2a273f" })
 vim.api.nvim_set_hl(0, "HlyOrange", { bg = "#ea9a97", fg = "#2a273f" })
@@ -22,7 +21,6 @@ vim.api.nvim_set_hl(0, "HlyYellow", { bg = "#f6c177", fg = "#2a273f" })
 vim.api.nvim_set_hl(0, "HlyItalic", { fg = "#fffaf3", italic = true })
 vim.api.nvim_set_hl(0, "HlyBold", { fg = "#e0def4", bold = true })
 
--- Use a regular expression to highlight \hly{...} in Markdown files
 vim.cmd([[
   augroup HlyHighlight
     autocmd!
@@ -40,5 +38,7 @@ vim.cmd([[
     autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hlpn{\\|\\}\\ze.', 10, -1, {conceal = ''})
 
     au FileType markdown setlocal conceallevel=2
+    au FileType markdown setlocal textwidth=120
+    au FileType markdown setlocal spell
   augroup END
 ]])

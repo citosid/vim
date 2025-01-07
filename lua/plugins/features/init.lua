@@ -5,4 +5,5 @@ return {
 	require("plugins.features.mini"),
 	require("plugins.features.noice"),
 	require("plugins.features.snacks"),
+	require("plugins.features.spell"),
 }
