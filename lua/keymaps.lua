@@ -23,7 +23,15 @@ map(
 )
 
 -- Save
-map("n", "<leader>s", "<cmd>w<cr>", { desc = "Save file" })
+map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
+
+-- Spelling
+map("n", "<leader>sa", "1z=", { desc = "Accept first spelling suggestion", noremap = true, silent = true })
+map("n", "<leader>sd", "zw", { desc = "Remove word from spelling dictionary", noremap = true, silent = true })
+map("n", "<leader>sg", "zg", { desc = "Add word to spelling dictionary", noremap = true, silent = true })
+map("n", "<leader>sn", "]s", { desc = "Go to next spelling error", noremap = true, silent = true })
+map("n", "<leader>s?", "z=", { desc = "Show spelling suggestions", noremap = true, silent = true })
+map("n", "<leader>s/", "zR", { desc = "Replace word with suggestions", noremap = true, silent = true })
 
 -- Set space as the global leader
 map("n", "<Space>", "<Nop>", { silent = true })
