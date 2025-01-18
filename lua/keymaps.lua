@@ -57,7 +57,13 @@ map("n", "<leader>bp", function()
 	local output_file = input_file:gsub("(.*/)(.*)%.md$", "%1pdf/%2.pdf")
 	local cwd = vim.fn.getcwd()
 	local header_file = cwd .. "/header.tex"
-	local command = "pandoc " .. input_file .. " --include-in-header=" .. header_file .. " -o " .. output_file
+	local command = "pandoc '"
+		.. input_file
+		.. "' --include-in-header='"
+		.. header_file
+		.. "' --pdf-engine=xelatex -o '"
+		.. output_file
+		.. "'"
 
 	-- Execute the command silently
 	vim.fn.system(command)
