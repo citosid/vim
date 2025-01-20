@@ -65,6 +65,8 @@ map("n", "<leader>bp", function()
 		.. output_file
 		.. "'"
 
+	vim.notify(command)
+
 	-- Execute the command silently
 	vim.fn.system(command)
 

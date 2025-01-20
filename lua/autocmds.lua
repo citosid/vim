@@ -34,8 +34,10 @@ vim.cmd([[
     autocmd FileType markdown lua vim.fn.matchadd('HlyItalic', '\\\\hlq{\\(\\_.\\{-}\\)*\\}')
     autocmd FileType markdown lua vim.fn.matchadd('HlyBold', '\\\\hlpn{\\(\\_.\\{-}\\)*\\}')
 
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hl[bgoqry]{\\|\\}\\ze.', 10, -1, {conceal = ''})
+    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hl[bgoqry]{\\|}', 10, -1, {conceal = '', containedin = 'ALL'})
     autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hlpn{\\|\\}\\ze.', 10, -1, {conceal = ''})
+
+    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\color\\[rgb\\]{\\([^}]*\\)}', 10)
 
     au FileType markdown setlocal conceallevel=2
     au FileType markdown setlocal textwidth=120
