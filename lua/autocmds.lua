@@ -12,14 +12,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-vim.api.nvim_set_hl(0, "HlyBlue", { bg = "#3e8fb0", fg = "#fffaf3" })
-vim.api.nvim_set_hl(0, "HlyGreen", { bg = "#9ccfd8", fg = "#2a273f" })
-vim.api.nvim_set_hl(0, "HlyOrange", { bg = "#ea9a97", fg = "#2a273f" })
-vim.api.nvim_set_hl(0, "HlyRed", { bg = "#eb6f92", fg = "#2a273f" })
-vim.api.nvim_set_hl(0, "HlyYellow", { bg = "#f6c177", fg = "#2a273f" })
+vim.api.nvim_set_hl(0, "HlyBlue", { bg = "#89b4fa", fg = "#1e1e2e" })
+vim.api.nvim_set_hl(0, "HlyGreen", { bg = "#a6e3a1", fg = "#1e1e2e" })
+vim.api.nvim_set_hl(0, "HlyOrange", { bg = "#fab387", fg = "#1e1e2e" })
+vim.api.nvim_set_hl(0, "HlyRed", { bg = "#f38ba8", fg = "#1e1e2e" })
+vim.api.nvim_set_hl(0, "HlyYellow", { bg = "#f9e2af", fg = "#1e1e2e" })
 
-vim.api.nvim_set_hl(0, "HlyItalic", { fg = "#fffaf3", italic = true })
-vim.api.nvim_set_hl(0, "HlyBold", { fg = "#e0def4", bold = true })
+vim.api.nvim_set_hl(0, "HlyItalic", { fg = "#cdd6f4", italic = true }) -- Italic highlight
+vim.api.nvim_set_hl(0, "HlyBold", { fg = "#f5e0dc", bold = true }) -- Bold highlight
 
 vim.cmd([[
   augroup HlyHighlight
