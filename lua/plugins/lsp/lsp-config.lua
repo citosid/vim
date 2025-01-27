@@ -39,6 +39,7 @@ return {
 			lspconfig.bashls.setup(setup_options)
 			lspconfig.lua_ls.setup(setup_options)
 			lspconfig.pyright.setup(setup_options)
+			lspconfig.gopls.setup(setup_options)
 
 			-- Global mappings.
 			-- See `:help vim.diagnostic.*` for documentation on any of the below functions

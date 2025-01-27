@@ -13,6 +13,7 @@ return {
 					-- Formatters
 					"stylua",
 					"black",
+					"golangci_lint_ls",
 
 					-- Deprecated LSPs in none-ls plugin
 					"beautysh",
@@ -39,11 +40,14 @@ return {
 
 				-- Diagnostics
 				nls.builtins.diagnostics.markdownlint,
+				nls.builtins.diagnostics.golangci_lint,
 
 				-- Formatter
 				nls.builtins.formatting.black,
 				nls.builtins.formatting.markdownlint,
 				nls.builtins.formatting.stylua,
+				nls.builtins.formatting.gofmt,
+				nls.builtins.formatting.goimports,
 
 				-- Biome Typescript
 				nls.builtins.formatting.biome.with({
