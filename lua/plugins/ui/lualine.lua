@@ -77,7 +77,7 @@ return {
 					},
 					{
 						"fileformat",
-						icon = "",
+						icon = "󰇅",
 					},
 					"filetype",
 				},
