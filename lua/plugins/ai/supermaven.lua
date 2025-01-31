@@ -2,6 +2,7 @@ return {
 	"supermaven-inc/supermaven-nvim",
 	lazy = true,
 	cmd = { "SupermavenStart" },
+	enabled = false,
 	keys = {
 		{ "<leader>as", "<cmd>SupermavenStart<cr>", desc = "Start SuperMaven" },
 		{ "<leader>ax", "<cmd>SupermavenStop<cr>", desc = "Stop SuperMaven" },
