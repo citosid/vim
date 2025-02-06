@@ -11,6 +11,8 @@ return {
 	},
 	{
 		"3rd/image.nvim",
+		lazy = true,
+		ft = { "markdown", "vimwiki" },
 		config = function()
 			require("image").setup({
 				integrations = {
