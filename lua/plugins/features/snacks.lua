@@ -49,7 +49,7 @@ return {
 			words = { enabled = true },
 			zen = {
 				toggles = {
-					dim = false,
+					dim = true,
 					git_signs = true,
 					mini_diff_signs = true,
 					diagnostics = true,
