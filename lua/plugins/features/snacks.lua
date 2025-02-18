@@ -25,6 +25,7 @@ return {
 			bigfile = { enabled = false },
 			input = { enabled = true },
 			notifier = { enabled = true, style = "fancy" },
+			picker = { enabled = true },
 			quickfile = { enabled = true },
 			scroll = { enabled = false },
 			statuscolumn = { enabled = true },

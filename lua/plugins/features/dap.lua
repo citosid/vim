@@ -49,24 +49,35 @@ return {
 		},
 	},
 	{
-		"mxsdev/nvim-dap-vscode-js",
-		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-		dependencies = {
-			"mfussenegger/nvim-dap",
-			"rcarriga/nvim-dap-ui",
-			"mxsdev/nvim-dap-vscode-js",
-			{
-				"microsoft/vscode-js-debug",
-				build = "npm install --legacy-peer-deps --no-package-lock && npx gulp vsDebugServerBundle && rm -rf out && mv dist out",
-			},
-		},
-		opts = {
-			debugger_path = string.format("%s/vscode-js-debug/", lazy_dir),
-			adapters = { "pwa-node" },
-		},
+		"microsoft/vscode-js-debug",
+		build = "npm install --legacy-peer-deps --no-package-lock && npx gulp vsDebugServerBundle && rm -rf out && mv dist out",
 		config = function()
+			local debugger_path = string.format("%s/vscode-js-debug/", lazy_dir)
+			local debugger_executable = string.format("%sout/src/vsDebugServer.js", debugger_path)
 			local dap = require("dap")
 			local dap_utils = require("dap.utils")
+
+			dap.set_log_level("DEBUG")
+
+			dap.adapters["pwa-node"] = {
+				type = "server",
+				host = "localhost",
+				port = "${port}",
+				executable = {
+					command = "node",
+					args = {
+						require("mason-registry").get_package("js-debug-adapter"):get_install_path()
+							.. "/js-debug/src/dapDebugServer.js",
+						"${port}",
+					},
+				},
+				options = {
+					source_filemap = {
+						["/usr/src/app/"] = vim.fn.getcwd(),
+						[vim.fn.getcwd()] = "/usr/src/app/",
+					},
+				},
+			}
 
 			local dap_configurations = {
 				backend = 9229,
@@ -81,13 +92,16 @@ return {
 
 			for name, port in pairs(dap_configurations) do
 				table.insert(dap.configurations.typescript, {
-					console = "integratedTerminal",
-					localRoot = vim.fn.getcwd(),
+					cwd = "${workspaceFolder}",
+					localRoot = "${workspaceFolder}",
 					name = name,
 					processId = dap_utils.pick_process,
 					remoteRoot = "/usr/src/app",
 					request = "attach",
-					skipFiles = { "<node_internals>/**", "node_modules/**" },
+					skipFiles = {
+						"<node_internals>/**",
+						"node_modules/**",
+					},
 					type = "pwa-node",
 					port = port,
 				})

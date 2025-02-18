@@ -24,7 +24,6 @@
   "nvim-dap": { "branch": "master", "commit": "52302f02fea3a490e55475de52fa4deb8af2eb11" },
   "nvim-dap-python": { "branch": "master", "commit": "34282820bb713b9a5fdb120ae8dd85c2b3f49b51" },
   "nvim-dap-ui": { "branch": "master", "commit": "bc81f8d3440aede116f821114547a476b082b319" },
-  "nvim-dap-vscode-js": { "branch": "main", "commit": "03bd29672d7fab5e515fc8469b7d07cc5994bbf6" },
   "nvim-lspconfig": { "branch": "master", "commit": "75edb91a3d2deabe76a9911cde2c13d411b3b097" },
   "nvim-nio": { "branch": "master", "commit": "21f5324bfac14e22ba26553caf69ec76ae8a7662" },
   "nvim-silicon": { "branch": "main", "commit": "7f66bda8f60c97a5bf4b37e5b8acb0e829ae3c32" },
@@ -46,6 +45,6 @@
   "typewriter": { "branch": "main", "commit": "458f8177a6f896583429cf72afe5b7bc2a31a985" },
   "vim-latex": { "branch": "master", "commit": "dfaf26c2cafddf61963ebeff28437352002691ac" },
   "vim-pencil": { "branch": "master", "commit": "6d70438a8886eaf933c38a7a43a61adb0a7815ed" },
-  "vscode-js-debug": { "branch": "main", "commit": "d7730405d64e81eb364f76ea38efb7c93a5f877d" },
+  "vscode-js-debug": { "branch": "main", "commit": "cdca7f206692f5ceed702c19b7f7f72aa2bba3b9" },
   "which-key.nvim": { "branch": "main", "commit": "0e76a87ac51772569aec678dc74baa8e2a86100c" }
 }
