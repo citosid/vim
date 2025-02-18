@@ -17,6 +17,9 @@ return {
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
 		},
+		cmdline = {
+			sources = {},
+		},
 	},
 	opts_extend = { "sources.default" },
 }
