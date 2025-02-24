@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.api.nvim_set_hl(0, "HlyBlue", { bg = "#89b4fa", fg = "#1e1e2e" })
 vim.api.nvim_set_hl(0, "HlyGreen", { bg = "#a6e3a1", fg = "#1e1e2e" })
 vim.api.nvim_set_hl(0, "HlyOrange", { bg = "#fab387", fg = "#1e1e2e" })
-vim.api.nvim_set_hl(0, "HlyRed", { bg = "#f38ba8", fg = "#1e1e2e" })
+vim.api.nvim_set_hl(0, "HlyRed", { bg = "#f4a7b6", fg = "#1e1e2e" })
 vim.api.nvim_set_hl(0, "HlyYellow", { bg = "#f9e2af", fg = "#1e1e2e" })
 
 vim.api.nvim_set_hl(0, "HlyItalic", { fg = "#cdd6f4", italic = true }) -- Italic highlight
