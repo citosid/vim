@@ -16,6 +16,8 @@ return {
 				desc = "Find in files of specific type",
 			},
 			{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+			{ "<leader>fd", "<cmd>Telescope lsp_definitions<cr>", desc = "Find definitions" },
+			{ "<leader>f2", "<cmd>Telescope lsp_implementations<cr>", desc = "Find implementations" },
 			{ "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Find in symbols" },
 			{ "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "Find in files" },
 		},
