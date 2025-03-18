@@ -16,6 +16,7 @@ return {
 				-- nvim-lspconfig
 				ensure_installed = {
 					"bashls",
+					"harper_ls",
 					"lua_ls",
 					"pyright",
 				},
@@ -37,6 +38,7 @@ return {
 
 			-- Each one of these are the ones added in mason-lspconfig.nvim
 			lspconfig.bashls.setup(setup_options)
+			lspconfig.harper_ls.setup(setup_options)
 			lspconfig.lua_ls.setup(setup_options)
 			lspconfig.pyright.setup(setup_options)
 			lspconfig.gopls.setup(setup_options)
