@@ -7,17 +7,21 @@ return {
 				replace_keycodes = false,
 			})
 			vim.g.copilot_no_tab_map = true
+			vim.g.copilot_model = "claude-3.7-sonnet-thought"
 		end,
 	},
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
+		cmd = { "Copilot", "CopilotChat" },
 		dependencies = {
 			{ "github/copilot.vim" },
 			{ "nvim-lua/plenary.nvim", branch = "master" },
 		},
 		build = "make tiktoken",
-		opts = {
-			model = "claude-3.5-sonnet",
-		},
+		config = function()
+			require("CopilotChat").setup({
+				model = "claude-3.7-sonnet-thought",
+			})
+		end,
 	},
 }
