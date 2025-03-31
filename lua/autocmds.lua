@@ -42,7 +42,46 @@ vim.cmd([[
     autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\marginpar{\\|\\}\\ze.')
     autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\color\\[rgb\\]{\\([^}]*\\)}')
 
+    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\note{\\|\\}\\ze.')
+    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\mainpoint{\\|\\}\\ze.')
+    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\secondarypoint{\\|\\}\\ze.')
+    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\tertiarypoint{\\|\\}\\ze.')
+    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\quaternarypoint{\\|\\}\\ze.')
+    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\quinarypoint{\\|\\}\\ze.')
+
     au FileType markdown setlocal textwidth=120
     au FileType markdown setlocal spell
   augroup END
 ]])
+
+local function add_virtual_indentation()
+	local ns_id = vim.api.nvim_create_namespace("indent_virtual_text")
+	vim.api.nvim_buf_clear_namespace(0, ns_id, 0, -1) -- Clear previous virtual text
+
+	local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+	local indent_map = {
+		["\\mainpoint"] = "  ", -- 2 spaces
+		["\\secondarypoint"] = "    ", -- 4 spaces
+		["\\tertiarypoint"] = "      ", -- 6 spaces
+		["\\quaternarypoint"] = "        ", -- 8 spaces
+		["\\quinarypoint"] = "          ", -- 10 spaces
+	}
+
+	for i, line in ipairs(lines) do
+		for pattern, indent in pairs(indent_map) do
+			local start_idx = line:find(pattern)
+			if start_idx then
+				vim.api.nvim_buf_set_extmark(0, ns_id, i - 1, 0, {
+					virt_text = { { indent, "NonText" } },
+					virt_text_pos = "inline",
+				})
+				break
+			end
+		end
+	end
+end
+
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufWinEnter", "TextChanged", "TextChangedI" }, {
+	pattern = "*.md",
+	callback = add_virtual_indentation,
+})
