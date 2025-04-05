@@ -6,7 +6,7 @@ return {
 
 		configs.setup({
 			auto_install = true,
-			ensure_installed = { "markdown", "latex" },
+			ensure_installed = { "markdown", "latex", "regex" },
 			highlight = { enable = true },
 			indent = { enable = true },
 		})
