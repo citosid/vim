@@ -43,13 +43,19 @@ map("i", "jj", "<ESC>", { noremap = true, silent = true, desc = "<ESC>" })
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "Turn the current file into an executable", silent = true })
 
 -- Highlight for pandoc
-map("v", "<leader>hy", 'c\\hly{<c-r>"}<esc>')
-map("v", "<leader>hg", 'c\\hlg{<c-r>"}<esc>')
-map("v", "<leader>hb", 'c\\hlb{<c-r>"}<esc>')
-map("v", "<leader>hr", 'c\\hlr{<c-r>"}<esc>')
-map("v", "<leader>ho", 'c\\hlo{<c-r>"}<esc>')
-map("v", "<leader>hp", 'c\\hlpn{<c-r>"}<esc>')
-map("v", "<leader>hq", 'c\\hlq{<c-r>"}<esc>')
+map("v", "<leader>hy", 'c\\hly{<c-r>"}<esc>', { desc = "Highlight yellow" })
+map("v", "<leader>hg", 'c\\hlg{<c-r>"}<esc>', { desc = "Highlight green" })
+map("v", "<leader>hb", 'c\\hlb{<c-r>"}<esc>', { desc = "Highlight blue" })
+map("v", "<leader>hr", 'c\\hlr{<c-r>"}<esc>', { desc = "Highlight red" })
+map("v", "<leader>ho", 'c\\hlo{<c-r>"}<esc>', { desc = "Highlight orange" })
+map("v", "<leader>hp", 'c\\hlpn{<c-r>"}<esc>', { desc = "Highlight paragraph number" })
+map("v", "<leader>hq", 'c\\hlq{<c-r>"}<esc>', { desc = "Highlight question" })
+
+map({ "v", "n" }, "<leader>tmp", 'c\\mainpoint{<c-r>"}<esc>', { desc = "Highlight main point" })
+map({ "v", "n" }, "<leader>tsp", 'c\\secondarypoint{<c-r>"}<esc>', { desc = "Highlight secondary point" })
+map({ "v", "n" }, "<leader>ttp", 'c\\tertiarypoint{<c-r>"}<esc>', { desc = "Highlight tertiarypoint point" })
+map({ "v", "n" }, "<leader>tqp", 'c\\quaternarypoint{<c-r>"}<esc>', { desc = "Highlight quaternary point" })
+map({ "v", "n" }, "<leader>tup", 'c\\quinarypoint{<c-r>"}<esc>', { desc = "Highlight quinarypoint point" })
 
 -- Key maps for pandoc
 map("n", "<leader>bp", function()

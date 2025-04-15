@@ -5,7 +5,7 @@ return {
 	},
 	event = "BufReadPre",
 	lazy = true,
-	version = "v0.*",
+	version = "1.*",
 	opts = {
 		keymap = { preset = "enter" },
 

@@ -42,7 +42,10 @@ vim.cmd([[
     autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\marginpar{\\|\\}\\ze.')
     autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\color\\[rgb\\]{\\([^}]*\\)}')
 
+    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\{width*}\\ze.')
+
     autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\note{\\|\\}\\ze.')
+    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\textit{\\|\\}\\ze.')
     autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\mainpoint{\\|\\}\\ze.')
     autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\secondarypoint{\\|\\}\\ze.')
     autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\tertiarypoint{\\|\\}\\ze.')
@@ -60,11 +63,11 @@ local function add_virtual_indentation()
 
 	local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
 	local indent_map = {
-		["\\mainpoint"] = "  ", -- 2 spaces
+		["\\mainpoint"] = "", -- 0 spaces
 		["\\secondarypoint"] = "    ", -- 4 spaces
-		["\\tertiarypoint"] = "      ", -- 6 spaces
-		["\\quaternarypoint"] = "        ", -- 8 spaces
-		["\\quinarypoint"] = "          ", -- 10 spaces
+		["\\tertiarypoint"] = "        ", -- 8 spaces
+		["\\quaternarypoint"] = "            ", -- 12 spaces
+		["\\quinarypoint"] = "                ", -- 16 spaces
 	}
 
 	for i, line in ipairs(lines) do
