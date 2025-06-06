@@ -21,37 +21,38 @@ vim.api.nvim_set_hl(0, "HlyYellow", { bg = "#f9e2af", fg = "#1e1e2e" })
 vim.api.nvim_set_hl(0, "HlyItalic", { fg = "#cdd6f4", italic = true }) -- Italic highlight
 vim.api.nvim_set_hl(0, "HlyBold", { fg = "#f5e0dc", bold = true }) -- Bold highlight
 
+-- Function to apply markdown highlighting
+local function apply_markdown_highlights()
+	vim.fn.matchadd("HlyBlue", "\\\\hlb{\\(\\_.\\{-}\\)*\\}")
+	vim.fn.matchadd("HlyGreen", "\\\\hlg{\\(\\_.\\{-}\\)*\\}")
+	vim.fn.matchadd("HlyOrange", "\\\\hlo{\\(\\_.\\{-}\\)*\\}")
+	vim.fn.matchadd("HlyRed", "\\\\hlr{\\(\\_.\\{-}\\)*\\}")
+	vim.fn.matchadd("HlyYellow", "\\\\hly{\\(\\_.\\{-}\\)*\\}", 10)
+	vim.fn.matchadd("HlyItalic", "\\\\hlq{\\(\\_.\\{-}\\)*\\}")
+	vim.fn.matchadd("HlyBold", "\\\\hlpn{\\(\\_.\\{-}\\)*\\}")
+	vim.fn.matchadd("HlyRed", "\\\\marginpar{\\([^{}]*\\|{[^{}]*}\\)*}")
+	vim.fn.matchadd("Conceal", "\\\\hl[bgoqry]{\\|}")
+	vim.fn.matchadd("Conceal", "\\\\hlpn{\\|\\}\\ze.")
+	vim.fn.matchadd("Conceal", "\\\\marginpar{\\|\\}\\ze.")
+	vim.fn.matchadd("Conceal", "\\\\color\\[rgb\\]{\\([^}]*\\)}")
+	vim.fn.matchadd("Conceal", "\\\\{width*}\\ze.")
+	vim.fn.matchadd("Conceal", "\\\\note{\\|\\}\\ze.")
+	vim.fn.matchadd("Conceal", "\\\\textit{\\|\\}\\ze.")
+	vim.fn.matchadd("Conceal", "\\\\mainpoint{\\|\\}\\ze.")
+	vim.fn.matchadd("Conceal", "\\\\secondarypoint{\\|\\}\\ze.")
+	vim.fn.matchadd("Conceal", "\\\\tertiarypoint{\\|\\}\\ze.")
+	vim.fn.matchadd("Conceal", "\\\\quaternarypoint{\\|\\}\\ze.")
+	vim.fn.matchadd("Conceal", "\\\\quinarypoint{\\|\\}\\ze.")
+end
+
+-- Make function global so it can be called from autocmd
+_G.apply_markdown_highlights = apply_markdown_highlights
+
+-- Original autocmd configuration
 vim.cmd([[
   augroup HlyHighlight
     autocmd!
-
-    autocmd FileType markdown lua vim.fn.matchadd('HlyBlue', '\\\\hlb{\\(\\_.\\{-}\\)*\\}')
-    autocmd FileType markdown lua vim.fn.matchadd('HlyGreen', '\\\\hlg{\\(\\_.\\{-}\\)*\\}')
-    autocmd FileType markdown lua vim.fn.matchadd('HlyOrange', '\\\\hlo{\\(\\_.\\{-}\\)*\\}')
-    autocmd FileType markdown lua vim.fn.matchadd('HlyRed', '\\\\hlr{\\(\\_.\\{-}\\)*\\}')
-    autocmd FileType markdown lua vim.fn.matchadd('HlyYellow', '\\\\hly{\\(\\_.\\{-}\\)*\\}', 10)
-
-    autocmd FileType markdown lua vim.fn.matchadd('HlyItalic', '\\\\hlq{\\(\\_.\\{-}\\)*\\}')
-    autocmd FileType markdown lua vim.fn.matchadd('HlyBold', '\\\\hlpn{\\(\\_.\\{-}\\)*\\}')
-
-    autocmd FileType markdown lua vim.fn.matchadd('HlyRed', '\\\\marginpar{\\([^{}]*\\|{[^{}]*}\\)*}')
-
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hl[bgoqry]{\\|}')
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\hlpn{\\|\\}\\ze.')
-
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\marginpar{\\|\\}\\ze.')
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\color\\[rgb\\]{\\([^}]*\\)}')
-
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\{width*}\\ze.')
-
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\note{\\|\\}\\ze.')
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\textit{\\|\\}\\ze.')
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\mainpoint{\\|\\}\\ze.')
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\secondarypoint{\\|\\}\\ze.')
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\tertiarypoint{\\|\\}\\ze.')
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\quaternarypoint{\\|\\}\\ze.')
-    autocmd FileType markdown lua vim.fn.matchadd('Conceal', '\\\\quinarypoint{\\|\\}\\ze.')
-
+    autocmd FileType markdown lua apply_markdown_highlights()
     au FileType markdown setlocal textwidth=120
     au FileType markdown setlocal spell
   augroup END
