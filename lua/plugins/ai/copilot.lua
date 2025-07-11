@@ -6,6 +6,11 @@ return {
 				expr = true,
 				replace_keycodes = false,
 			})
+			-- Add <C-o> to accept the next token
+			vim.keymap.set("i", "<C-o>", "copilot#AcceptWord()", {
+				expr = true,
+				replace_keycodes = false,
+			})
 			vim.g.copilot_no_tab_map = true
 			vim.g.copilot_model = "claude-3.7-sonnet-thought"
 		end,
