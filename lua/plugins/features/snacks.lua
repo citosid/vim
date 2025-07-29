@@ -50,9 +50,9 @@ return {
 			words = { enabled = true },
 			zen = {
 				toggles = {
-					dim = true,
-					git_signs = true,
-					mini_diff_signs = true,
+					dim = false,
+					git_signs = false,
+					mini_diff_signs = false,
 					diagnostics = true,
 					inlay_hints = true,
 				},
