@@ -30,43 +30,43 @@ return {
 			"saghen/blink.cmp",
 		},
 		config = function()
-			local lspconfig = require("lspconfig")
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
-			local setup_options = {
-				capabilities = capabilities,
-			}
 
-			-- Each one of these are the ones added in mason-lspconfig.nvim
-			lspconfig.bashls.setup(setup_options)
-			-- lspconfig.harper_ls.setup({
-			-- 	capabilities = capabilities,
-			-- 	settings = {
-			-- 		["harper-ls"] = {
-			-- 			isolateEnglish = true,
-			-- 		},
-			-- 	},
+			-- Base setup options applied to all servers
+			vim.lsp.config("*", {
+				capabilities = capabilities,
+			})
+
+			-- Individual server configs
+			vim.lsp.config("bashls", {})
+			-- vim.lsp.config("harper_ls", {
+			--   capabilities = capabilities,
+			--   settings = {
+			--     ["harper-ls"] = {
+			--       isolateEnglish = true,
+			--     },
+			--   },
 			-- })
-			lspconfig.lua_ls.setup(setup_options)
-			lspconfig.pyright.setup(setup_options)
-			lspconfig.gopls.setup(setup_options)
+			vim.lsp.config("lua_ls", {})
+			vim.lsp.config("pyright", {})
+			vim.lsp.config("gopls", {})
+
+			-- Enable all servers
+			vim.lsp.enable({ "bashls", "lua_ls", "pyright", "gopls" })
+			-- vim.lsp.enable("harper_ls")
 
 			-- Global mappings.
-			-- See `:help vim.diagnostic.*` for documentation on any of the below functions
 			vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
 			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 			vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
-			-- Use LspAttach autocommand to only map the following keys
-			-- after the language server attaches to the current buffer
+			-- Buffer-local mappings after attach
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 				callback = function(ev)
-					-- Enable completion triggered by <c-x><c-o>
 					vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-					-- Buffer local mappings.
-					-- See `:help vim.lsp.*` for documentation on any of the below functions
 					local opts = { buffer = ev.buf }
 					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 					vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
