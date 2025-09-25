@@ -6,9 +6,6 @@ return {
 		config = function()
 			require("typewriter").setup({
 				enable_horizontal_scroll = false,
-				scrolloff = {
-					cursor_lines_above = 4,
-				},
 			})
 		end,
 		opts = {},
