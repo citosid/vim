@@ -89,3 +89,11 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufWinEnter", "TextChanged", "Text
 	pattern = "*.md",
 	callback = add_virtual_indentation,
 })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		if vim.fn.argc() == 0 then
+			require("telescope.builtin").find_files()
+		end
+	end,
+})
