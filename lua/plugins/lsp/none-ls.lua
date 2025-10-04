@@ -62,6 +62,7 @@ return {
 					},
 					args = {
 						"check",
+						"--config-path=/Users/acruz/biome.json",
 						"--write",
 						"--unsafe",
 						"--formatter-enabled=true",
