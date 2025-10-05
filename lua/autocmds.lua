@@ -49,14 +49,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- _G.apply_markdown_highlights = apply_markdown_highlights
 
 -- Original autocmd configuration
--- vim.cmd([[
---   augroup HlyHighlight
---     autocmd!
---     autocmd FileType markdown lua apply_markdown_highlights()
---     au FileType markdown setlocal textwidth=120
---     au FileType markdown setlocal spell
---   augroup END
--- ]])
+vim.cmd([[
+  augroup MarkdownSettings
+    autocmd!
+    " autocmd FileType markdown lua apply_markdown_highlights()
+    au FileType markdown setlocal textwidth=120
+    au FileType markdown setlocal spell
+  augroup END
+]])
 --
 -- local function add_virtual_indentation()
 -- 	local ns_id = vim.api.nvim_create_namespace("indent_virtual_text")
