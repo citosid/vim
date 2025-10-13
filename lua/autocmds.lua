@@ -57,38 +57,38 @@ vim.cmd([[
     au FileType markdown setlocal spell
   augroup END
 ]])
---
--- local function add_virtual_indentation()
--- 	local ns_id = vim.api.nvim_create_namespace("indent_virtual_text")
--- 	vim.api.nvim_buf_clear_namespace(0, ns_id, 0, -1) -- Clear previous virtual text
---
--- 	local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
--- 	local indent_map = {
--- 		["\\mainpoint"] = "", -- 0 spaces
--- 		["\\secondarypoint"] = "    ", -- 4 spaces
--- 		["\\tertiarypoint"] = "        ", -- 8 spaces
--- 		["\\quaternarypoint"] = "            ", -- 12 spaces
--- 		["\\quinarypoint"] = "                ", -- 16 spaces
--- 	}
---
--- 	for i, line in ipairs(lines) do
--- 		for pattern, indent in pairs(indent_map) do
--- 			local start_idx = line:find(pattern)
--- 			if start_idx then
--- 				vim.api.nvim_buf_set_extmark(0, ns_id, i - 1, 0, {
--- 					virt_text = { { indent, "NonText" } },
--- 					virt_text_pos = "inline",
--- 				})
--- 				break
--- 			end
--- 		end
--- 	end
--- end
---
--- vim.api.nvim_create_autocmd({ "BufReadPost", "BufWinEnter", "TextChanged", "TextChangedI" }, {
--- 	pattern = "*.md",
--- 	callback = add_virtual_indentation,
--- })
+
+local function add_virtual_indentation()
+	local ns_id = vim.api.nvim_create_namespace("indent_virtual_text")
+	vim.api.nvim_buf_clear_namespace(0, ns_id, 0, -1) -- Clear previous virtual text
+
+	local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+	local indent_map = {
+		["\\mainpoint"] = "", -- 0 spaces
+		["\\secondarypoint"] = "    ", -- 4 spaces
+		["\\tertiarypoint"] = "        ", -- 8 spaces
+		["\\quaternarypoint"] = "            ", -- 12 spaces
+		["\\quinarypoint"] = "                ", -- 16 spaces
+	}
+
+	for i, line in ipairs(lines) do
+		for pattern, indent in pairs(indent_map) do
+			local start_idx = line:find(pattern)
+			if start_idx then
+				vim.api.nvim_buf_set_extmark(0, ns_id, i - 1, 0, {
+					virt_text = { { indent, "NonText" } },
+					virt_text_pos = "inline",
+				})
+				break
+			end
+		end
+	end
+end
+
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufWinEnter", "TextChanged", "TextChangedI" }, {
+	pattern = "*.md",
+	callback = add_virtual_indentation,
+})
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
