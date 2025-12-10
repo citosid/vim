@@ -1000,6 +1000,34 @@ jj                           # Escape to normal mode
 
 ---
 
+## Commit Conventions
+
+This project uses **Conventional Commits** with **Commitizen** integration. When creating commits:
+
+**Format**: `<type>: <description> <emoji>`
+
+**Rules**:
+- **Type** (no emoji): `fix`, `feat`, `docs`, `chore`, `refactor`, `test`, `perf`, `style`
+- **Description**: Clear, concise description of the change
+- **Emoji** (required): Place emoji in the message body/description, NOT in the type prefix
+- **Examples**:
+  - ✅ `fix: update deprecated vim.loop to vim.uv API ✨`
+  - ✅ `feat: add new telescope keybinding 🔍`
+  - ❌ `✨ fix: add new feature` (emoji in type - incorrect)
+  - ❌ `fix: add new feature` (no emoji - incomplete)
+
+**Commonly Used Emojis**:
+- `✨` - New feature or improvement
+- `🐛` - Bug fix
+- `📝` - Documentation
+- `🔧` - Configuration/chore
+- `⚡` - Performance improvement
+- `🎨` - Code style/formatting
+- `🔍` - Search/find features
+- `🚀` - Major update
+
+---
+
 ## Final Notes for AI Assistants
 
 ### How to Help Users Effectively
