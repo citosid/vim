@@ -6,5 +6,4 @@ return {
 	require("plugins.features.noice"),
 	require("plugins.features.silicon"),
 	require("plugins.features.snacks"),
-	require("plugins.features.spell"),
 }

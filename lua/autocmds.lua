@@ -57,31 +57,60 @@ vim.cmd([[
   augroup END
 ]])
 
+local notes_dir = "/Users/acruz/Library/CloudStorage/Dropbox/Personal/notes"
+local debounce_timer = {}
+
+local function is_in_notes_dir()
+	local buf_path = vim.fn.expand("%:p")
+	return buf_path:sub(1, #notes_dir) == notes_dir
+end
+
 local function add_virtual_indentation()
+	-- Only run for files in notes directory
+	if not is_in_notes_dir() then
+		return
+	end
+
 	local ns_id = vim.api.nvim_create_namespace("indent_virtual_text")
-	vim.api.nvim_buf_clear_namespace(0, ns_id, 0, -1) -- Clear previous virtual text
+	local bufnr = vim.api.nvim_get_current_buf()
 
-	local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-	local indent_map = {
-		["\\mainpoint"] = "", -- 0 spaces
-		["\\secondarypoint"] = "    ", -- 4 spaces
-		["\\tertiarypoint"] = "        ", -- 8 spaces
-		["\\quaternarypoint"] = "            ", -- 12 spaces
-		["\\quinarypoint"] = "                ", -- 16 spaces
-	}
+	-- Debounce: cancel previous timer and set new one
+	if debounce_timer[bufnr] then
+		vim.fn.timer_stop(debounce_timer[bufnr])
+	end
 
-	for i, line in ipairs(lines) do
-		for pattern, indent in pairs(indent_map) do
-			local start_idx = line:find(pattern)
-			if start_idx then
-				vim.api.nvim_buf_set_extmark(0, ns_id, i - 1, 0, {
-					virt_text = { { indent, "NonText" } },
-					virt_text_pos = "inline",
-				})
-				break
+	debounce_timer[bufnr] = vim.fn.timer_start(150, function()
+		if not vim.api.nvim_buf_is_valid(bufnr) then
+			return
+		end
+
+		-- Clear namespace and recompute
+		vim.api.nvim_buf_clear_namespace(bufnr, ns_id, 0, -1)
+
+		local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+		local indent_map = {
+			["\\mainpoint"] = "", -- 0 spaces
+			["\\secondarypoint"] = "    ", -- 4 spaces
+			["\\tertiarypoint"] = "        ", -- 8 spaces
+			["\\quaternarypoint"] = "            ", -- 12 spaces
+			["\\quinarypoint"] = "                ", -- 16 spaces
+		}
+
+		for i, line in ipairs(lines) do
+			for pattern, indent in pairs(indent_map) do
+				local start_idx = line:find(pattern)
+				if start_idx then
+					vim.api.nvim_buf_set_extmark(bufnr, ns_id, i - 1, 0, {
+						virt_text = { { indent, "NonText" } },
+						virt_text_pos = "inline",
+					})
+					break
+				end
 			end
 		end
-	end
+
+		debounce_timer[bufnr] = nil
+	end)
 end
 
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufWinEnter", "TextChanged", "TextChangedI" }, {
