@@ -12,14 +12,30 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-vim.api.nvim_set_hl(0, "HlyBlue", { bg = "#89b4fa", fg = "#1e1e2e" })
-vim.api.nvim_set_hl(0, "HlyGreen", { bg = "#a6e3a1", fg = "#1e1e2e" })
-vim.api.nvim_set_hl(0, "HlyOrange", { bg = "#fab387", fg = "#1e1e2e" })
-vim.api.nvim_set_hl(0, "HlyRed", { bg = "#f4a7b6", fg = "#1e1e2e" })
-vim.api.nvim_set_hl(0, "HlyYellow", { bg = "#f9e2af", fg = "#1e1e2e" })
+-- Get dynamic colors from Catppuccin palette
+local function setup_highlight_colors()
+	local cat = require("catppuccin.palettes").get_palette()
+	local base = cat.base
+	local text = cat.text
 
-vim.api.nvim_set_hl(0, "HlyItalic", { fg = "#cdd6f4", italic = true }) -- Italic highlight
-vim.api.nvim_set_hl(0, "HlyBold", { fg = "#f5e0dc", bold = true }) -- Bold highlight
+	-- Color highlights: use theme colors instead of hardcoded hex
+	vim.api.nvim_set_hl(0, "HlyBlue", { bg = cat.blue, fg = base })
+	vim.api.nvim_set_hl(0, "HlyGreen", { bg = cat.green, fg = base })
+	vim.api.nvim_set_hl(0, "HlyOrange", { bg = cat.peach, fg = base })
+	vim.api.nvim_set_hl(0, "HlyRed", { bg = cat.red, fg = base })
+	vim.api.nvim_set_hl(0, "HlyYellow", { bg = cat.yellow, fg = base })
+
+	-- Text highlights: use light foreground colors
+	vim.api.nvim_set_hl(0, "HlyItalic", { fg = text, italic = true })
+	vim.api.nvim_set_hl(0, "HlyBold", { fg = cat.cream, bold = true })
+end
+
+-- Set up highlights on startup and when colorscheme changes
+setup_highlight_colors()
+vim.api.nvim_create_autocmd("ColorScheme", {
+	callback = setup_highlight_colors,
+	desc = "Update highlight colors when colorscheme changes",
+})
 
 -- Function to apply markdown highlighting
 local function apply_markdown_highlights()
