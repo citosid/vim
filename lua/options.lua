@@ -86,3 +86,15 @@ vim.diagnostic.config({
 		},
 	},
 })
+
+-- Markdown highlight colors (for pandoc \hlb, \hlg, etc. tags)
+-- Customize these to match your theme or preference
+vim.g.markdown_highlight_colors = {
+	blue = { bg = "#89b4fa", fg = "#1e1e2e" },
+	green = { bg = "#a6e3a1", fg = "#1e1e2e" },
+	orange = { bg = "#fab387", fg = "#1e1e2e" },
+	red = { bg = "#f4a7b6", fg = "#1e1e2e" },
+	yellow = { bg = "#f9e2af", fg = "#1e1e2e" },
+	italic = { fg = "#cdd6f4", italic = true },
+	bold = { fg = "#f5e0dc", bold = true },
+}

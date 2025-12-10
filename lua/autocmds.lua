@@ -12,30 +12,24 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- Get dynamic colors from Catppuccin palette
+-- Apply markdown highlight colors from options.lua config
 local function setup_highlight_colors()
-	local cat = require("catppuccin.palettes").get_palette()
-	local base = cat.base
-	local text = cat.text
+	local colors = vim.g.markdown_highlight_colors or {}
 
-	-- Color highlights: use theme colors instead of hardcoded hex
-	vim.api.nvim_set_hl(0, "HlyBlue", { bg = cat.blue, fg = base })
-	vim.api.nvim_set_hl(0, "HlyGreen", { bg = cat.green, fg = base })
-	vim.api.nvim_set_hl(0, "HlyOrange", { bg = cat.peach, fg = base })
-	vim.api.nvim_set_hl(0, "HlyRed", { bg = cat.red, fg = base })
-	vim.api.nvim_set_hl(0, "HlyYellow", { bg = cat.yellow, fg = base })
+	-- Apply color highlights (configured in options.lua)
+	vim.api.nvim_set_hl(0, "HlyBlue", colors.blue or { bg = "#89b4fa", fg = "#1e1e2e" })
+	vim.api.nvim_set_hl(0, "HlyGreen", colors.green or { bg = "#a6e3a1", fg = "#1e1e2e" })
+	vim.api.nvim_set_hl(0, "HlyOrange", colors.orange or { bg = "#fab387", fg = "#1e1e2e" })
+	vim.api.nvim_set_hl(0, "HlyRed", colors.red or { bg = "#f4a7b6", fg = "#1e1e2e" })
+	vim.api.nvim_set_hl(0, "HlyYellow", colors.yellow or { bg = "#f9e2af", fg = "#1e1e2e" })
 
-	-- Text highlights: use light foreground colors
-	vim.api.nvim_set_hl(0, "HlyItalic", { fg = text, italic = true })
-	vim.api.nvim_set_hl(0, "HlyBold", { fg = cat.cream, bold = true })
+	-- Apply text highlights (configured in options.lua)
+	vim.api.nvim_set_hl(0, "HlyItalic", colors.italic or { fg = "#cdd6f4", italic = true })
+	vim.api.nvim_set_hl(0, "HlyBold", colors.bold or { fg = "#f5e0dc", bold = true })
 end
 
--- Set up highlights on startup and when colorscheme changes
+-- Set up highlights on startup
 setup_highlight_colors()
-vim.api.nvim_create_autocmd("ColorScheme", {
-	callback = setup_highlight_colors,
-	desc = "Update highlight colors when colorscheme changes",
-})
 
 -- Function to apply markdown highlighting
 local function apply_markdown_highlights()
