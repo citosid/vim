@@ -209,9 +209,11 @@ graph LR
 
 **Completion Sources** (priority order):
 1. LSP (language server)
-2. Copilot (AI suggestions)
-3. Snippets (code templates)
-4. Buffer (surrounding text)
+2. Snippets (code templates)
+3. Buffer (surrounding text)
+4. Path (file paths)
+
+**Note**: Copilot is **intentionally separate** — it runs as a parallel suggestion engine with `<C-Y>` / `<C-o>` keybindings rather than in the completion menu. See [AI Completion Interface](#ai-completion-interface) for details.
 
 **Triggers**:
 - Automatic on character input
@@ -230,6 +232,23 @@ graph LR
 
 **Configuration File**: `lua/plugins/ai/copilot.lua`
 
+**Acceptance Keybindings**:
+| Binding | Action |
+|---------|--------|
+| `<C-Y>` | Accept full suggestion |
+| `<C-o>` | Accept next token only |
+
+**Architecture Decision**: Copilot runs as a **parallel suggestion engine**, not integrated into Blink.cmp completion menu.
+
+**Design Rationale**:
+- ✅ **Faster interaction**: `<C-Y>` / `<C-o>` is quicker than opening completion menu
+- ✅ **Non-intrusive**: Ghost text appears inline without menu overhead
+- ✅ **Cleaner workflow**: Single key press to accept vs menu navigation
+- ✅ **Minimal latency**: No menu rendering delay
+- **Trade-off**: Copilot suggestions appear separately from LSP/snippets/buffer suggestions
+
+**Why Not in Blink.cmp**: Completion menus add visual and performance overhead. Copilot's inline suggestions with quick accept keys provide superior UX for coding workflows.
+
 **API Functions**:
 ```lua
 :Copilot status          -- Check Copilot status
@@ -245,7 +264,8 @@ graph LR
 **Model**: Claude 3.7 Sonnet (latest)
 
 **Integration Points**:
-- Inline completions via Blink.cmp
+- Ghost text suggestions (inline, non-menu based)
+- Acceptance via `<C-Y>` and `<C-o>` keybindings
 - Chat interface for conversations
 - Code-specific context from open buffers
 
