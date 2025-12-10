@@ -47,7 +47,7 @@ end
 -- Make function global so it can be called from autocmd
 _G.apply_markdown_highlights = apply_markdown_highlights
 
--- Original autocmd configuration
+-- Markdown-specific settings (spell language configured in options.lua)
 vim.cmd([[
   augroup MarkdownSettings
     autocmd!
