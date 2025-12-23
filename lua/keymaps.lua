@@ -88,5 +88,36 @@ end, {
 	silent = true,
 })
 
+-- Key maps for pandoc - convert to letter
+map("n", "<leader>bl", function()
+	local input_file = vim.fn.expand("%")
+	local output_file = input_file:gsub("(.*/)(.*)%.md$", "%1pdf/%2.pdf")
+	local cwd = vim.fn.getcwd()
+	local header_file = cwd .. "/header.letter.tex"
+	local command = "pandoc --from=gfm --to=pdf '"
+		.. input_file
+		.. "' --template='"
+		.. header_file
+		.. "' -o '"
+		.. output_file
+		.. "'"
+
+	vim.notify(command)
+
+	-- Execute the command silently
+	vim.fn.system(command)
+
+	-- Check if the command was successful and notify
+	if vim.v.shell_error == 0 then
+		vim.notify("Letter PDF created successfully: " .. output_file)
+	else
+		vim.notify("Error in creating letter PDF", vim.log.levels.ERROR)
+	end
+end, {
+	desc = "Turn the markdown file into a letter PDF",
+	noremap = true,
+	silent = true,
+})
+
 -- Key maps for spelling
 map("n", "<leader>cse", "<cmd>set spelllang=es<CR>", { desc = "Change spell language to Spanish" })
