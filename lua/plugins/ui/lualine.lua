@@ -42,7 +42,6 @@ return {
 					},
 				},
 				lualine_b = {
-					{ "branch", icon = "" },
 					{
 						"diff",
 						symbols = {
@@ -67,26 +66,13 @@ return {
 						"filename",
 						icon = "",
 						file_status = true,
-						path = 1,
+						path = 0,
 					},
 				},
 				lualine_x = {
-					{
-						"encoding",
-						icon = "",
-					},
-					{
-						"fileformat",
-						icon = "󰇅",
-					},
 					"filetype",
 				},
-				lualine_y = {
-					{
-						"progress",
-						icon = "",
-					},
-				},
+				lualine_y = {},
 				lualine_z = {
 					{
 						"location",
