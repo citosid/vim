@@ -8,7 +8,7 @@ return {
 				ensure_installed = {
 					-- Diagnostics
 					"biome", -- This is both, formatter and diagnostics
-					"markdownlint", -- This is both, formatter and diagnostics
+					"markdownlint-cli2",
 
 					-- Formatters
 					"stylua",
@@ -39,15 +39,22 @@ return {
 				-- These come from the configuration for mason-null-ls.nvim
 
 				-- Diagnostics
-				nls.builtins.diagnostics.markdownlint,
 				nls.builtins.diagnostics.golangci_lint,
 
 				-- Formatter
 				nls.builtins.formatting.black,
-				nls.builtins.formatting.markdownlint,
 				nls.builtins.formatting.stylua,
 				nls.builtins.formatting.gofmt,
 				nls.builtins.formatting.goimports,
+
+				-- markdownlint-cli2
+				nls.builtins.diagnostics.markdownlint_cli2.with({
+					args = {
+						"--config",
+						vim.fn.getcwd() .. "/.markdownlint-cli2.yaml",
+						"--",
+					},
+				}),
 
 				-- Biome Typescript
 				nls.builtins.formatting.biome.with({
