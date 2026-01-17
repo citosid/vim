@@ -50,9 +50,15 @@ return {
 				-- markdownlint-cli2
 				nls.builtins.diagnostics.markdownlint_cli2.with({
 					args = {
-						"--config",
-						vim.fn.getcwd() .. "/.markdownlint-cli2.yaml",
-						"--",
+						"$FILENAME",
+					},
+				}),
+
+				nls.builtins.formatting.markdownlint.with({
+					command = "markdownlint-cli2",
+					args = {
+						"--fix",
+						"$FILENAME",
 					},
 				}),
 
