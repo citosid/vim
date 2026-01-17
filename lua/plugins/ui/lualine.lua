@@ -1,97 +1,80 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
-	enabled = true,
-	lazy = true,
 	event = "VeryLazy",
-	config = function()
-		require("lualine").setup({
-			options = {
-				icons_enabled = true,
-				theme = require("plugins.ui.lualine.theme"),
-				section_separators = { left = "", right = "" },
-				component_separators = { left = "", right = "" },
-				disabled_filetypes = {
-					statusline = {},
-					winbar = {},
-				},
-				ignore_focus = {},
-				always_divide_middle = true,
-				always_show_tabline = true,
-				globalstatus = true,
-				refresh = {
-					statusline = 100,
-					tabline = 100,
-					winbar = 100,
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	opts = {
+		options = {
+			icons_enabled = true,
+			theme = require("plugins.ui.lualine.theme"),
+			section_separators = { left = "", right = "" },
+			component_separators = { left = "", right = "" },
+			globalstatus = true,
+			refresh = {
+				statusline = 100,
+				tabline = 100,
+				winbar = 100,
+			},
+		},
+		sections = {
+			lualine_a = {
+				{
+					"mode",
+					fmt = function(mode)
+						local icons = {
+							NORMAL = "󰊠",
+							INSERT = "󰊄",
+							VISUAL = "󰈈",
+							VLINE = "󰈈",
+							VBLOCK = "󰈈",
+							REPLACE = "󰛔",
+							COMMAND = "󰘳",
+							TERMINAL = "󰆍",
+						}
+						return icons[mode] or mode
+					end,
 				},
 			},
-			sections = {
-				lualine_a = {
-					{
-						"mode",
-						fmt = function(str)
-							local mode_icons = {
-								["NORMAL"] = "",
-								["INSERT"] = "",
-								["VISUAL"] = "",
-								["REPLACE"] = "",
-								["COMMAND"] = "",
-							}
-							return mode_icons[str] or str
-						end,
+			lualine_b = {
+				{
+					"diff",
+					symbols = {
+						added = "󰐕 ",
+						modified = "󰆓 ",
+						removed = "󰍴 ",
 					},
 				},
-				lualine_b = {
-					{
-						"diff",
-						symbols = {
-							added = " ",
-							modified = " ",
-							removed = " ",
-						},
-					},
-					{
-						"diagnostics",
-						sections = { "error", "warn", "info", "hint" },
-						symbols = {
-							error = "⛔ ",
-							hint = "💡 ",
-							info = "💁 ",
-							warn = "󱍼 ",
-						},
+				{
+					"diagnostics",
+					sections = { "error", "warn", "info", "hint" },
+					symbols = {
+						error = "󰅚 ",
+						warn = "󰀪 ",
+						info = "󰋽 ",
+						hint = "󰌶 ",
 					},
 				},
-				lualine_c = {
-					{
-						"filename",
-						icon = "",
-						file_status = true,
-						path = 0,
-					},
+			},
+			lualine_c = {
+				{
+					"filename",
+					icon = "󰈙",
+					path = 1,
 				},
-				lualine_x = {
+			},
+			lualine_x = {
+				{
 					"filetype",
-				},
-				lualine_y = {},
-				lualine_z = {
-					{
-						"location",
-						icon = "",
-					},
+					icon_only = true,
+					colored = true,
 				},
 			},
-			inactive_sections = {
-				lualine_a = {},
-				lualine_b = {},
-				lualine_c = {},
-				lualine_x = {},
-				lualine_y = {},
-				lualine_z = {},
+			lualine_y = {},
+			lualine_z = {
+				{
+					"location",
+					icon = "󰍉",
+				},
 			},
-			tabline = {},
-			winbar = {},
-			inactive_winbar = {},
-			extensions = {},
-		})
-	end,
+		},
+	},
 }
