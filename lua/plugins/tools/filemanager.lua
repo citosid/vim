@@ -4,9 +4,9 @@ return {
 		branch = "v3.x",
 		lazy = true,
 		cmd = "Neotree",
-		keys = {
-			{ "<leader>p", "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
-		},
+	keys = {
+		{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
+	},
 		config = function()
 			require("neo-tree").setup({
 				close_if_last_window = true,

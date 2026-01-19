@@ -2,8 +2,7 @@ local map = require("utils").map
 
 -- Buffers
 map("n", "<leader>bn", "<cmd>bnext<cr>", { desc = "Go to next buffer" })
-map("n", "<leader>l", "<cmd>bnext<cr>", { desc = "Go to next buffer" })
-map("n", "<leader>h", "<cmd>bprevious<cr>", { desc = "Go to previous buffer" })
+map("n", "<leader>bp", "<cmd>bprevious<cr>", { desc = "Go to previous buffer" })
 
 -- Disable annoying Q
 map("n", "Q", "<nop>")
@@ -13,14 +12,6 @@ map("n", "<leader>.", "<cmd>e .gitlab-ci.yml<CR>", { desc = "Opens the Gitlab CI
 
 -- Hide search results
 map("n", "<leader>ns", "<cmd>noh<cr>", { desc = "Hide search results" })
-
--- Refactor
-map(
-	{ "n", "x" },
-	"<leader>ri",
-	"<cmd>lua vim.lsp.buf.rename()<cr>",
-	{ desc = "Rename pointer under cursor for current buffer" }
-)
 
 -- Save
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
@@ -58,7 +49,7 @@ map({ "v", "n" }, "<leader>tqp", 'c\\quaternarypoint{<c-r>"}<esc>', { desc = "Hi
 map({ "v", "n" }, "<leader>tup", 'c\\quinarypoint{<c-r>"}<esc>', { desc = "Highlight quinarypoint point" })
 
 -- Key maps for pandoc
-map("n", "<leader>bp", function()
+map("n", "<leader>pb", function()
 	local input_file = vim.fn.expand("%")
 	local output_file = input_file:gsub("(.*/)(.*)%.md$", "%1pdf/%2.pdf")
 	local cwd = vim.fn.getcwd()
@@ -89,7 +80,7 @@ end, {
 })
 
 -- Key maps for pandoc - convert to letter
-map("n", "<leader>bl", function()
+map("n", "<leader>pl", function()
 	local input_file = vim.fn.expand("%")
 	local output_file = input_file:gsub("(.*/)(.*)%.md$", "%1pdf/%2.pdf")
 	local cwd = vim.fn.getcwd()
