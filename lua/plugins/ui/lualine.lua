@@ -5,7 +5,7 @@ return {
 	opts = {
 		options = {
 			icons_enabled = true,
-			theme = require("plugins.ui.lualine.theme"),
+			theme = require("plugins.ui.lualine.prism"),
 			section_separators = { left = "", right = "" },
 			component_separators = { left = "", right = "" },
 			globalstatus = true,
@@ -24,8 +24,8 @@ return {
 							NORMAL = "󰊠",
 							INSERT = "󰊄",
 							VISUAL = "󰈈",
-							VLINE = "󰈈",
-							VBLOCK = "󰈈",
+							["V-LINE"] = "󰡬",
+							["V-BLOCK"] = "󰴅",
 							REPLACE = "󰛔",
 							COMMAND = "󰘳",
 							TERMINAL = "󰆍",
