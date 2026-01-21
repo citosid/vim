@@ -1,6 +1,8 @@
 return {
 	"rose-pine/neovim",
 	name = "rose-pine",
+	lazy = false,
+	priority = 1000,
 	config = function()
 		require("rose-pine").setup({
 			variant = "moon", -- auto, main, moon, or dawn
@@ -45,9 +47,6 @@ return {
 				},
 			},
 		})
-
-		vim.cmd("colorscheme rose-pine-moon")
-		vim.api.nvim_set_hl(0, "CursorLine", { bg = "#232136", blend = 20 })
+		-- Don't set colorscheme here - theme-loader handles it
 	end,
-	event = { "UIEnter" },
 }

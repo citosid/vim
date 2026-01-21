@@ -23,3 +23,6 @@ require("lazy").setup({
 })
 require("keymaps")
 require("autocmds")
+
+-- Load theme from state file (set by: dotfiles theme switch <theme>)
+require("theme-loader").apply()

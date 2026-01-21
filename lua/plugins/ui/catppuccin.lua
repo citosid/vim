@@ -1,15 +1,15 @@
 return {
 	"catppuccin/nvim",
 	name = "catppuccin",
-	event = { "UIEnter" },
+	lazy = false,
+	priority = 1000,
 	opts = {
 		flavour = "frappe",
 		term_colors = true,
 		transparent_background = true,
 	},
-	priority = 1000,
 	config = function(_, opts)
 		require("catppuccin").setup(opts)
-		vim.cmd.colorscheme("catppuccin-frappe")
+		-- Don't set colorscheme here - theme-loader handles it
 	end,
 }
