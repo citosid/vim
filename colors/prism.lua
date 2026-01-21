@@ -280,3 +280,85 @@ hl("LazyH1", { fg = c.bg, bg = c.orange, bold = true })
 hl("LazyButton", { fg = c.fg, bg = c.bg_light })
 hl("LazyButtonActive", { fg = c.bg, bg = c.orange })
 hl("LazySpecial", { fg = c.cyan })
+hl("LazyProgressDone", { fg = c.teal })
+hl("LazyProgressTodo", { fg = c.fg_gutter })
+
+-- Diagnostic virtual text
+hl("DiagnosticVirtualTextError", { fg = c.error, bg = "#1a1020" })
+hl("DiagnosticVirtualTextWarn", { fg = c.warn, bg = "#1a1a10" })
+hl("DiagnosticVirtualTextInfo", { fg = c.info, bg = "#101a1a" })
+hl("DiagnosticVirtualTextHint", { fg = c.hint, bg = "#10101a" })
+
+-- LSP
+hl("LspSignatureActiveParameter", { fg = c.orange, bold = true })
+hl("LspInlayHint", { fg = c.comment, bg = c.bg_light })
+
+-- Indent guides
+hl("IndentBlanklineChar", { fg = c.fg_gutter })
+hl("IndentBlanklineContextChar", { fg = c.border })
+hl("IblIndent", { fg = c.fg_gutter })
+hl("IblScope", { fg = c.border })
+
+-- Noice
+hl("NoiceCmdlinePopup", { fg = c.fg, bg = c.bg_dark })
+hl("NoiceCmdlinePopupBorder", { fg = c.border })
+hl("NoiceCmdlineIcon", { fg = c.orange })
+
+-- Notify
+hl("NotifyERRORBorder", { fg = c.error })
+hl("NotifyWARNBorder", { fg = c.warn })
+hl("NotifyINFOBorder", { fg = c.info })
+hl("NotifyDEBUGBorder", { fg = c.comment })
+hl("NotifyTRACEBorder", { fg = c.hint })
+hl("NotifyERRORIcon", { fg = c.error })
+hl("NotifyWARNIcon", { fg = c.warn })
+hl("NotifyINFOIcon", { fg = c.info })
+hl("NotifyDEBUGIcon", { fg = c.comment })
+hl("NotifyTRACEIcon", { fg = c.hint })
+hl("NotifyERRORTitle", { fg = c.error })
+hl("NotifyWARNTitle", { fg = c.warn })
+hl("NotifyINFOTitle", { fg = c.info })
+hl("NotifyDEBUGTitle", { fg = c.comment })
+hl("NotifyTRACETitle", { fg = c.hint })
+
+-- Cmp (completion)
+hl("CmpItemAbbr", { fg = c.fg })
+hl("CmpItemAbbrMatch", { fg = c.coral, bold = true })
+hl("CmpItemAbbrMatchFuzzy", { fg = c.coral })
+hl("CmpItemAbbrDeprecated", { fg = c.comment, strikethrough = true })
+hl("CmpItemKind", { fg = c.orange })
+hl("CmpItemMenu", { fg = c.comment })
+
+-- Blink.cmp
+hl("BlinkCmpMenu", { fg = c.fg, bg = c.bg_dark })
+hl("BlinkCmpMenuBorder", { fg = c.border, bg = c.bg_dark })
+hl("BlinkCmpMenuSelection", { bg = c.selection })
+hl("BlinkCmpLabel", { fg = c.fg })
+hl("BlinkCmpLabelMatch", { fg = c.coral, bold = true })
+hl("BlinkCmpKind", { fg = c.orange })
+
+-- Dashboard / Alpha
+hl("DashboardHeader", { fg = c.coral })
+hl("DashboardCenter", { fg = c.orange })
+hl("DashboardFooter", { fg = c.comment })
+hl("DashboardShortcut", { fg = c.cyan })
+
+-- Mason
+hl("MasonHeader", { fg = c.bg, bg = c.orange, bold = true })
+hl("MasonHighlight", { fg = c.cyan })
+hl("MasonHighlightBlock", { fg = c.bg, bg = c.teal })
+hl("MasonHighlightBlockBold", { fg = c.bg, bg = c.teal, bold = true })
+hl("MasonMuted", { fg = c.comment })
+hl("MasonMutedBlock", { fg = c.fg, bg = c.bg_light })
+
+-- Copilot
+hl("CopilotSuggestion", { fg = c.comment, italic = true })
+hl("CopilotAnnotation", { fg = c.comment })
+
+-- Mini
+hl("MiniIndentscopeSymbol", { fg = c.border })
+hl("MiniSurround", { fg = c.bg, bg = c.orange })
+
+-- Snacks
+hl("SnacksIndent", { fg = c.fg_gutter })
+hl("SnacksIndentScope", { fg = c.border })

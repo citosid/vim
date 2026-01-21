@@ -16,7 +16,7 @@ M.theme_map = {
 }
 
 -- Default theme if state file doesn't exist or theme not found
-M.default_theme = "catppuccin-frappe"
+M.default_theme = "prism"
 
 -- State file location
 M.state_file = vim.fn.expand("~/.local/state/dotfiles/theme")
@@ -53,10 +53,7 @@ function M.apply()
 	-- Try to apply the colorscheme
 	local ok, err = pcall(vim.cmd.colorscheme, colorscheme)
 	if not ok then
-		vim.notify(
-			string.format("Theme '%s' not found, using default", colorscheme),
-			vim.log.levels.WARN
-		)
+		vim.notify(string.format("Theme '%s' not found, using default", colorscheme), vim.log.levels.WARN)
 		pcall(vim.cmd.colorscheme, M.default_theme)
 	end
 end
