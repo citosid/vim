@@ -1,17 +1,17 @@
--- Prism lualine theme - matches prism colorscheme
+-- Prism lualine theme - auto-generated from wallpaper
 
 local colors = {
-	bg = "#0a1628",
-	bg_light = "#0d2847",
-	fg = "#e0e8f0",
-	fg_dark = "#a0b0c0",
-	coral = "#f05a5a",
+	bg = "#15090C",
+	bg_light = "#382d30",
+	fg = "#FBD6C1",
+	fg_dark = "#c8ab9a",
+	coral = "#FBAC90",
 	teal = "#3d9494",
 	orange = "#e8a54a",
 	magenta = "#c44a8a",
 	cyan = "#5ac4c4",
 	blue = "#4a8ac4",
-	gray = "#4a6a8a",
+	gray = "#968073",
 	none = "NONE",
 }
 
