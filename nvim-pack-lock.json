@@ -5,7 +5,7 @@
       "src": "git@github.com:github/copilot.vim"
     },
     "fzf-lua": {
-      "rev": "95f6baea73d0440a28c55d370d424ac645b447a0",
+      "rev": "21b9acfdb6c8b423338a20f57664209809cd033f",
       "src": "git@github.com:ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -57,7 +57,7 @@
       "src": "git@github.com:neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "88f1dfc211c3a2fb47f1451fd5edc972ec697e58",
+      "rev": "275b9fe801d56d5fea6d34f5bfea8bb24887b805",
       "src": "git@github.com:nvim-treesitter/nvim-treesitter"
     },
     "render-markdown.nvim": {
