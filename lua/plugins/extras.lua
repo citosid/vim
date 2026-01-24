@@ -61,6 +61,21 @@ require("render-markdown").setup({
 	},
 })
 
+-- image.nvim setup
+require("image").setup({
+	integrations = {
+		markdown = {
+			clear_in_insert_mode = true,
+			download_remote_images = true,
+			editor_only_render_when_focused = true,
+			enabled = true,
+			filetypes = { "markdown", "vimwiki" },
+			only_render_image_at_cursor = true,
+			tmux_show_only_in_active_window = true,
+		},
+	},
+})
+
 -- colorizer setup
 require("colorizer").setup({
 	filetypes = {

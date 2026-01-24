@@ -53,7 +53,7 @@ config/vim/
     └── prism.lua
 ```
 
-## Plugins (18 total)
+## Plugins (19 total)
 
 | Plugin | Purpose |
 |--------|---------|
@@ -72,6 +72,7 @@ config/vim/
 | toggleterm.nvim | Terminal toggle |
 | smart-splits.nvim | Split navigation |
 | render-markdown.nvim | Markdown rendering |
+| image.nvim | Image preview in markdown |
 | nvim-colorizer.lua | Color highlighting |
 | jwtools.nvim | Personal utilities |
 

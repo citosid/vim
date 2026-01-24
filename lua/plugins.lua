@@ -35,6 +35,7 @@ vim.pack.add({
 
   -- Markdown
   { src = "git@github.com:MeanderingProgrammer/render-markdown.nvim" },
+  { src = "git@github.com:3rd/image.nvim" },
 
   -- Misc
   { src = "git@github.com:catgoose/nvim-colorizer.lua" },
