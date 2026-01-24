@@ -1,14 +1,14 @@
 -- lua/lsp.lua
--- Native LSP configuration
+-- LSP configuration using nvim-lspconfig defaults + local overrides
+--
+-- How it works:
+-- 1. nvim-lspconfig provides lsp/*.lua defaults (cmd, filetypes, root_dir, etc.)
+-- 2. Our lsp/*.lua files override only specific settings we need to customize
+-- 3. vim.lsp.enable() merges both and starts the servers
 
 local M = {}
 
 function M.setup()
-	-- Global defaults for all LSP servers
-	vim.lsp.config("*", {
-		root_markers = { ".git" },
-	})
-
 	-- LspAttach autocmd for buffer-local setup
 	vim.api.nvim_create_autocmd("LspAttach", {
 		group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
@@ -45,7 +45,7 @@ function M.setup()
 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
 	vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
 
-	-- Enable all LSP servers
+	-- Enable all LSP servers (configs loaded from lsp/*.lua)
 	vim.lsp.enable({
 		"lua_ls",
 		"ts_ls",

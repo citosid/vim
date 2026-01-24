@@ -2,6 +2,9 @@
 -- Plugin declarations using native vim.pack.add()
 
 vim.pack.add({
+	-- LSP (provides lsp/*.lua defaults, merged with our overrides)
+	{ src = "git@github.com:neovim/nvim-lspconfig" },
+
 	-- Fuzzy finder
 	{ src = "git@github.com:ibhagwan/fzf-lua" },
 

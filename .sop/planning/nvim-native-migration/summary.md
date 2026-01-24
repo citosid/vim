@@ -33,10 +33,11 @@ tests/
 
 ## Key Design Decisions
 
-### Plugins Kept (17 total)
+### Plugins Kept (18 total)
 
 | Plugin | Purpose |
 |--------|---------|
+| nvim-lspconfig | LSP server defaults (merged with local overrides) |
 | fzf-lua | Fuzzy finder (replaces Telescope) |
 | copilot.vim | AI completion |
 | gitsigns.nvim | Git signs and blame |
@@ -55,11 +56,29 @@ tests/
 | nvim-colorizer.lua | Color highlighting |
 | jwtools.nvim | Personal plugin |
 
+### LSP Configuration Strategy
+
+Uses nvim-lspconfig for robust defaults, with local `lsp/*.lua` overrides for customization:
+
+| Server | Override | Reason |
+|--------|----------|--------|
+| lua_ls | `settings` | Neovim runtime/workspace for plugin development |
+| ts_ls | `init_options` | Inlay hint preferences |
+| bashls | `filetypes` | Add zsh support |
+| pyright | `settings` | Use workspace diagnosticMode |
+| gopls | `settings` | Enable staticcheck, gofumpt, unusedparams |
+| biome | (none) | nvim-lspconfig default is better |
+
+**How it works:**
+1. nvim-lspconfig provides `lsp/*.lua` defaults (cmd, filetypes, root_dir, handlers)
+2. Local `lsp/*.lua` files override only specific settings needed
+3. `vim.lsp.enable()` merges both and starts servers
+
 ### Native Replacements
 
 | Was | Now |
 |-----|-----|
-| nvim-lspconfig + Mason | Native `vim.lsp.config()` + `vim.lsp.enable()` |
+| nvim-lspconfig + Mason | nvim-lspconfig (defaults) + `vim.lsp.enable()` |
 | blink.cmp | Native `vim.lsp.completion` |
 | Comment.nvim | Native `gc` operator |
 | none-ls.nvim | LSP formatters + autocommands |
@@ -109,7 +128,7 @@ The implementation is divided into 16 incremental steps:
 |--------|-------|
 | Steps completed | 16/16 |
 | Unit tests | 108 |
-| Plugins | 17 (down from 30+) |
+| Plugins | 18 (down from 30+) |
 | Native features | LSP, completion, commenting, formatting |
 
 ## Key Keybindings
@@ -168,3 +187,4 @@ bim <file>  # or just 'bim' to open file picker
 |---------|------|---------|
 | 1.0 | 2026-01-24 | Initial design complete |
 | 2.0 | 2026-01-24 | Migration complete - all 16 steps implemented |
+| 2.1 | 2026-01-24 | Add nvim-lspconfig for better defaults, local overrides only |

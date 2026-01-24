@@ -1,8 +1,6 @@
 -- lsp/bashls.lua
--- Bash language server configuration
+-- Override nvim-lspconfig defaults to add zsh support
 
 return {
-	cmd = { "bash-language-server", "start" },
-	filetypes = { "sh", "bash", "zsh" },
-	root_markers = { ".git" },
+	filetypes = { "bash", "sh", "zsh" },
 }

@@ -1,10 +1,7 @@
 -- lsp/ts_ls.lua
--- TypeScript language server configuration
+-- Override nvim-lspconfig defaults for inlay hints
 
 return {
-	cmd = { "typescript-language-server", "--stdio" },
-	filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-	root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
 	init_options = {
 		preferences = {
 			includeInlayParameterNameHints = "all",

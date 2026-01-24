@@ -1,10 +1,7 @@
 -- lsp/gopls.lua
--- Go language server configuration
+-- Override nvim-lspconfig defaults for additional analysis
 
 return {
-	cmd = { "gopls" },
-	filetypes = { "go", "gomod", "gowork", "gotmpl" },
-	root_markers = { "go.mod", "go.work", ".git" },
 	settings = {
 		gopls = {
 			analyses = {
