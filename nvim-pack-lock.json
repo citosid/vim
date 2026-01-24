@@ -12,6 +12,10 @@
       "rev": "abf82a65f185bd54adc0679f74b7d6e1ada690c9",
       "src": "git@github.com:lewis6991/gitsigns.nvim"
     },
+    "image.nvim": {
+      "rev": "446a8a5cc7a3eae3185ee0c697732c32a5547a0b",
+      "src": "git@github.com:3rd/image.nvim"
+    },
     "jwtools.nvim": {
       "rev": "8551a815c49ac6152e8495912f60aceb15c4cf66",
       "src": "/Users/acruz/code/personal/jwtools.nvim"
