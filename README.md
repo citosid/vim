@@ -202,4 +202,6 @@ bim <file>
 
 ## Screenshots
 
-*Screenshots coming soon - configuration recently migrated to native Neovim 0.12+ features.*
+![Home](./screenshots/home.heic)
+![File Explorer](./screenshots/file_explorer.heic)
+![Markdown](./screenshots/markdown.heic)
