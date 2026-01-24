@@ -12,7 +12,7 @@ This configuration prioritizes:
 
 ## Requirements
 
-- **Neovim**: 0.11+ (nightly recommended)
+- **Neovim**: 0.12+ (nightly) - requires `vim.pack.add()`
 - **Terminal**: Any terminal with true color support
 - **Font**: Nerd Font (e.g., FiraCode Nerd Font)
 
