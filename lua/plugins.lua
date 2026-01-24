@@ -43,8 +43,20 @@ vim.pack.add({
   { src = vim.fn.expand("~/code/personal/jwtools.nvim") },
 })
 
-local function update_with_progress()
+local function update()
   vim.pack.update()
 end
 
-vim.keymap.set("n", "<leader>pu", update_with_progress, { noremap = true, silent = true })
+local function remove_package(name)
+  local pack_path = vim.fn.stdpath("data") .. "/site/pack/*/start/" .. name
+  vim.fn.system("rm -rf " .. vim.fn.shellescape(pack_path))
+  vim.notify("Removed " .. name, vim.log.levels.INFO)
+end
+
+vim.keymap.set("n", "<leader>pd", function()
+  vim.ui.input({ prompt = "Package to remove: " }, function(name)
+    if name then remove_package(name) end
+  end)
+end, { noremap = true })
+
+vim.keymap.set("n", "<leader>pu", update, { noremap = true, silent = true })
