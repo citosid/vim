@@ -1,0 +1,76 @@
+{
+  "plugins": {
+    "copilot.vim": {
+      "rev": "a12fd5672110c8aa7e3c8419e28c96943ca179be",
+      "src": "git@github.com:github/copilot.vim"
+    },
+    "fzf-lua": {
+      "rev": "95f6baea73d0440a28c55d370d424ac645b447a0",
+      "src": "git@github.com:ibhagwan/fzf-lua"
+    },
+    "gitsigns.nvim": {
+      "rev": "abf82a65f185bd54adc0679f74b7d6e1ada690c9",
+      "src": "git@github.com:lewis6991/gitsigns.nvim"
+    },
+    "jwtools.nvim": {
+      "rev": "8551a815c49ac6152e8495912f60aceb15c4cf66",
+      "src": "/Users/acruz/code/personal/jwtools.nvim"
+    },
+    "lualine.nvim": {
+      "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
+      "src": "git@github.com:nvim-lualine/lualine.nvim"
+    },
+    "mini.bufremove": {
+      "rev": "10857aa39160c127694151828914df3131ba83b6",
+      "src": "git@github.com:echasnovski/mini.bufremove"
+    },
+    "mini.files": {
+      "rev": "fafacfecdd6c5a66bb10d173a749f3c098e84498",
+      "src": "git@github.com:echasnovski/mini.files"
+    },
+    "mini.icons": {
+      "rev": "efc85e42262cd0c9e1fdbf806c25cb0be6de115c",
+      "src": "git@github.com:echasnovski/mini.icons"
+    },
+    "mini.pairs": {
+      "rev": "4089aa6ea6423e02e1a8326a7a7a00159f6f5e04",
+      "src": "git@github.com:echasnovski/mini.pairs"
+    },
+    "mini.test": {
+      "rev": "d0010f3c8d43f8edcf5f23a3e7992ae0b9648421",
+      "src": "git@github.com:echasnovski/mini.test"
+    },
+    "noice.nvim": {
+      "rev": "7bfd942445fb63089b59f97ca487d605e715f155",
+      "src": "git@github.com:folke/noice.nvim"
+    },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "git@github.com:MunifTanjim/nui.nvim"
+    },
+    "nvim-colorizer.lua": {
+      "rev": "81e676d3203c9eb6e4c0ccf1eba1679296ef923f",
+      "src": "git@github.com:catgoose/nvim-colorizer.lua"
+    },
+    "nvim-lspconfig": {
+      "rev": "419b082102fa813739588dd82e19a8b6b2442855",
+      "src": "git@github.com:neovim/nvim-lspconfig"
+    },
+    "nvim-treesitter": {
+      "rev": "88f1dfc211c3a2fb47f1451fd5edc972ec697e58",
+      "src": "git@github.com:nvim-treesitter/nvim-treesitter"
+    },
+    "render-markdown.nvim": {
+      "rev": "c54380dd4d8d1738b9691a7c349ecad7967ac12e",
+      "src": "git@github.com:MeanderingProgrammer/render-markdown.nvim"
+    },
+    "smart-splits.nvim": {
+      "rev": "5442c06d2003a342c27213e580f58af8ddd577c4",
+      "src": "git@github.com:mrjones2014/smart-splits.nvim"
+    },
+    "toggleterm.nvim": {
+      "rev": "9a88eae817ef395952e08650b3283726786fb5fb",
+      "src": "git@github.com:akinsho/toggleterm.nvim"
+    }
+  }
+}
