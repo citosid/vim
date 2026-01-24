@@ -2,7 +2,7 @@
 
 ## TDD Workflow
 
-**See `config/bim/tests/TDD-WORKFLOW.md` for detailed testing methodology.**
+**See `tests/TDD-WORKFLOW.md` for detailed testing methodology.**
 
 Each step follows the TDD cycle:
 1. **RED** - Write failing tests
@@ -62,7 +62,7 @@ Each step follows the TDD cycle:
 
 **Implementation Guidance:**
 
-1. Copy `config/vim/colors/*.lua` to `config/bim/colors/`
+1. Copy colorschemes to `colors/`
 2. Add colorscheme loading to init.lua
 3. Verify `bim` command launches Neovim with correct NVIM_APPNAME
 4. Test that options.lua and basic keymaps work

@@ -9,10 +9,10 @@ This document captures the Q&A process for refining the Neovim native migration 
 **Question:** Should the `barebones` config be a completely fresh start, or do you want to migrate your existing
 `config/vim/` configuration incrementally (keeping what works, replacing plugins one by one)?
 
-**Answer:** Build up `config/bim/` incrementally using the existing foundation there, without modifying `config/vim/`.
-The config is already symlinked to the correct location (`~/.config/barebones/`).
+**Answer:** Build up incrementally, without modifying the original plugin-heavy config.
+The config is symlinked to the correct location (`~/.config/barebones/`).
 
-**Current state of `config/bim/`:**
+**Current state:**
 
 - `init.lua` - loads options, keymaps, plugins; enables lua_ls and ts_ls via native `vim.lsp.enable()`
 - `lua/options.lua` - comprehensive vim options already configured
@@ -210,11 +210,11 @@ You also have theme plugins: catppuccin, rosepine, prism (plugin version).
 
 For the barebones config, do you want to:
 
-1. **Copy your custom colorschemes** to `config/bim/colors/` (native, no plugins)
+1. **Copy your custom colorschemes** to `colors/` (native, no plugins)
 2. **Keep theme plugins** for variety
 3. **Both** - custom themes + plugins
 
-**Answer:** Copy custom colorschemes to `config/bim/colors/` - native, no theme plugins needed.
+**Answer:** Copy custom colorschemes to `colors/` - native, no theme plugins needed.
 
 ---
 
@@ -261,7 +261,7 @@ Which do you want to keep/drop/replace?
 - ts_ls (TypeScript) configured separately
 - biome for formatting
 
-Your `config/bim/` already uses native `vim.lsp.enable()` with lua_ls and ts_ls.
+The config already uses native `vim.lsp.enable()` with lua_ls and ts_ls.
 
 Options:
 

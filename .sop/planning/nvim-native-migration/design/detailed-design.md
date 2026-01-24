@@ -2,15 +2,15 @@
 
 ## Overview
 
-This document describes the design for migrating the Neovim configuration from `config/vim/` (plugin-heavy) to
-`config/bim/` (native-first) using Neovim nightly features. The goal is to minimize plugins while maintaining the
-same user experience.
+This document describes the design for migrating the Neovim configuration to a native-first approach
+using Neovim nightly features. The goal is to minimize plugins while maintaining the same user experience.
+The migrated configuration now lives at the root of this project (`config/vim/`).
 
 ## Detailed Requirements
 
 ### Core Requirements
 
-1. **Build incrementally** - Start from existing `config/bim/` foundation, add features one by one
+1. **Build incrementally** - Add features one by one
 2. **Don't modify `config/vim/`** - Keep current config untouched as fallback
 3. **Maintain UX** - Same keybindings and workflow as current setup
 4. **Minimize plugins** - Prefer native Neovim features over third-party plugins
@@ -66,24 +66,24 @@ same user experience.
 ## Architecture Overview
 
 ```
-config/bim/
+config/vim/
 ├── init.lua                 # Entry point
 ├── lua/
-│   ├── options.lua          # Vim options (exists)
-│   ├── keymaps.lua          # Key mappings (exists, expand)
-│   ├── plugins.lua          # Plugin declarations (exists, expand)
-│   ├── utils.lua            # Utility functions (exists)
-│   ├── lsp.lua              # LSP configuration (new)
-│   ├── completion.lua       # Completion setup (new)
-│   └── formatters.lua       # Formatter autocommands (new)
-├── lsp/                     # LSP server configs (exists)
-│   ├── lua_ls.lua           # (exists)
-│   ├── ts_ls.lua            # (new)
-│   ├── bashls.lua           # (new)
-│   ├── pyright.lua          # (new)
-│   ├── gopls.lua            # (new)
-│   └── biome.lua            # (new)
-└── colors/                  # Colorschemes (copy from config/vim/)
+│   ├── options.lua          # Vim options
+│   ├── keymaps.lua          # Key mappings
+│   ├── plugins.lua          # Plugin declarations
+│   ├── utils.lua            # Utility functions
+│   ├── lsp.lua              # LSP configuration
+│   ├── completion.lua       # Completion setup
+│   └── formatters.lua       # Formatter autocommands
+├── lsp/                     # LSP server configs
+│   ├── lua_ls.lua
+│   ├── ts_ls.lua
+│   ├── bashls.lua
+│   ├── pyright.lua
+│   ├── gopls.lua
+│   └── biome.lua
+└── colors/                  # Colorschemes
     ├── prism.lua
     ├── color-wall.lua
     └── enterprise-desert.lua
@@ -390,8 +390,8 @@ return {
 
 ### A. Plugin Count Comparison
 
-| Category | Current (config/vim/) | New (config/bim/) |
-|----------|----------------------|-------------------|
+| Category | Previous | Current |
+|----------|----------|---------|
 | Package manager | lazy.nvim | Native vim.pack |
 | LSP | nvim-lspconfig + Mason (3) | Native (0) |
 | Completion | blink.cmp (1) | Native (0) |

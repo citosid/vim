@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-This project migrates the Neovim configuration from a plugin-heavy setup (`config/vim/`) to a native-first approach
-(`config/bim/`) using Neovim nightly features. The goal is to minimize plugins while maintaining the same user
-experience.
+This project migrates the Neovim configuration from a plugin-heavy setup to a native-first approach
+using Neovim nightly features. The goal is to minimize plugins while maintaining the same user
+experience. The migrated configuration now lives at the root of this project (`config/vim/`).
 
 ## Directory Structure
 
@@ -25,7 +25,7 @@ experience.
 │   └── plan.md                # 16-step implementation plan
 └── summary.md                 # This document
 
-config/bim/tests/
+tests/
 ├── TDD-WORKFLOW.md            # TDD methodology and testing guide
 ├── init.lua                   # Test runner setup
 └── *_spec.lua                 # Unit tests per step

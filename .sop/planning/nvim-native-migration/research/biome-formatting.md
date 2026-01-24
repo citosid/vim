@@ -29,7 +29,7 @@ Key flags:
 
 ## Implementation
 
-See `config/bim/lua/formatters/biome.lua`
+See `lua/formatters/biome.lua`
 
 ---
 
