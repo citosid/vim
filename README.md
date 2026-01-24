@@ -202,6 +202,6 @@ bim <file>
 
 ## Screenshots
 
-![Home](./screenshots/home.heic)
-![File Explorer](./screenshots/file_explorer.heic)
-![Markdown](./screenshots/markdown.heic)
+![Home](./screenshots/home.png)
+![File Explorer](./screenshots/file_explorer.png)
+![Markdown](./screenshots/markdown.png)
