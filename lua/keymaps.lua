@@ -101,3 +101,14 @@ map("n", "<leader>pl", function()
 		vim.notify("Error in creating letter PDF", vim.log.levels.ERROR)
 	end
 end, { desc = "Build letter PDF from markdown", noremap = true, silent = true })
+
+-- Typewriter mode toggle
+map("n", "<leader>tw", function()
+	if vim.opt.scrolloff:get() == 999 then
+		vim.opt.scrolloff = 4
+		vim.notify("Typewriter mode OFF", vim.log.levels.INFO)
+	else
+		vim.opt.scrolloff = 999
+		vim.notify("Typewriter mode ON", vim.log.levels.INFO)
+	end
+end, { desc = "Toggle typewriter mode", noremap = true, silent = true })
