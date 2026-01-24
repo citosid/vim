@@ -24,6 +24,6 @@ require("completion").setup()
 require("formatters").setup()
 
 -- Load colorscheme
-vim.cmd.colorscheme("prism")
+require("theme-loader").apply()
 
 vim.diagnostic.config({ virtual_text = true })
