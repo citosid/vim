@@ -180,20 +180,13 @@ Uses **nvim-lspconfig** for robust defaults, with local `lsp/*.lua` overrides:
 
 ## Terminal Configuration
 
-Using Alacritty with Prism theme:
+Using Ghostty with a Nerd Font:
 
-```toml
-[font]
-size = 14
-
-[font.normal]
-family = "FiraCode Nerd Font Mono"
-style = "Regular"
-
-[window]
-blur = true
-decorations = "None"
-opacity = 0.65
+```
+font-family = "FiraCode Nerd Font Mono"
+font-size = 14
+background-opacity = 0.65
+window-decoration = false
 ```
 
 ## Usage
@@ -209,8 +202,4 @@ bim <file>
 
 ## Screenshots
 
-![Alpha Dashboard](./screenshots/01.alpha.png)
-![Telescope](./screenshots/02.telescope.find.files.png)
-![Completions](./screenshots/03.completions.png)
-![NeoTree](./screenshots/04.neotree.png)
-![Zen Mode](./screenshots/05.zenmode.png)
+*Screenshots coming soon - configuration recently migrated to native Neovim 0.12+ features.*
