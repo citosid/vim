@@ -12,37 +12,37 @@ vim.o.background = "dark"
 
 local c = {
 	-- Base colors
-	bg = "#0d0e11",
-	bg_dark = "#08090b",
-	bg_light = "#1a1d22",
-	bg_visual = "#21242a",
+	bg = "#0d0f11",
+	bg_dark = "#080a0b",
+	bg_light = "#1a1e22",
+	bg_visual = "#21262a",
 	fg = "#e0e8f0",
 	fg_dark = "#a0b0c0",
 	fg_gutter = "#3a4a5a",
 
 	-- Accent colors
-	coral = "#f77753",
-	coral_bright = "#f9a58d",
-	teal = "#3d9494",
-	teal_bright = "#60bdbd",
+	coral = "#9f1724",
+	coral_bright = "#d41e30",
+	teal = "#50acf9",
+	teal_bright = "#99cffb",
 	orange = "#e8a54a",
 	gold = "#edbb77",
-	magenta = "#c44a8a",
-	pink = "#d378a7",
-	cyan = "#43c0c0",
-	blue = "#4a8ac4",
-	navy = "#282e33",
+	magenta = "#852c6b",
+	pink = "#b23b8f",
+	cyan = "#7cc3ff",
+	blue = "#3b7bc6",
+	navy = "#282d33",
 
 	-- Semantic colors
-	error = "#f77753",
+	error = "#9f1724",
 	warn = "#e8a449",
-	info = "#42c0c0",
-	hint = "#4989c4",
-	success = "#349c9c",
+	info = "#4cadfe",
+	hint = "#3b7ac5",
+	success = "#4facf9",
 
 	-- UI colors
 	border = "#2a4a6a",
-	selection = "#21242a",
+	selection = "#21262a",
 	comment = "#4a6a8a",
 	none = "NONE",
 }
