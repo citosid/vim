@@ -3,72 +3,72 @@
 
 -- toggleterm setup
 require("toggleterm").setup({
-	size = function(term)
-		if term.direction == "horizontal" then
-			return 15
-		elseif term.direction == "vertical" then
-			return vim.o.columns * 0.4
-		end
-	end,
-	open_mapping = nil, -- We'll set our own
-	direction = "float",
-	float_opts = {
-		border = "rounded",
-		width = function()
-			return math.floor(vim.o.columns * 0.85)
-		end,
-		height = function()
-			return math.floor(vim.o.lines * 0.85)
-		end,
-	},
-	highlights = {
-		FloatBorder = { link = "FloatBorder" },
-	},
+  size = function(term)
+    if term.direction == "horizontal" then
+      return 15
+    elseif term.direction == "vertical" then
+      return vim.o.columns * 0.4
+    end
+  end,
+  open_mapping = nil, -- We'll set our own
+  direction = "float",
+  float_opts = {
+    border = "rounded",
+    width = function()
+      return math.floor(vim.o.columns * 0.85)
+    end,
+    height = function()
+      return math.floor(vim.o.lines * 0.85)
+    end,
+  },
+  highlights = {
+    FloatBorder = { link = "FloatBorder" },
+  },
 })
 
 -- Terminal keymaps
 vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>", { desc = "Toggle terminal" })
-vim.keymap.set("t", "<C-j><C-j>", "<cmd>ToggleTerm<cr>", { desc = "Close terminal" })
+vim.keymap.set("t", "<C-l><C-l>", "<cmd>ToggleTerm<cr>", { desc = "Close terminal" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Lazygit terminal
 local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({
-	cmd = "lazygit",
-	dir = "git_dir",
-	direction = "float",
-	float_opts = {
-		border = "rounded",
-		width = function()
-			return math.floor(vim.o.columns * 0.95)
-		end,
-		height = function()
-			return math.floor(vim.o.lines * 0.95)
-		end,
-	},
-	on_open = function(term)
-		vim.cmd("startinsert!")
-		-- Close with q in normal mode
-		vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = term.bufnr, silent = true })
-	end,
+  cmd = "lazygit",
+  dir = "git_dir",
+  direction = "float",
+  float_opts = {
+    border = "rounded",
+    width = function()
+      return math.floor(vim.o.columns * 0.95)
+    end,
+    height = function()
+      return math.floor(vim.o.lines * 0.95)
+    end,
+  },
+  on_open = function(term)
+    vim.cmd("startinsert!")
+    -- Close with q in normal mode
+    vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = term.bufnr, silent = true })
+  end,
 })
 
 vim.keymap.set("n", "<leader>gg", function()
-	lazygit:toggle()
+  lazygit:toggle()
 end, { desc = "Lazygit" })
 
 -- smart-splits setup
 require("smart-splits").setup({
-	-- Ignored filetypes (only while determining if cursor is at edge)
-	ignored_filetypes = { "nofile", "quickfix", "prompt" },
-	-- Ignored buffer types
-	ignored_buftypes = { "NvimTree" },
-	-- Default amount to resize by
-	default_amount = 3,
-	-- At edge behavior
-	at_edge = "stop",
-	-- Multiplexer integration
-	multiplexer_integration = "tmux",
+  -- Ignored filetypes (only while determining if cursor is at edge)
+  ignored_filetypes = { "nofile", "quickfix", "prompt" },
+  -- Ignored buffer types
+  ignored_buftypes = { "NvimTree" },
+  -- Default amount to resize by
+  default_amount = 3,
+  -- At edge behavior
+  at_edge = "stop",
+  -- Multiplexer integration
+  multiplexer_integration = "tmux",
 })
 
 -- Split navigation
