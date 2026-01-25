@@ -12,38 +12,38 @@ vim.o.background = "dark"
 
 local c = {
 	-- Base colors
-	bg = "#1F2226",
-	bg_dark = "#15171a",
-	bg_light = "#404346",
-	bg_visual = "#35383b",
-	fg = "#D19497",
-	fg_dark = "#a77678",
-	fg_gutter = "#684a4b",
+	bg = "#0d0f11",
+	bg_dark = "#080a0b",
+	bg_light = "#1a1f22",
+	bg_visual = "#21262a",
+	fg = "#e0e8f0",
+	fg_dark = "#a0b0c0",
+	fg_gutter = "#3a4a5a",
 
 	-- Accent colors
-	coral = "#A01D23",
-	coral_bright = "#ae3e44",
-	teal = "#186894",
-	teal_bright = "#4686a9",
-	orange = "#e8a54a",
-	gold = "#ebb265",
+	coral = "#a01d23",
+	coral_bright = "#d3262e",
+	teal = "#1263a0",
+	teal_bright = "#198de4",
+	orange = "#856b2c",
+	gold = "#ab8938",
 	magenta = "#c44a8a",
-	pink = "#cc659b",
-	cyan = "#186894",
+	pink = "#d378a7",
+	cyan = "#0481e0",
 	blue = "#4a8ac4",
-	navy = "#1d334a",
+	navy = "#282e33",
 
 	-- Semantic colors
-	error = "#A01D23",
-	warn = "#e8a54a",
-	info = "#186894",
-	hint = "#4a8ac4",
-	success = "#3d9494",
+	error = "#a01d23",
+	warn = "#8e6f23",
+	info = "#0381e0",
+	hint = "#4989c4",
+	success = "#1263a0",
 
 	-- UI colors
-	border = "#684a4b",
-	selection = "#35383b",
-	comment = "#7d585a",
+	border = "#2a4a6a",
+	selection = "#21262a",
+	comment = "#4a6a8a",
 	none = "NONE",
 }
 
@@ -54,7 +54,7 @@ end
 -- Editor (transparent)
 hl("Normal", { fg = c.fg, bg = c.none })
 hl("NormalFloat", { fg = c.fg, bg = c.bg_dark })
-hl("FloatBorder", { fg = c.border, bg = c.none })
+hl("FloatBorder", { fg = c.border, bg = c.bg_dark })
 hl("Cursor", { fg = c.bg, bg = c.fg })
 hl("CursorLine", { bg = c.bg_light })
 hl("CursorColumn", { bg = c.bg_light })
@@ -267,6 +267,10 @@ hl("NeoTreeGitAdded", { fg = c.success })
 hl("NeoTreeGitModified", { fg = c.orange })
 hl("NeoTreeGitDeleted", { fg = c.error })
 hl("NeoTreeGitUntracked", { fg = c.magenta })
+hl("NeoTreeFloatBorder", { fg = c.border, bg = c.bg_dark })
+hl("NeoTreeFloatNormal", { fg = c.fg, bg = c.bg_dark })
+hl("NeoTreeWinSeparator", { fg = c.border, bg = c.none })
+hl("NeoTreeEndOfBuffer", { fg = c.bg_dark, bg = c.bg_dark })
 
 -- Which-key
 hl("WhichKey", { fg = c.orange })
@@ -301,8 +305,12 @@ hl("IblScope", { fg = c.border })
 
 -- Noice
 hl("NoiceCmdlinePopup", { fg = c.fg, bg = c.bg_dark })
-hl("NoiceCmdlinePopupBorder", { fg = c.border })
+hl("NoiceCmdlinePopupBorder", { fg = c.border, bg = c.bg_dark })
 hl("NoiceCmdlineIcon", { fg = c.orange })
+hl("NoiceCmdline", { fg = c.fg, bg = c.bg_dark })
+hl("NoiceCmdlinePopupTitle", { fg = c.bg, bg = c.orange })
+hl("NoicePopup", { fg = c.fg, bg = c.bg_dark })
+hl("NoicePopupBorder", { fg = c.border, bg = c.bg_dark })
 
 -- Notify
 hl("NotifyERRORBorder", { fg = c.error })
@@ -358,6 +366,16 @@ hl("CopilotAnnotation", { fg = c.comment })
 -- Mini
 hl("MiniIndentscopeSymbol", { fg = c.border })
 hl("MiniSurround", { fg = c.bg, bg = c.orange })
+
+-- Mini.files
+hl("MiniFilesBorder", { fg = c.border, bg = c.bg_dark })
+hl("MiniFilesBorderModified", { fg = c.orange, bg = c.bg_dark })
+hl("MiniFilesCursorLine", { bg = c.selection })
+hl("MiniFilesDirectory", { fg = c.blue })
+hl("MiniFilesFile", { fg = c.fg })
+hl("MiniFilesNormal", { fg = c.fg, bg = c.bg_dark })
+hl("MiniFilesTitle", { fg = c.orange, bg = c.bg_dark, bold = true })
+hl("MiniFilesTitleFocused", { fg = c.bg, bg = c.orange, bold = true })
 
 -- Snacks
 hl("SnacksIndent", { fg = c.fg_gutter })

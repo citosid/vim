@@ -12,38 +12,38 @@ vim.o.background = "dark"
 
 local c = {
 	-- Base colors
-	bg = "#2C241D",
-	bg_dark = "#1e1914",
-	bg_light = "#4b443e",
-	bg_visual = "#413933",
-	fg = "#D5C6A2",
-	fg_dark = "#aa9e81",
-	fg_gutter = "#6a6351",
+	bg = "#0d0e11",
+	bg_dark = "#08090b",
+	bg_light = "#1a1d22",
+	bg_visual = "#21242a",
+	fg = "#e0e8f0",
+	fg_dark = "#a0b0c0",
+	fg_gutter = "#3a4a5a",
 
 	-- Accent colors
-	coral = "#522A14",
-	coral_bright = "#6b4937",
+	coral = "#8f4d23",
+	coral_bright = "#c0672f",
 	teal = "#3d9494",
-	teal_bright = "#63a9a9",
-	orange = "#D1A974",
-	gold = "#d7b588",
+	teal_bright = "#60bdbd",
+	orange = "#d0a874",
+	gold = "#dcbf9a",
 	magenta = "#c44a8a",
-	pink = "#cc659b",
-	cyan = "#5ac4c4",
-	blue = "#4a8ac4",
-	navy = "#1d334a",
+	pink = "#d378a7",
+	cyan = "#43c0c0",
+	blue = "#79a2d2",
+	navy = "#282d33",
 
 	-- Semantic colors
-	error = "#522A14",
-	warn = "#D1A974",
-	info = "#5ac4c4",
-	hint = "#4a8ac4",
-	success = "#3d9494",
+	error = "#8f4d23",
+	warn = "#d9a96a",
+	info = "#42c0c0",
+	hint = "#78a1d2",
+	success = "#349c9c",
 
 	-- UI colors
-	border = "#6a6351",
-	selection = "#413933",
-	comment = "#7f7661",
+	border = "#2a4a6a",
+	selection = "#21242a",
+	comment = "#4a6a8a",
 	none = "NONE",
 }
 
@@ -54,7 +54,7 @@ end
 -- Editor (transparent)
 hl("Normal", { fg = c.fg, bg = c.none })
 hl("NormalFloat", { fg = c.fg, bg = c.bg_dark })
-hl("FloatBorder", { fg = c.border, bg = c.none })
+hl("FloatBorder", { fg = c.border, bg = c.bg_dark })
 hl("Cursor", { fg = c.bg, bg = c.fg })
 hl("CursorLine", { bg = c.bg_light })
 hl("CursorColumn", { bg = c.bg_light })
@@ -267,6 +267,10 @@ hl("NeoTreeGitAdded", { fg = c.success })
 hl("NeoTreeGitModified", { fg = c.orange })
 hl("NeoTreeGitDeleted", { fg = c.error })
 hl("NeoTreeGitUntracked", { fg = c.magenta })
+hl("NeoTreeFloatBorder", { fg = c.border, bg = c.bg_dark })
+hl("NeoTreeFloatNormal", { fg = c.fg, bg = c.bg_dark })
+hl("NeoTreeWinSeparator", { fg = c.border, bg = c.none })
+hl("NeoTreeEndOfBuffer", { fg = c.bg_dark, bg = c.bg_dark })
 
 -- Which-key
 hl("WhichKey", { fg = c.orange })
@@ -280,3 +284,99 @@ hl("LazyH1", { fg = c.bg, bg = c.orange, bold = true })
 hl("LazyButton", { fg = c.fg, bg = c.bg_light })
 hl("LazyButtonActive", { fg = c.bg, bg = c.orange })
 hl("LazySpecial", { fg = c.cyan })
+hl("LazyProgressDone", { fg = c.teal })
+hl("LazyProgressTodo", { fg = c.fg_gutter })
+
+-- Diagnostic virtual text
+hl("DiagnosticVirtualTextError", { fg = c.error, bg = "#1a1020" })
+hl("DiagnosticVirtualTextWarn", { fg = c.warn, bg = "#1a1a10" })
+hl("DiagnosticVirtualTextInfo", { fg = c.info, bg = "#101a1a" })
+hl("DiagnosticVirtualTextHint", { fg = c.hint, bg = "#10101a" })
+
+-- LSP
+hl("LspSignatureActiveParameter", { fg = c.orange, bold = true })
+hl("LspInlayHint", { fg = c.comment, bg = c.bg_light })
+
+-- Indent guides
+hl("IndentBlanklineChar", { fg = c.fg_gutter })
+hl("IndentBlanklineContextChar", { fg = c.border })
+hl("IblIndent", { fg = c.fg_gutter })
+hl("IblScope", { fg = c.border })
+
+-- Noice
+hl("NoiceCmdlinePopup", { fg = c.fg, bg = c.bg_dark })
+hl("NoiceCmdlinePopupBorder", { fg = c.border, bg = c.bg_dark })
+hl("NoiceCmdlineIcon", { fg = c.orange })
+hl("NoiceCmdline", { fg = c.fg, bg = c.bg_dark })
+hl("NoiceCmdlinePopupTitle", { fg = c.bg, bg = c.orange })
+hl("NoicePopup", { fg = c.fg, bg = c.bg_dark })
+hl("NoicePopupBorder", { fg = c.border, bg = c.bg_dark })
+
+-- Notify
+hl("NotifyERRORBorder", { fg = c.error })
+hl("NotifyWARNBorder", { fg = c.warn })
+hl("NotifyINFOBorder", { fg = c.info })
+hl("NotifyDEBUGBorder", { fg = c.comment })
+hl("NotifyTRACEBorder", { fg = c.hint })
+hl("NotifyERRORIcon", { fg = c.error })
+hl("NotifyWARNIcon", { fg = c.warn })
+hl("NotifyINFOIcon", { fg = c.info })
+hl("NotifyDEBUGIcon", { fg = c.comment })
+hl("NotifyTRACEIcon", { fg = c.hint })
+hl("NotifyERRORTitle", { fg = c.error })
+hl("NotifyWARNTitle", { fg = c.warn })
+hl("NotifyINFOTitle", { fg = c.info })
+hl("NotifyDEBUGTitle", { fg = c.comment })
+hl("NotifyTRACETitle", { fg = c.hint })
+
+-- Cmp (completion)
+hl("CmpItemAbbr", { fg = c.fg })
+hl("CmpItemAbbrMatch", { fg = c.coral, bold = true })
+hl("CmpItemAbbrMatchFuzzy", { fg = c.coral })
+hl("CmpItemAbbrDeprecated", { fg = c.comment, strikethrough = true })
+hl("CmpItemKind", { fg = c.orange })
+hl("CmpItemMenu", { fg = c.comment })
+
+-- Blink.cmp
+hl("BlinkCmpMenu", { fg = c.fg, bg = c.bg_dark })
+hl("BlinkCmpMenuBorder", { fg = c.border, bg = c.bg_dark })
+hl("BlinkCmpMenuSelection", { bg = c.selection })
+hl("BlinkCmpLabel", { fg = c.fg })
+hl("BlinkCmpLabelMatch", { fg = c.coral, bold = true })
+hl("BlinkCmpKind", { fg = c.orange })
+
+-- Dashboard / Alpha
+hl("DashboardHeader", { fg = c.coral })
+hl("DashboardCenter", { fg = c.orange })
+hl("DashboardFooter", { fg = c.comment })
+hl("DashboardShortcut", { fg = c.cyan })
+
+-- Mason
+hl("MasonHeader", { fg = c.bg, bg = c.orange, bold = true })
+hl("MasonHighlight", { fg = c.cyan })
+hl("MasonHighlightBlock", { fg = c.bg, bg = c.teal })
+hl("MasonHighlightBlockBold", { fg = c.bg, bg = c.teal, bold = true })
+hl("MasonMuted", { fg = c.comment })
+hl("MasonMutedBlock", { fg = c.fg, bg = c.bg_light })
+
+-- Copilot
+hl("CopilotSuggestion", { fg = c.comment, italic = true })
+hl("CopilotAnnotation", { fg = c.comment })
+
+-- Mini
+hl("MiniIndentscopeSymbol", { fg = c.border })
+hl("MiniSurround", { fg = c.bg, bg = c.orange })
+
+-- Mini.files
+hl("MiniFilesBorder", { fg = c.border, bg = c.bg_dark })
+hl("MiniFilesBorderModified", { fg = c.orange, bg = c.bg_dark })
+hl("MiniFilesCursorLine", { bg = c.selection })
+hl("MiniFilesDirectory", { fg = c.blue })
+hl("MiniFilesFile", { fg = c.fg })
+hl("MiniFilesNormal", { fg = c.fg, bg = c.bg_dark })
+hl("MiniFilesTitle", { fg = c.orange, bg = c.bg_dark, bold = true })
+hl("MiniFilesTitleFocused", { fg = c.bg, bg = c.orange, bold = true })
+
+-- Snacks
+hl("SnacksIndent", { fg = c.fg_gutter })
+hl("SnacksIndentScope", { fg = c.border })

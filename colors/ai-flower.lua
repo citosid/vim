@@ -54,7 +54,7 @@ end
 -- Editor (transparent)
 hl("Normal", { fg = c.fg, bg = c.none })
 hl("NormalFloat", { fg = c.fg, bg = c.bg_dark })
-hl("FloatBorder", { fg = c.border, bg = c.none })
+hl("FloatBorder", { fg = c.border, bg = c.bg_dark })
 hl("Cursor", { fg = c.bg, bg = c.fg })
 hl("CursorLine", { bg = c.bg_light })
 hl("CursorColumn", { bg = c.bg_light })
@@ -267,6 +267,10 @@ hl("NeoTreeGitAdded", { fg = c.success })
 hl("NeoTreeGitModified", { fg = c.orange })
 hl("NeoTreeGitDeleted", { fg = c.error })
 hl("NeoTreeGitUntracked", { fg = c.magenta })
+hl("NeoTreeFloatBorder", { fg = c.border, bg = c.bg_dark })
+hl("NeoTreeFloatNormal", { fg = c.fg, bg = c.bg_dark })
+hl("NeoTreeWinSeparator", { fg = c.border, bg = c.none })
+hl("NeoTreeEndOfBuffer", { fg = c.bg_dark, bg = c.bg_dark })
 
 -- Which-key
 hl("WhichKey", { fg = c.orange })
@@ -301,8 +305,12 @@ hl("IblScope", { fg = c.border })
 
 -- Noice
 hl("NoiceCmdlinePopup", { fg = c.fg, bg = c.bg_dark })
-hl("NoiceCmdlinePopupBorder", { fg = c.border })
+hl("NoiceCmdlinePopupBorder", { fg = c.border, bg = c.bg_dark })
 hl("NoiceCmdlineIcon", { fg = c.orange })
+hl("NoiceCmdline", { fg = c.fg, bg = c.bg_dark })
+hl("NoiceCmdlinePopupTitle", { fg = c.bg, bg = c.orange })
+hl("NoicePopup", { fg = c.fg, bg = c.bg_dark })
+hl("NoicePopupBorder", { fg = c.border, bg = c.bg_dark })
 
 -- Notify
 hl("NotifyERRORBorder", { fg = c.error })
@@ -358,6 +366,16 @@ hl("CopilotAnnotation", { fg = c.comment })
 -- Mini
 hl("MiniIndentscopeSymbol", { fg = c.border })
 hl("MiniSurround", { fg = c.bg, bg = c.orange })
+
+-- Mini.files
+hl("MiniFilesBorder", { fg = c.border, bg = c.bg_dark })
+hl("MiniFilesBorderModified", { fg = c.orange, bg = c.bg_dark })
+hl("MiniFilesCursorLine", { bg = c.selection })
+hl("MiniFilesDirectory", { fg = c.blue })
+hl("MiniFilesFile", { fg = c.fg })
+hl("MiniFilesNormal", { fg = c.fg, bg = c.bg_dark })
+hl("MiniFilesTitle", { fg = c.orange, bg = c.bg_dark, bold = true })
+hl("MiniFilesTitleFocused", { fg = c.bg, bg = c.orange, bold = true })
 
 -- Snacks
 hl("SnacksIndent", { fg = c.fg_gutter })
