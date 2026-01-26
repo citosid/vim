@@ -1,11 +1,15 @@
 {
   "plugins": {
+    "blink.cmp": {
+      "rev": "b137f63d89d0285ca76eed12e1923220e0aff8c1",
+      "src": "https://github.com/Saghen/blink.cmp"
+    },
     "copilot.vim": {
       "rev": "a12fd5672110c8aa7e3c8419e28c96943ca179be",
       "src": "git@github.com:github/copilot.vim"
     },
     "fzf-lua": {
-      "rev": "21b9acfdb6c8b423338a20f57664209809cd033f",
+      "rev": "d59f857c76eb474ec00debcf043f14fd001805cc",
       "src": "git@github.com:ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -57,11 +61,11 @@
       "src": "git@github.com:catgoose/nvim-colorizer.lua"
     },
     "nvim-lspconfig": {
-      "rev": "419b082102fa813739588dd82e19a8b6b2442855",
+      "rev": "4044b8544a6cea57179d5a29c203b6b65d2b6ac4",
       "src": "git@github.com:neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "275b9fe801d56d5fea6d34f5bfea8bb24887b805",
+      "rev": "568ede7e79172a0fe7c9d631454a97ad968deaf2",
       "src": "git@github.com:nvim-treesitter/nvim-treesitter"
     },
     "render-markdown.nvim": {

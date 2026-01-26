@@ -5,6 +5,9 @@ vim.pack.add({
   -- LSP (provides lsp/*.lua defaults, merged with our overrides)
   { src = "git@github.com:neovim/nvim-lspconfig" },
 
+  -- Completion
+  { src = "https://github.com/Saghen/blink.cmp" },
+
   -- Fuzzy finder
   { src = "git@github.com:ibhagwan/fzf-lua" },
 
