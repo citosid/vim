@@ -6,24 +6,24 @@ vim.g.copilot_no_tab_map = true
 
 -- Configure filetypes (enable for most, disable for sensitive files)
 vim.g.copilot_filetypes = {
-	["*"] = true,
-	["markdown"] = true,
-	["yaml"] = true,
-	["gitcommit"] = true,
-	["env"] = false,
-	["credentials"] = false,
+  ["*"] = true,
+  ["markdown"] = true,
+  ["yaml"] = true,
+  ["gitcommit"] = true,
+  ["env"] = false,
+  ["credentials"] = false,
 }
 
--- Accept full suggestion with C-Y
-vim.keymap.set("i", "<C-Y>", 'copilot#Accept("")', {
-	expr = true,
-	replace_keycodes = false,
-	desc = "Accept Copilot suggestion",
+-- Accept full suggestion with C-y
+vim.keymap.set("i", "<C-y>", 'copilot#Accept("")', {
+  expr = true,
+  replace_keycodes = false,
+  desc = "Accept Copilot suggestion",
 })
 
--- Accept word with C-O
-vim.keymap.set("i", "<C-O>", "<Plug>(copilot-accept-word)", {
-	desc = "Accept Copilot word",
+-- Accept word with C-o
+vim.keymap.set("i", "<C-o>", "<Plug>(copilot-accept-word)", {
+  desc = "Accept Copilot word",
 })
 
 -- Navigate suggestions
