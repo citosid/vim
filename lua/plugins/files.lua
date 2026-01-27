@@ -9,13 +9,13 @@ require("mini.files").setup({
 
   mappings = {
     close = "q",
-    go_in = "l",       -- Swapped: L just enters directory
+    go_in = "l", -- Swapped: L just enters directory
     go_in_plus = "<CR>", -- Enter opens file and closes explorer
-    go_out = "H",      -- Swapped: H just goes to parent
+    go_out = "H", -- Swapped: H just goes to parent
     go_out_plus = "h", -- h goes to parent and closes
     mark_goto = "'",
     mark_set = "m",
-    reset = ",",     -- Custom: comma resets
+    reset = ",", -- Custom: comma resets
     reveal_cwd = ".", -- Custom: dot reveals cwd
     show_help = "g?",
     synchronize = "s", -- Custom: s synchronizes
@@ -26,7 +26,7 @@ require("mini.files").setup({
 
 -- Keymap to open mini.files
 vim.keymap.set("n", "<leader>e", function()
-  MiniFiles.open()
+  require("mini.files").open(vim.api.nvim_buf_get_name(0))
 end, { desc = "Toggle Explorer" })
 
 -- Override MiniFiles highlights after colorscheme loads
