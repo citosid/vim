@@ -4,6 +4,8 @@
 vim.pack.add({
   -- LSP (provides lsp/*.lua defaults, merged with our overrides)
   { src = "git@github.com:neovim/nvim-lspconfig" },
+  { src = "git@github.com:williamboman/mason.nvim" },
+  { src = "git@github.com:williamboman/mason-lspconfig.nvim" },
 
   -- Completion
   { src = "https://github.com/Saghen/blink.cmp" },

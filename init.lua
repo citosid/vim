@@ -13,6 +13,7 @@ require("plugins.gitsigns")
 require("plugins.terminal")
 require("plugins.ui")
 require("plugins.extras")
+require("plugins.mason").setup()
 
 -- LSP configuration
 require("lsp").setup()

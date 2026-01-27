@@ -7,6 +7,8 @@ function M.setup()
   local nls = require("null-ls")
 
   nls.setup({
+    debounce = 150,
+    diagnostics_on_insert_leave = true,
     sources = {
       -- Diagnostics
       nls.builtins.diagnostics.golangci_lint,
