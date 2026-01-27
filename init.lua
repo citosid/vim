@@ -20,8 +20,8 @@ require("lsp").setup()
 -- Completion configuration
 require("completion").setup()
 
--- Formatters configuration
-require("formatters").setup()
+-- Formatters and diagnostics (none-ls)
+require("plugins.none-ls").setup()
 
 -- Load colorscheme
 require("theme-loader").apply()

@@ -43,6 +43,11 @@ vim.pack.add({
   -- Misc
   { src = "git@github.com:catgoose/nvim-colorizer.lua" },
 
+  -- None-ls (formatters and diagnostics)
+  { src = "git@github.com:nvimtools/none-ls.nvim" },
+  { src = "git@github.com:nvimtools/none-ls-extras.nvim" },
+  { src = "git@github.com:nvim-lua/plenary.nvim" }, -- none-ls dependency
+
   -- Personal
   { src = vim.fn.expand("~/code/personal/jwtools.nvim") },
 })
