@@ -26,16 +26,6 @@ function M.setup()
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
       end
-
-      -- Format on save for LSP formatters
-      if client:supports_method("textDocument/formatting") then
-        vim.api.nvim_create_autocmd("BufWritePre", {
-          buffer = buf,
-          callback = function()
-            vim.lsp.buf.format({ bufnr = buf, id = client.id, timeout_ms = 1000 })
-          end,
-        })
-      end
     end,
   })
 
