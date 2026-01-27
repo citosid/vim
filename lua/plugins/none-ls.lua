@@ -7,6 +7,7 @@ function M.setup()
   local nls = require("null-ls")
 
   nls.setup({
+    debug = true,
     debounce = 150,
     diagnostics_on_insert_leave = true,
     sources = {
@@ -36,10 +37,10 @@ function M.setup()
         },
         args = {
           "check",
-          "--config-path=/Users/acruz/biome.json",
           "--write",
           "--unsafe",
           "--formatter-enabled=true",
+          "--format-with-errors=true",
           "--stdin-file-path=$FILENAME",
         },
       }),
