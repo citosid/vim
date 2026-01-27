@@ -14,6 +14,8 @@ function M.setup()
 	require("formatters.stylua").setup(group)
 	require("formatters.black").setup(group)
 	require("formatters.beautysh").setup(group)
+	require("formatters.prettier").setup(group)
+	require("formatters.markdownlint").setup(group) -- linter, runs after save
 end
 
 return M
