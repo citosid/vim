@@ -6,6 +6,11 @@ local M = {}
 function M.setup()
   require("blink.cmp").setup({
     fuzzy = { implementation = "lua" },
+    keymap = {
+      preset = "default",
+      ["<C-y>"] = {}, -- Disable so Copilot's C-y works
+      ["<CR>"] = { "accept", "fallback" },
+    },
     completion = {
       documentation = {
         auto_show = true,

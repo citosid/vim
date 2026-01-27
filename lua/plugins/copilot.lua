@@ -15,7 +15,9 @@ vim.g.copilot_filetypes = {
 }
 
 -- Accept full suggestion with C-y
-vim.keymap.set("i", "<C-y>", 'copilot#Accept("")', {
+vim.keymap.set("i", "<C-y>", function()
+  return vim.fn["copilot#Accept"]("")
+end, {
   expr = true,
   replace_keycodes = false,
   desc = "Accept Copilot suggestion",
