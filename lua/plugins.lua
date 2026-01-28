@@ -37,6 +37,7 @@ vim.pack.add({
   -- Tools
   { src = "git@github.com:akinsho/toggleterm.nvim" },
   { src = "git@github.com:mrjones2014/smart-splits.nvim" },
+  { src = "git@github.com:folke/flash.nvim" },
 
   -- Markdown
   { src = "git@github.com:MeanderingProgrammer/render-markdown.nvim" },
@@ -66,7 +67,9 @@ end
 
 vim.keymap.set("n", "<leader>pd", function()
   vim.ui.input({ prompt = "Package to remove: " }, function(name)
-    if name then remove_package(name) end
+    if name then
+      remove_package(name)
+    end
   end)
 end, { noremap = true })
 
