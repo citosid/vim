@@ -33,6 +33,12 @@ require("lualine").setup({
           return icons[mode] or mode
         end,
       },
+      {
+        function()
+          return vim.api.nvim_eval_statusline("%S", {}).str
+        end,
+        color = { fg = "#f5c2e7" },
+      },
     },
     lualine_b = {
       {
@@ -96,6 +102,10 @@ require("noice").setup({
     long_message_to_split = true, -- Long messages will be sent to a split
     inc_rename = false,           -- Enables an input dialog for inc-rename.nvim
     lsp_doc_border = true,        -- Add a border to hover docs and signature help
+  },
+  cmdline = {
+    enabled = true,
+    view = "cmdline_popup",
   },
   views = {
     -- LSP hover/signature stay near cursor

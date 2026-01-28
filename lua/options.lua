@@ -32,6 +32,8 @@ opt.shiftround = true
 opt.shiftwidth = 2
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
 opt.showmode = false
+opt.showcmd = true
+opt.showcmdloc = "statusline"
 opt.sidescrolloff = 8
 opt.signcolumn = "yes"
 opt.smartcase = true
