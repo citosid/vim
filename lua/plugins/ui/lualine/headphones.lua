@@ -1,17 +1,17 @@
 -- Headphones lualine theme - auto-generated from wallpaper
 
 local colors = {
-	bg = "#0d1011",
-	bg_light = "#1a2122",
-	fg = "#e0e8f0",
-	fg_dark = "#a0b0c0",
-	coral = "#9b2d1f",
-	teal = "#01cee8",
-	orange = "#e8a54a",
-	magenta = "#852c6f",
-	cyan = "#1de5ff",
-	blue = "#3b53b1",
-	gray = "#4a6a8a",
+	bg = "#071418",
+	bg_light = "#142226",
+	fg = "#d7e0e3",
+	fg_dark = "#98a0a3",
+	coral = "#d07cc5",
+	teal = "#00aa9a",
+	orange = "#b7b43a",
+	magenta = "#8e93f3",
+	cyan = "#00c6d9",
+	blue = "#1fabe7",
+	gray = "#496973",
 	none = "NONE",
 }
 
