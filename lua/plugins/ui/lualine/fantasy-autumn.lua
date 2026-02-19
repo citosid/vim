@@ -1,17 +1,17 @@
 -- Fantasy-Autumn lualine theme - auto-generated from wallpaper
 
 local colors = {
-	bg = "#0f0d10",
-	bg_light = "#1e1b21",
-	fg = "#e0e8f0",
-	fg_dark = "#a0b0c0",
-	coral = "#f05a5a",
-	teal = "#3d9494",
-	orange = "#e8a54a",
-	magenta = "#653090",
-	cyan = "#43c0c0",
-	blue = "#552c85",
-	gray = "#4a6a8a",
+	bg = "#0f111b",
+	bg_light = "#1c1f29",
+	fg = "#dcdee5",
+	fg_dark = "#9c9ea5",
+	coral = "#dc78ae",
+	teal = "#00a7b2",
+	orange = "#f98690",
+	magenta = "#ae88e7",
+	cyan = "#00c1ed",
+	blue = "#52a3f1",
+	gray = "#4d6777",
 	none = "NONE",
 }
 
