@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "4b18c32adef2898f95cdef6192cbd5796c1a332d",
+      "rev": "b650e976a927be6b46487a0a610b75af111376c5",
       "src": "https://github.com/Saghen/blink.cmp"
     },
     "copilot.vim": {
@@ -13,15 +13,15 @@
       "src": "git@github.com:folke/flash.nvim"
     },
     "fzf-lua": {
-      "rev": "c86b72c62b01d2242cafa45fb0d1fc3bf66e6a2b",
+      "rev": "cfc085749d9232373fc6d8cf3a964c5601a7816e",
       "src": "git@github.com:ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "1ce96a464fdbc24208e24c117e2021794259005d",
+      "rev": "9f3c6dd7868bcc116e9c1c1929ce063b978fa519",
       "src": "git@github.com:lewis6991/gitsigns.nvim"
     },
     "image.nvim": {
-      "rev": "446a8a5cc7a3eae3185ee0c697732c32a5547a0b",
+      "rev": "da2be65c153ba15a14a342b05591652a6df70d58",
       "src": "git@github.com:3rd/image.nvim"
     },
     "jwtools.nvim": {
@@ -33,7 +33,7 @@
       "src": "git@github.com:nvim-lualine/lualine.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "ae609525ddf01c153c39305730b1791800ffe4fe",
+      "rev": "6c4830e37743b060d13c9269394176aea6a0fbc8",
       "src": "git@github.com:williamboman/mason-lspconfig.nvim"
     },
     "mason.nvim": {
@@ -41,23 +41,23 @@
       "src": "git@github.com:williamboman/mason.nvim"
     },
     "mini.bufremove": {
-      "rev": "10857aa39160c127694151828914df3131ba83b6",
+      "rev": "ee69f823f84508c556127a5882760d9783692023",
       "src": "git@github.com:echasnovski/mini.bufremove"
     },
     "mini.files": {
-      "rev": "fafacfecdd6c5a66bb10d173a749f3c098e84498",
+      "rev": "57eb96a828f80efb8095a611e3aafcfa43548f8b",
       "src": "git@github.com:echasnovski/mini.files"
     },
     "mini.icons": {
-      "rev": "efc85e42262cd0c9e1fdbf806c25cb0be6de115c",
+      "rev": "5b9076dae1bfbe47ba4a14bc8b967cde0ab5d77e",
       "src": "git@github.com:echasnovski/mini.icons"
     },
     "mini.pairs": {
-      "rev": "4089aa6ea6423e02e1a8326a7a7a00159f6f5e04",
+      "rev": "b7fde3719340946feb75017ef9d75edebdeb0566",
       "src": "git@github.com:echasnovski/mini.pairs"
     },
     "mini.test": {
-      "rev": "d0010f3c8d43f8edcf5f23a3e7992ae0b9648421",
+      "rev": "5e6e317a43c9d315daa4f211939b973f712b77be",
       "src": "git@github.com:echasnovski/mini.test"
     },
     "noice.nvim": {
@@ -65,11 +65,11 @@
       "src": "git@github.com:folke/noice.nvim"
     },
     "none-ls-extras.nvim": {
-      "rev": "6ced4fc4072c7b269ba95bb596196cc76e00b280",
+      "rev": "517f87c1e6cd511e787d77127d7fdb12b7b79db3",
       "src": "git@github.com:nvimtools/none-ls-extras.nvim"
     },
     "none-ls.nvim": {
-      "rev": "68ed8b9bf5dfdae4d579fcd19723926f84d7b6cb",
+      "rev": "f61f46ded0ca9edce7a09b674f8e162d10921426",
       "src": "git@github.com:nvimtools/none-ls.nvim"
     },
     "nui.nvim": {
@@ -77,15 +77,15 @@
       "src": "git@github.com:MunifTanjim/nui.nvim"
     },
     "nvim-colorizer.lua": {
-      "rev": "338409dd8a6ed74767bad3eb5269f1b903ffb3cf",
+      "rev": "ae0d66307a5b431c7b633806eb27769334ac5f05",
       "src": "git@github.com:catgoose/nvim-colorizer.lua"
     },
     "nvim-lspconfig": {
-      "rev": "0480b120318ec8bab27b530ffab6ee76a8c4d806",
+      "rev": "a40d22e75d951ad2fcf236ceb013d88f81d2cc9a",
       "src": "git@github.com:neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "70a9fecaf5aeae70c765d4c51a8038165a91aa06",
+      "rev": "0f5b204603234a523fafa8f6b860fd36f80a23f6",
       "src": "git@github.com:nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
@@ -93,11 +93,11 @@
       "src": "git@github.com:nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "48b4175dbca8439d30c1f52231cbe5a712c8f9d9",
+      "rev": "1c958131c083c8557ea499fdb08c88b8afb05c4e",
       "src": "git@github.com:MeanderingProgrammer/render-markdown.nvim"
     },
     "smart-splits.nvim": {
-      "rev": "0e73ccf1d957c6d7b95435bd195dcbd62f44f8e2",
+      "rev": "23f1e57d5af462c69e988642c020430449a7b1b0",
       "src": "git@github.com:mrjones2014/smart-splits.nvim"
     },
     "toggleterm.nvim": {
