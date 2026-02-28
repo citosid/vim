@@ -37,7 +37,6 @@ vim.pack.add({
   -- Tools
   { src = "git@github.com:akinsho/toggleterm.nvim" },
   { src = "git@github.com:mrjones2014/smart-splits.nvim" },
-  { src = "git@github.com:folke/flash.nvim" },
 
   -- Markdown
   { src = "git@github.com:MeanderingProgrammer/render-markdown.nvim" },

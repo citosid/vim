@@ -13,7 +13,7 @@
       "src": "git@github.com:folke/flash.nvim"
     },
     "fzf-lua": {
-      "rev": "cfc085749d9232373fc6d8cf3a964c5601a7816e",
+      "rev": "fc42c4c9552c6c0d691a16858f3bd65745fef13f",
       "src": "git@github.com:ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -33,7 +33,7 @@
       "src": "git@github.com:nvim-lualine/lualine.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "6c4830e37743b060d13c9269394176aea6a0fbc8",
+      "rev": "a324581a3c83fdacdb9804b79de1cbe00ce18550",
       "src": "git@github.com:williamboman/mason-lspconfig.nvim"
     },
     "mason.nvim": {
@@ -81,11 +81,11 @@
       "src": "git@github.com:catgoose/nvim-colorizer.lua"
     },
     "nvim-lspconfig": {
-      "rev": "a40d22e75d951ad2fcf236ceb013d88f81d2cc9a",
+      "rev": "ead0f5f342d8d323441e7d4b88f0fc436a81ad5f",
       "src": "git@github.com:neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "0f5b204603234a523fafa8f6b860fd36f80a23f6",
+      "rev": "6bc51d020a5e06b7e20ea82dbc47196d3d3027c7",
       "src": "git@github.com:nvim-treesitter/nvim-treesitter"
     },
     "plenary.nvim": {
@@ -97,7 +97,7 @@
       "src": "git@github.com:MeanderingProgrammer/render-markdown.nvim"
     },
     "smart-splits.nvim": {
-      "rev": "23f1e57d5af462c69e988642c020430449a7b1b0",
+      "rev": "f4e4908fe901444d05feff0ad1cca146ec0be73f",
       "src": "git@github.com:mrjones2014/smart-splits.nvim"
     },
     "toggleterm.nvim": {
