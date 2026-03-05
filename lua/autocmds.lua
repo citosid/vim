@@ -80,12 +80,20 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Virtual indentation for notes directory
-local notes_dir = "/Users/acruz/Library/CloudStorage/Dropbox/Personal/notes"
+local notes_dirs = {
+	"/Users/acruz/Library/CloudStorage/Dropbox/Personal/notes",
+	"/Users/acruz/code/personal/notes",
+}
 local debounce_timer = {}
 
 local function is_in_notes_dir()
 	local buf_path = vim.fn.expand("%:p")
-	return buf_path:sub(1, #notes_dir) == notes_dir
+	for _, dir in ipairs(notes_dirs) do
+		if buf_path:sub(1, #dir) == dir then
+			return true
+		end
+	end
+	return false
 end
 
 local function add_virtual_indentation()
