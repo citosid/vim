@@ -57,58 +57,58 @@ map({ "v", "n" }, "<leader>tup", 'c\\quinarypoint{<c-r>"}<esc>', { desc = "Quina
 
 -- Pandoc build commands
 map("n", "<leader>pb", function()
-	local input_file = vim.fn.expand("%")
-	local output_file = input_file:gsub("(.*/)(.*)%.md$", "%1pdf/%2.pdf")
-	local cwd = vim.fn.getcwd()
-	local header_file = cwd .. "/header.tex"
-	local command = "pandoc '"
-		.. input_file
-		.. "' --include-in-header='"
-		.. header_file
-		.. "' --pdf-engine=xelatex -o '"
-		.. output_file
-		.. "'"
+  local input_file = vim.fn.expand("%")
+  local output_file = input_file:gsub("(.*/)(.*)%.md$", "%1pdf/%2.pdf")
+  local cwd = vim.fn.getcwd()
+  local header_file = cwd .. "/header.tex"
+  local command = "pandoc '"
+    .. input_file
+    .. "' --include-in-header='"
+    .. header_file
+    .. "' --pdf-engine=lualatex -o '"
+    .. output_file
+    .. "'"
 
-	vim.notify(command)
-	vim.fn.system(command)
+  vim.notify(command)
+  vim.fn.system(command)
 
-	if vim.v.shell_error == 0 then
-		vim.notify("PDF created successfully: " .. output_file)
-	else
-		vim.notify("Error in creating PDF", vim.log.levels.ERROR)
-	end
+  if vim.v.shell_error == 0 then
+    vim.notify("PDF created successfully: " .. output_file)
+  else
+    vim.notify("Error in creating PDF", vim.log.levels.ERROR)
+  end
 end, { desc = "Build PDF from markdown", noremap = true, silent = true })
 
 map("n", "<leader>pl", function()
-	local input_file = vim.fn.expand("%")
-	local output_file = input_file:gsub("(.*/)(.*)%.md$", "%1pdf/%2.pdf")
-	local cwd = vim.fn.getcwd()
-	local header_file = cwd .. "/header.letter.tex"
-	local command = "pandoc --from=gfm --to=pdf '"
-		.. input_file
-		.. "' --template='"
-		.. header_file
-		.. "' -o '"
-		.. output_file
-		.. "'"
+  local input_file = vim.fn.expand("%")
+  local output_file = input_file:gsub("(.*/)(.*)%.md$", "%1pdf/%2.pdf")
+  local cwd = vim.fn.getcwd()
+  local header_file = cwd .. "/header.letter.tex"
+  local command = "pandoc --from=gfm --to=pdf '"
+    .. input_file
+    .. "' --template='"
+    .. header_file
+    .. "' -o '"
+    .. output_file
+    .. "'"
 
-	vim.notify(command)
-	vim.fn.system(command)
+  vim.notify(command)
+  vim.fn.system(command)
 
-	if vim.v.shell_error == 0 then
-		vim.notify("Letter PDF created successfully: " .. output_file)
-	else
-		vim.notify("Error in creating letter PDF", vim.log.levels.ERROR)
-	end
+  if vim.v.shell_error == 0 then
+    vim.notify("Letter PDF created successfully: " .. output_file)
+  else
+    vim.notify("Error in creating letter PDF", vim.log.levels.ERROR)
+  end
 end, { desc = "Build letter PDF from markdown", noremap = true, silent = true })
 
 -- Typewriter mode toggle
 map("n", "<leader>tw", function()
-	if vim.opt.scrolloff:get() == 999 then
-		vim.opt.scrolloff = 4
-		vim.notify("Typewriter mode OFF", vim.log.levels.INFO)
-	else
-		vim.opt.scrolloff = 999
-		vim.notify("Typewriter mode ON", vim.log.levels.INFO)
-	end
+  if vim.opt.scrolloff:get() == 999 then
+    vim.opt.scrolloff = 4
+    vim.notify("Typewriter mode OFF", vim.log.levels.INFO)
+  else
+    vim.opt.scrolloff = 999
+    vim.notify("Typewriter mode ON", vim.log.levels.INFO)
+  end
 end, { desc = "Toggle typewriter mode", noremap = true, silent = true })
