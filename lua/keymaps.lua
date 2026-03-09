@@ -27,6 +27,9 @@ map("n", "<leader>.", "<cmd>e .gitlab-ci.yml<CR>", { desc = "Opens the Gitlab CI
 -- Turn file into executable
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "Make file executable", silent = true })
 
+-- Open commands
+map("n", "<leader>of", "<cmd>!open -R %<CR>", { desc = "Reveal file in Finder", silent = true })
+
 -- Spelling
 map("n", "<leader>sa", "1z=", { desc = "Accept first spelling suggestion", noremap = true, silent = true })
 map("n", "<leader>sd", "zw", { desc = "Remove word from spelling dictionary", noremap = true, silent = true })
