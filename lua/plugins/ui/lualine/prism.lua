@@ -1,16 +1,16 @@
 -- Prism lualine theme - auto-generated from wallpaper
 
 local colors = {
-	bg = "#0d0f11",
-	bg_light = "#1a1e22",
+	bg = "#0d0e11",
+	bg_light = "#1a1d22",
 	fg = "#e0e8f0",
 	fg_dark = "#a0b0c0",
-	coral = "#9f1724",
-	teal = "#50acf9",
+	coral = "#f77753",
+	teal = "#3d9494",
 	orange = "#e8a54a",
-	magenta = "#852c6b",
-	cyan = "#7cc3ff",
-	blue = "#3b7bc6",
+	magenta = "#c44a8a",
+	cyan = "#43c0c0",
+	blue = "#4a8ac4",
 	gray = "#4a6a8a",
 	none = "NONE",
 }

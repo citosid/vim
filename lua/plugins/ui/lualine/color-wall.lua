@@ -1,17 +1,17 @@
 -- Color-Wall lualine theme - auto-generated from wallpaper
 
 local colors = {
-	bg = "#09131a",
-	bg_light = "#172128",
-	fg = "#d8dfe4",
-	fg_dark = "#999fa4",
-	coral = "#d57abd",
-	teal = "#00a9a3",
-	orange = "#adb742",
-	magenta = "#9b8ff0",
-	cyan = "#00c4e1",
-	blue = "#36a8ec",
-	gray = "#4b6875",
+	bg = "#1F2226",
+	bg_light = "#404346",
+	fg = "#D19497",
+	fg_dark = "#a77678",
+	coral = "#A01D23",
+	teal = "#186894",
+	orange = "#e8a54a",
+	magenta = "#c44a8a",
+	cyan = "#186894",
+	blue = "#4a8ac4",
+	gray = "#7d585a",
 	none = "NONE",
 }
 

@@ -1,12 +1,14 @@
-local opt = vim.opt
-
-vim.g.mapleader = " "
+-- Enable auto format
 vim.g.autoformat = true
+
 vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 
-opt.cursorline = true
-opt.number = true
-opt.termguicolors = true
+local opt = vim.opt
+
+vim.o.cursorline = true
+vim.o.number = true
+vim.o.termguicolors = true
+
 opt.autowrite = true
 opt.clipboard = "unnamedplus"
 opt.completeopt = "menu,menuone,noselect"
@@ -16,7 +18,7 @@ opt.cursorline = true
 opt.expandtab = true
 opt.formatoptions = "jcroqlnt"
 opt.grepformat = "%f:%l:%c:%m"
-opt.grepprg = "rg"
+opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true
 opt.inccommand = "nosplit"
 opt.laststatus = 3
@@ -52,7 +54,42 @@ opt.wildmode = "longest:full,full"
 opt.winminwidth = 5
 opt.wrap = false
 
--- Hide ~ on empty lines
+-- Folding
+opt.foldlevel = 20
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 opt.fillchars = {
-	eob = " ",
+  diff = "╱",
+  eob = " ",
+}
+
+if vim.fn.has("nvim-0.10") == 1 then
+  opt.smoothscroll = true
+end
+
+-- Fix markdown indentation settings
+vim.g.markdown_recommended_style = 0
+
+-- Diagnostic signs
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "⛔",
+      [vim.diagnostic.severity.HINT] = "💡",
+      [vim.diagnostic.severity.INFO] = "💁",
+      [vim.diagnostic.severity.WARN] = "󱍼",
+    },
+  },
+})
+
+-- Markdown highlight colors (for pandoc \hlb, \hlg, etc. tags)
+vim.g.markdown_highlight_colors = {
+  blue = { bg = "#89b4fa", fg = "#1e1e2e" },
+  green = { bg = "#a6e3a1", fg = "#1e1e2e" },
+  orange = { bg = "#fab387", fg = "#1e1e2e" },
+  red = { bg = "#f4a7b6", fg = "#1e1e2e" },
+  yellow = { bg = "#f9e2af", fg = "#1e1e2e" },
+  italic = { fg = "#cdd6f4", italic = true },
+  bold = { fg = "#f5e0dc", bold = true },
 }

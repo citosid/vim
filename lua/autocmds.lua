@@ -1,5 +1,5 @@
 -- lua/autocmds.lua
--- Autocommands for bim configuration
+-- Autocommands for vim configuration
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -25,7 +25,7 @@ local function setup_highlight_colors()
   vim.api.nvim_set_hl(0, "HlyBold", { fg = "#f5e0dc", bold = true })
 end
 
--- Set up highlights after colorscheme loads
+-- Re-apply highlights on colorscheme change
 vim.api.nvim_create_autocmd("ColorScheme", {
   callback = setup_highlight_colors,
 })
@@ -45,7 +45,7 @@ local function apply_markdown_highlights()
   vim.fn.matchadd("HlyBold", "\\\\hlpn{\\(\\_.\\{-}\\)*\\}")
   vim.fn.matchadd("HlyRed", "\\\\marginpar{\\([^{}]*\\|{[^{}]*}\\)*}")
 
-  -- Conceal only the \hlX prefix (not the braces)
+  -- Conceal prefixes individually
   vim.fn.matchadd("Conceal", "\\\\hlb")
   vim.fn.matchadd("Conceal", "\\\\hlg")
   vim.fn.matchadd("Conceal", "\\\\hlo")
@@ -148,11 +148,11 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufWinEnter", "TextChanged", "Text
   callback = add_virtual_indentation,
 })
 
--- Open fzf-lua on startup if no file specified
+-- Open Telescope on startup if no file specified
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     if vim.fn.argc() == 0 then
-      require("fzf-lua").files()
+      require("telescope.builtin").find_files()
     end
   end,
 })

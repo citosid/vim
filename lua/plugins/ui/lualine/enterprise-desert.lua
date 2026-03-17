@@ -1,17 +1,17 @@
 -- Enterprise-Desert lualine theme - auto-generated from wallpaper
 
 local colors = {
-	bg = "#0d0e11",
-	bg_light = "#1a1d22",
-	fg = "#e0e8f0",
-	fg_dark = "#a0b0c0",
-	coral = "#8f4d23",
+	bg = "#2C241D",
+	bg_light = "#4b443e",
+	fg = "#D5C6A2",
+	fg_dark = "#aa9e81",
+	coral = "#522A14",
 	teal = "#3d9494",
-	orange = "#d0a874",
+	orange = "#D1A974",
 	magenta = "#c44a8a",
-	cyan = "#43c0c0",
-	blue = "#79a2d2",
-	gray = "#4a6a8a",
+	cyan = "#5ac4c4",
+	blue = "#4a8ac4",
+	gray = "#7f7661",
 	none = "NONE",
 }
 

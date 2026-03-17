@@ -1,30 +1,30 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.uv.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+vim.g.mapleader = " "
 require("options")
+require("lazy").setup({
+  spec = {
+    import = "plugins",
+  },
+  change_detection = {
+    notify = false,
+  },
+})
 require("keymaps")
 require("autocmds")
-require("plugins")
 
--- Plugin configurations
-require("plugins.icons")
-require("plugins.files")
-require("plugins.buffers")
-require("plugins.fzf")
-require("plugins.copilot")
-require("plugins.gitsigns")
-require("plugins.terminal")
-require("plugins.ui")
-require("plugins.extras")
-require("plugins.mason").setup()
-
--- LSP configuration
-require("lsp").setup()
-
--- Completion configuration
-require("completion").setup()
-
--- Formatters and diagnostics (none-ls)
-require("plugins.none-ls").setup()
-
--- Load colorscheme
+-- Load theme from state file (set by: dotfiles theme switch <theme>)
 require("theme-loader").apply()
 
 vim.diagnostic.config({ virtual_text = true })

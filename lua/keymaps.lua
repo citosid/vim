@@ -21,10 +21,10 @@ map("n", "<leader>l", "<cmd>b#<cr>", { desc = "Switch to last buffer" })
 -- Hide search results
 map("n", "<leader>ns", "<cmd>noh<cr>", { desc = "Hide search results" })
 
--- Edit .gitlab-ci.yml
+-- Edit easily .gitlab-ci.yml files
 map("n", "<leader>.", "<cmd>e .gitlab-ci.yml<CR>", { desc = "Opens the Gitlab CI file" })
 
--- Turn file into executable
+-- Turn the current file into an executable
 map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = "Make file executable", silent = true })
 
 -- Open commands
@@ -36,6 +36,7 @@ map("n", "<leader>sd", "zw", { desc = "Remove word from spelling dictionary", no
 map("n", "<leader>sg", "zg", { desc = "Add word to spelling dictionary", noremap = true, silent = true })
 map("n", "<leader>sn", "]s", { desc = "Go to next spelling error", noremap = true, silent = true })
 map("n", "<leader>s?", "z=", { desc = "Show spelling suggestions", noremap = true, silent = true })
+map("n", "<leader>s/", "zR", { desc = "Replace word with suggestions", noremap = true, silent = true })
 map("n", "<leader>cse", "<cmd>set spelllang=es<CR>", { desc = "Change spell language to Spanish" })
 
 -- Native commenting with <leader>/
