@@ -367,16 +367,30 @@ utils.map(mode, lhs, rhs, opts)
 **Type**: Tool integration  
 **Purpose**: Formatting and linting  
 **Formatters**:
+
 - stylua (Lua)
 - black (Python)
-- biome (JavaScript/TypeScript/JSON)
-- beautysh (Bash)
-- ruff (Python)
+- biome (JavaScript/TypeScript/JSON/CSS)
+- beautysh (Bash, via none-ls-extras)
+- ruff (Python diagnostics, via none-ls-extras)
+- prettier (Markdown)
+- gofmt / goimports (Go)
 
 **Diagnostics**:
+
 - biome (JS/TS/JSON)
-- markdownlint (Markdown)
+- markdownlint-cli2 (Markdown)
+- golangci_lint (Go)
 - pylint via pyright (Python)
+
+**Important notes**:
+
+- Markdown formatting uses `prettier`, not `markdownlint-cli2 --fix`.
+  Using `markdownlint` builtin with `command = "markdownlint-cli2"` is
+  unsupported and causes formatting issues.
+- Biome args should not include `--config-path`; it auto-discovers
+  `biome.json` from the project root.
+- Format-on-save is enabled via `on_attach` filtering to `null-ls` client.
 
 #### 8e. Debug Adapter Protocol (lua/plugins/features/dap.lua)
 
@@ -470,11 +484,19 @@ utils.map(mode, lhs, rhs, opts)
 #### 10a. Markdown Rendering (lua/plugins/features/markdown.lua)
 
 **Type**: Content rendering  
-**Purpose**: Render markdown with styling  
+**Purpose**: Render markdown with rich styling and Obsidian-compatible callouts  
+**Plugins**: render-markdown.nvim, image.nvim  
+**File types**: markdown, copilot-chat  
+**Render modes**: normal, command  
 **Features**:
-- Markdown syntax highlighting
-- Image rendering in markdown
-- Code block highlighting
+
+- Heading icons (󰲡–󰲫) with sign column indicators
+- Code blocks: full style with thin border
+- Bullet icons: ●, ○, ◆, ◇
+- Checkboxes: 󰄱 (unchecked), 󰱒 (checked)
+- Block quotes with ▋ indicator
+- 28 Obsidian-style callouts (note, tip, warning, caution, bug, etc.)
+- Image rendering via image.nvim (markdown, vimwiki)
 
 #### 10b. LaTeX Support (lua/plugins/tools/latex.lua)
 
