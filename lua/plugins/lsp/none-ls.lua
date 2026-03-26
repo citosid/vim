@@ -47,19 +47,12 @@ return {
 				nls.builtins.formatting.gofmt,
 				nls.builtins.formatting.goimports,
 
-				-- markdownlint-cli2
+				-- Markdown
 				nls.builtins.diagnostics.markdownlint_cli2.with({
-					args = {
-						"$FILENAME",
-					},
+					args = { "$FILENAME" },
 				}),
-
-				nls.builtins.formatting.markdownlint.with({
-					command = "markdownlint-cli2",
-					args = {
-						"--fix",
-						"$FILENAME",
-					},
+				nls.builtins.formatting.prettier.with({
+					filetypes = { "markdown" },
 				}),
 
 				-- Biome Typescript
@@ -75,7 +68,6 @@ return {
 					},
 					args = {
 						"check",
-						"--config-path=/Users/acruz/biome.json",
 						"--write",
 						"--unsafe",
 						"--formatter-enabled=true",
