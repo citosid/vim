@@ -111,10 +111,13 @@ map("n", "<leader>po", function()
   local output_file = input_file:gsub("(.*/)(.*)%.md$", "%1pdf/%2.pdf")
   local cwd = vim.fn.getcwd()
   local header_file = cwd .. "/outlines.tex"
+  local filter_file = cwd .. "/footnote-in-latex.lua"
   local command = "pandoc '"
     .. input_file
     .. "' --include-in-header='"
     .. header_file
+    .. "' --lua-filter='"
+    .. filter_file
     .. "' --pdf-engine=lualatex -o '"
     .. output_file
     .. "'"
