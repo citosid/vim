@@ -106,6 +106,29 @@ map("n", "<leader>pl", function()
   end
 end, { desc = "Build letter PDF from markdown", noremap = true, silent = true })
 
+map("n", "<leader>po", function()
+  local input_file = vim.fn.expand("%")
+  local output_file = input_file:gsub("(.*/)(.*)%.md$", "%1pdf/%2.pdf")
+  local cwd = vim.fn.getcwd()
+  local header_file = cwd .. "/outlines.tex"
+  local command = "pandoc '"
+    .. input_file
+    .. "' --include-in-header='"
+    .. header_file
+    .. "' --pdf-engine=lualatex -o '"
+    .. output_file
+    .. "'"
+
+  vim.notify(command)
+  vim.fn.system(command)
+
+  if vim.v.shell_error == 0 then
+    vim.notify("PDF for outeline created successfully: " .. output_file)
+  else
+    vim.notify("Error in creating PDF", vim.log.levels.ERROR)
+  end
+end, { desc = "Build PDF from markdown", noremap = true, silent = true })
+
 -- Typewriter mode toggle
 map("n", "<leader>tw", function()
   require("typewriter").toggle()
