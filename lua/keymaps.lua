@@ -65,11 +65,17 @@ map("n", "<leader>pb", function()
   local output_file = input_file:gsub("(.*/)(.*)%.md$", "%1pdf/%2.pdf")
   local cwd = vim.fn.getcwd()
   local header_file = cwd .. "/header.tex"
+  local filter_file = cwd .. "/filters/emoji.lua"
+  local filter_flag = ""
+  if vim.fn.filereadable(filter_file) == 1 then
+    filter_flag = " --lua-filter='" .. filter_file .. "'"
+  end
   local command = "pandoc '"
     .. input_file
     .. "' --include-in-header='"
     .. header_file
-    .. "' --pdf-engine=lualatex -o '"
+    .. "'" .. filter_flag
+    .. " --pdf-engine=lualatex -o '"
     .. output_file
     .. "'"
 
